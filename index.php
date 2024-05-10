@@ -1,6 +1,5 @@
 <?php
-    require_once "controllers/Landing.php";
-    $controller = new Landing;
+    require_once "controllers/Users.php";
+    $controller = new Users;
     $controller->main();
-    
 ?>
