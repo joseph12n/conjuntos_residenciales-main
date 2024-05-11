@@ -21,9 +21,18 @@
             }
             
 
-             //constructor: el objeto 09 parametros
+             //constructor: el objeto 00 parametros
 
              public function __construct0(){}
+
+                 //constructor: el objeto 02 parametros
+
+                 public function __construct2($user_email,$user_pass){
+
+                    $this->user_email = $user_email;
+                    $this->user_pass = $user_pass;
+
+                 } 
 
         //constructor: el objeto 09 parametros
 
