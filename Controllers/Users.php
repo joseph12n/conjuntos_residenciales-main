@@ -25,6 +25,11 @@ class Users{
         echo "Contraseña Usuario: ", $user->getUserPass(), "<hr>";
         $user->setUserState(True);
         echo "Estado Usuario: ", $user->getUserState(), "<hr>";
+
+
+        //objetos constructor 
+        $userconst = new User("02 ","customer","user_567","marinita","garcia","987654321","marinita@garcia.com",sha1("12345"), true);
+        print_r($userconst);
     }
 }
 ?>

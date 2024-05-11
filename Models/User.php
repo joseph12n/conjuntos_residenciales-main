@@ -12,6 +12,32 @@
         private $user_state;
 
         // 2da Parte: Sobrecarga Constructores
+        public function __construct(){
+                $a = func_get_args();
+                $i = func_num_args();
+                if (method_exists($this, $f = '__construct' . $i)) {
+                    call_user_func_array(array($this, $f), $a);
+                }
+            }
+            
+
+             //constructor: el objeto 09 parametros
+
+             public function __construct0(){}
+
+        //constructor: el objeto 09 parametros
+
+        public function __construct9($rol_code,$rol_name,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
+            $this->rol_code = $rol_code;
+            $this->rol_name = $rol_name;
+            $this->user_code = $user_code;
+            $this->user_name = $user_name;
+            $this->user_lastname = $user_lastname;
+            $this->user_id = $user_id;
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+            $this->user_state = $user_state;
+        }
 
         // 3ra Parte: Setter y Getters
         # Código Rol
