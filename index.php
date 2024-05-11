@@ -1,4 +1,6 @@
 <?php
+    require_once "models/DataBase.php";
+    $prueba = DataBase::connection();
     require_once "controllers/Users.php";
     $controller = new Users;
     $controller->main();
