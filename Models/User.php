@@ -162,5 +162,21 @@
                 die($e->getMessage());
             }
         }
+
+        # CU05 - Actualizar Rol
+        public function updateRol(){
+            try {                
+                $sql = 'UPDATE ROLES SET
+                            rol_code = :rolCode,
+                            rol_name = :rolName
+                        WHERE rol_code = :rolCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>
