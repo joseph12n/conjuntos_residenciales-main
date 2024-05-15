@@ -163,7 +163,7 @@
             }
         }
 
-        # CU05 - Actualizar Rol
+        # RF06_CU06 - Actualizar Rol
         public function updateRol(){
             try {                
                 $sql = 'UPDATE ROLES SET
@@ -177,6 +177,18 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }
+        }
+
+        # RF07_CU07 - Eliminar Rol
+        public function deleteRol($rolCode){
+            try {
+                $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }            
         }
     }
 ?>
