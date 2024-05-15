@@ -127,5 +127,40 @@
                 die($e->getMessage());
             }
         }
+        
+        # RF04_CU04 - Consultar Roles
+        public function readRol(){
+            try {
+                $rolList = [];
+                $sql = 'SELECT * FROM ROLES';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $rol) {                    
+                    $rolObj = new User;
+                    $rolObj->setRolCode($rol['rol_code']);
+                    $rolObj->setRolName($rol['rol_name']);
+                    array_push($rolList, $rolObj);                    
+                }                
+                return $rolList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF05_CU05 - Obtener el Rol por el código
+        public function getRolByCode($rolCode){
+            try {
+                $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->execute();
+                $rolDb = $stmt->fetch();
+                $rol = new User;
+                $rol->setRolCode($rolDb['rol_code']);
+                $rol->setRolName($rolDb['rol_name']);
+                return $rol;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>
