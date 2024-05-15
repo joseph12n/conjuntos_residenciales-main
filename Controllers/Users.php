@@ -44,7 +44,7 @@ class Users{
     // Controlador Crear Rol
     public function rolCreate(){        
         $rol = new User;        
-        $rol->setRolName("admin");
+        $rol->setRolName("seller");
         $rol->createRol();        
     }
 }
