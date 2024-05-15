@@ -1,15 +1,9 @@
 <?php
 require_once "models/User.php";
 class Users{
-    public function main(){
-        // Objeto Rol
-        $rol = new User;
-        $rol->setRolCode("01");
-        echo "Código Rol: ", $rol->getRolCode(), "<hr>";
-        $rol->setRolName("admin");
-        echo "Nombre Rol: ", $rol->getRolName(), "<hr>";
+    public function main(){       
 
-        // Objeto Usuario
+        // Objeto02 Usuario
         $user = new User;
         $user->setUserCode("user_123");
         echo "Código Usuario: ", $user->getUserCode(), "<hr>";
@@ -25,16 +19,33 @@ class Users{
         echo "Contraseña Usuario: ", $user->getUserPass(), "<hr>";
         $user->setUserState(True);
         echo "Estado Usuario: ", $user->getUserState(), "<hr>";
-        echo"<hr>";
+        echo "<hr>";
 
-        //objetos3  constructor 09 parametros 
-        $userconst = new User("02 ","customer","user_567","marinita","garcia","987654321","marinita@garcia.com",sha1("12345"), true);
+        // Objeto03 Constructor 09 Parámetros
+        $userconst = new User(
+            "02",
+            "customer",
+            "user_567",
+            "Marinita",
+            "García",
+            "987654321",
+            "marinita@garcia.com",
+            sha1("12345"),
+            True
+        );
         print_r($userconst);
-        echo"<hr>";
-      //objetos4  constructor 02 parametros 
-      $user_login = new User("rodrigo@lara.com",md5("12345"));
-      print_r($user_login);
-      echo"<hr>";
+        echo "<hr>";
+
+        // Objeto04 Constructor 02 Parámetros
+        $user_login = new User("rodrigo@lara.com",md5("12345"));
+        print_r($user_login);
+        echo "<hr>";
+    }
+    // Controlador Crear Rol
+    public function rolCreate(){        
+        $rol = new User;        
+        $rol->setRolName("admin");
+        $rol->createRol();        
     }
 }
 ?>

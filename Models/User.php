@@ -1,6 +1,7 @@
 <?php
     class User{
         // 1ra Parte: Atributos
+        private $dbh;
         private $rol_code;
         private $rol_name;
         private $user_code;
@@ -13,29 +14,28 @@
 
         // 2da Parte: Sobrecarga Constructores
         public function __construct(){
+            try {
+                $this->dbh = DataBase::connection();
                 $a = func_get_args();
                 $i = func_num_args();
                 if (method_exists($this, $f = '__construct' . $i)) {
                     call_user_func_array(array($this, $f), $a);
                 }
+            } catch (Exception $e) {
+                die($e->getMessage());
             }
-            
+        }
 
-             //constructor: el objeto 00 parametros
+        # Constructor: Objeto 00 parámetros
+        public function __construct0(){}
 
-             public function __construct0(){}
+        # Constructor: Objeto 02 parámetros
+        public function __construct2($user_email,$user_pass){
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+        }
 
-                 //constructor: el objeto 02 parametros
-
-                 public function __construct2($user_email,$user_pass){
-
-                    $this->user_email = $user_email;
-                    $this->user_pass = $user_pass;
-
-                 } 
-
-        //constructor: el objeto 09 parametros
-
+        # Constructor: Objeto 09 parámetros
         public function __construct9($rol_code,$rol_name,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
             $this->rol_code = $rol_code;
             $this->rol_name = $rol_name;
@@ -103,8 +103,7 @@
             $this->user_pass = $user_pass;
         }
         public function getUserPass(){
-            // Método de Encriptación Contraseña: sha1()
-            return sha1($this->user_pass);
+            return $this->user_pass;
         }
         # Estado Usuario
         public function setUserState($user_state){
@@ -115,5 +114,18 @@
         }
 
         // 4ta Parte: Persistencia a la Base de Datos
+
+        # RF03_CU03 - Registrar Rol        
+        public function createRol(){
+            try {
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                $stmt = $this->dbh->prepare($sql);                
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
     }
 ?>
