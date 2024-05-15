@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="author" content="WB DataDic" />
-    <meta name="description" content="notify Data Dictionary." />
-    <title>notify Data Dictionary</title>
+    <meta name="description" content="conjuntos_residenciales Data Dictionary." />
+    <title>conjuntos_residenciales Data Dictionary</title>
     <style type="text/css">
     table{
         width: 100%;
@@ -51,9 +51,9 @@
 </head>
 <body>
 <div id="title-sect">
-<h1>notify<br> Data Dictionay</h1>
+<h1>conjuntos_residenciales<br> Data Dictionay</h1>
 <p>
-<em>2024-04-26</em>
+<em>2024-05-13</em>
 </p>
 <p class="proj-desc">
 <em></em>
@@ -61,16 +61,16 @@
 </div>
 <h2>Alphabetic Index</h2>
 <ul>
-<li><a href='#Habitantes_Conjunto'>Habitantes_Conjunto</a></li>
-<li><a href='#Notificaciones'>Notificaciones</a></li>
-<li><a href='#Reservas'>Reservas</a></li>
-<li><a href='#Roles'>Roles</a></li>
-<li><a href='#chat'>chat</a></li>
-<li><a href='#login'>login</a></li>
-<li><a href='#usuario'>usuario</a></li>
+<li><a href='#Reserva_evento'>Reserva_evento</a></li>
+<li><a href='#Usuario'>Usuario</a></li>
+<li><a href='#Usuario_Casa'>Usuario_Casa</a></li>
+<li><a href='#evento'>evento</a></li>
+<li><a href='#reserva_parqueadero'>reserva_parqueadero</a></li>
+<li><a href='#roles'>roles</a></li>
+<li><a href='#table1'>table1</a></li>
 </ul>
-<table id='Habitantes_Conjunto'>
-<caption>Habitantes_Conjunto</caption>
+<table id='Reserva_evento'>
+<caption>Reserva_evento</caption>
 <tr><td colspan='11'></td></tr>
 <tr>
     <th>Column name</th>
@@ -86,7 +86,75 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>idHabitantes</td>
+    <td>id_reserva</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>identificacion</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>fechaEvento</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>id_evento</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='Usuario'>
+<caption>Usuario</caption>
+<tr><td colspan='11'></td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>identificacion</td>
     <td>INT</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -99,7 +167,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>Nombres</td>
+    <td>cod_rol</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -112,7 +180,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>Apellidos</td>
+    <td>user_nombres</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -125,7 +193,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>edad</td>
+    <td>user_apellidos</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -138,7 +206,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>Numero de documento</td>
+    <td>user_telefono</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -151,7 +219,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>tipo de usuario(arrendatario o propietario)</td>
+    <td>user_correo</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -160,6 +228,48 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>user_fnacimiento</td>
+    <td>DATE</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='Usuario_Casa'>
+<caption>Usuario_Casa</caption>
+<tr><td colspan='11'></td></tr>
+<tr>
+    <th>Column name</th>
+    <th>DataType</th>
+    <th><abbr title='Primary Key'>PK</abbr></th>
+    <th><abbr title='Not Null'>NN</abbr></th>
+    <th><abbr title='Unique'>UQ</abbr></th>
+    <th><abbr title='Binary'>BIN</abbr></th>
+    <th><abbr title='Unsigned'>UN</abbr></th>
+    <th><abbr title='Zero Fill'>ZF</abbr></th>
+    <th><abbr title='Auto Increment'>AI</abbr></th>
+    <th>Default</th>
+    <th>Comment</th>
+</tr>
+<tr>
+    <td>id_casa</td>
+    <td>INT</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td></td>
     <td></td>
 </tr>
@@ -176,8 +286,21 @@
     <td></td>
     <td></td>
 </tr>
-<table id='Notificaciones'>
-<caption>Notificaciones</caption>
+<tr>
+    <td>identificaion</td>
+    <td>VARCHAR(45)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='evento'>
+<caption>evento</caption>
 <tr><td colspan='11'></td></tr>
 <tr>
     <th>Column name</th>
@@ -193,7 +316,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>idNotificaciones</td>
+    <td>id_evento</td>
     <td>INT</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -201,12 +324,12 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
+    <td>&#10004;</td>
     <td></td>
     <td></td>
 </tr>
 <tr>
-    <td>estatus paquete</td>
+    <td>evento</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -218,34 +341,8 @@
     <td></td>
     <td></td>
 </tr>
-<tr>
-    <td>Noticias y novedades</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>Recibos</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<table id='Reservas'>
-<caption>Reservas</caption>
+<table id='reserva_parqueadero'>
+<caption>reserva_parqueadero</caption>
 <tr><td colspan='11'></td></tr>
 <tr>
     <th>Column name</th>
@@ -261,7 +358,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>idReservas</td>
+    <td>id_Parqueadero</td>
     <td>INT</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -269,38 +366,12 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>Salon comunal</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
     <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
     <td></td>
     <td></td>
 </tr>
 <tr>
-    <td>bbq</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>Parqueadero</td>
+    <td>Num_Parqueadero</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -325,8 +396,21 @@
     <td></td>
     <td></td>
 </tr>
-<table id='Roles'>
-<caption>Roles</caption>
+<tr>
+    <td>Fecha_Reservado</td>
+    <td>DATE</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<table id='roles'>
+<caption>roles</caption>
 <tr><td colspan='11'></td></tr>
 <tr>
     <th>Column name</th>
@@ -342,7 +426,7 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>IDrol</td>
+    <td>cod_rol</td>
     <td>INT</td>
     <td>&#10004;</td>
     <td>&#10004;</td>
@@ -355,7 +439,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>identificacion</td>
+    <td>Rolname</td>
     <td>VARCHAR(45)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -367,21 +451,8 @@
     <td></td>
     <td></td>
 </tr>
-<tr>
-    <td>rol</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<table id='chat'>
-<caption>chat</caption>
+<table id='table1'>
+<caption>table1</caption>
 <tr><td colspan='11'></td></tr>
 <tr>
     <th>Column name</th>
@@ -395,194 +466,6 @@
     <th><abbr title='Auto Increment'>AI</abbr></th>
     <th>Default</th>
     <th>Comment</th>
-</tr>
-<tr>
-    <td>idchat</td>
-    <td>INT</td>
-    <td>&#10004;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>smsAdministadora</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>smsGuardas</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>smsHabitantes</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<table id='login'>
-<caption>login</caption>
-<tr><td colspan='11'></td></tr>
-<tr>
-    <th>Column name</th>
-    <th>DataType</th>
-    <th><abbr title='Primary Key'>PK</abbr></th>
-    <th><abbr title='Not Null'>NN</abbr></th>
-    <th><abbr title='Unique'>UQ</abbr></th>
-    <th><abbr title='Binary'>BIN</abbr></th>
-    <th><abbr title='Unsigned'>UN</abbr></th>
-    <th><abbr title='Zero Fill'>ZF</abbr></th>
-    <th><abbr title='Auto Increment'>AI</abbr></th>
-    <th>Default</th>
-    <th>Comment</th>
-</tr>
-<tr>
-    <td>idlogin</td>
-    <td>INT</td>
-    <td>&#10004;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>usuario</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>contraseña</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>codigo sms</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<table id='usuario'>
-<caption>usuario</caption>
-<tr><td colspan='11'></td></tr>
-<tr>
-    <th>Column name</th>
-    <th>DataType</th>
-    <th><abbr title='Primary Key'>PK</abbr></th>
-    <th><abbr title='Not Null'>NN</abbr></th>
-    <th><abbr title='Unique'>UQ</abbr></th>
-    <th><abbr title='Binary'>BIN</abbr></th>
-    <th><abbr title='Unsigned'>UN</abbr></th>
-    <th><abbr title='Zero Fill'>ZF</abbr></th>
-    <th><abbr title='Auto Increment'>AI</abbr></th>
-    <th>Default</th>
-    <th>Comment</th>
-</tr>
-<tr>
-    <td>identificacion</td>
-    <td>VARCHAR(45)</td>
-    <td>&#10004;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>correo</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>contraseña</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>num_telefono</td>
-    <td>VARCHAR(45)</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
 </tr>
 </table>
 </body>
