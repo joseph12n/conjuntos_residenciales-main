@@ -1,6 +1,7 @@
 <?php
 require_once "models/User.php";
 class Users{
+    // Controlador Principal
     public function main(){       
 
         // Objeto02 Usuario
@@ -41,11 +42,19 @@ class Users{
         print_r($user_login);
         echo "<hr>";
     }
+
     // Controlador Crear Rol
     public function rolCreate(){        
         $rol = new User;        
         $rol->setRolName("seller");
-        $rol->createRol();        
+        $rol->createRol();
+    }
+
+    // Controlador Consultar Roles
+    public function rolRead(){
+        $roles = new User;
+        $roles = $roles->readRol();
+        print_r($roles);
     }
 }
 ?>
