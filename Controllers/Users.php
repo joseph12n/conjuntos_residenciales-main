@@ -80,6 +80,7 @@
         }
 
       // Controlador Crear usuario
+
          public function userCreate(){        
         $user = new User( 
                 1,       

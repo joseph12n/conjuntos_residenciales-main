@@ -11,6 +11,13 @@
         private $user_email;
         private $user_pass;
         private $user_state;
+        private $customer_code;
+        private $customer_datebirth;
+        private $customer_addres;
+        private $order_code;
+        private $order_date;
+        private $product_code;
+        private $quantity_products;
 
         // 2da Parte: Sobrecarga Constructores
         public function __construct(){
@@ -128,7 +135,7 @@
 
         # RF03_CU03 - Registrar Rol        
         public function createRol(){
-            try {
+           try {
                 $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
                 $stmt = $this->dbh->prepare($sql);                
                 $stmt->bindValue('rolCode', $this->getRolCode());
@@ -138,32 +145,6 @@
                 die($e->getMessage());
             }
         }
-         # RF08_CU08 - Registrar usuario        
-                public function create_User(){
-                    try {
-                        $sql = 'INSERT INTO USERS VALUES (
-                            :rolCode,
-                            :userCode,
-                            :userName,
-                            :userLastname,
-                            :userId,
-                            :userEmail,
-                            :userPass,
-                            :userState)';
-                        $stmt = $this->dbh->prepare($sql);    
-                        $stmt->bindValue('rolCode', $this->getRolCode());
-                        $stmt->bindValue('userCode', $this->getUserCode());
-                        $stmt->bindValue('userName', $this->getUserName());
-                        $stmt->bindValue('userLastname', $this->getUserLastName());
-                        $stmt->bindValue('userId', $this->getUserId());
-                        $stmt->bindValue('userEmail', $this->getUserEmail());
-                        $stmt->bindValue('userPass', sha1($this->getUserPass()));
-                        $stmt->bindValue('userState', $this->getUserState());
-                        $stmt->execute();
-                    } catch (Exception $e) {
-                        die($e->getMessage());
-                    }
-                }
         # RF04_CU04 - Consultar Roles
         public function readRol(){
             try {
@@ -225,6 +206,49 @@
             } catch (Exception $e) {
                 die($e->getMessage());
             }            
+        }
+
+        # RF08_CU08 - Registrar usuario        
+         public function create_User(){
+         try {
+             $sql = 'INSERT INTO USERS VALUES (
+                    :rolCode,
+                    :userCode,
+                    :userName,
+                    :userLastname,
+                    :userId,
+                    :userEmail,
+                    :userPass,
+                    :userState)';
+                $stmt = $this->dbh->prepare($sql);    
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastname', $this->getUserLastName());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->execute();
+                      } catch (Exception $e) {
+                          die($e->getMessage());
+                       }
+                 }
+
+        # RF06_CU08 - Actualizar Usuario
+            public function updateUser(){
+                try {                
+                $sql = 'UPDATE ROLES SET
+                rol_code = :rolCode,
+                rol_name = :rolName
+                    WHERE rol_code = :rolCode';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('rolCode', $this->getRolCode());
+            $stmt->bindValue('rolName', $this->getRolName());
+            $stmt->execute();
+                } catch (Exception $e) {
+                        die($e->getMessage());
+            }
         }
     }
 ?>
