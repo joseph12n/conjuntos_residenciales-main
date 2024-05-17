@@ -48,6 +48,17 @@
             $this->user_state = $user_state;
         }
 
+        # Constructor: Objeto 08 parámetros
+        public function __construct8($rol_code,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
+            $this->rol_code = $rol_code;
+            $this->user_code = $user_code;
+            $this->user_name = $user_name;
+            $this->user_lastname = $user_lastname;
+            $this->user_id = $user_id;
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+            $this->user_state = $user_state;
+        }
         // 3ra Parte: Setter y Getters
         # Código Rol
         public function setRolCode($rol_code){
@@ -127,7 +138,32 @@
                 die($e->getMessage());
             }
         }
-        
+         # RF08_CU08 - Registrar usuario        
+                public function create_User(){
+                    try {
+                        $sql = 'INSERT INTO USERS VALUES (
+                            :rolCode,
+                            :userCode,
+                            :userName,
+                            :userLastname,
+                            :userId,
+                            :userEmail,
+                            :userPass,
+                            :userState)';
+                        $stmt = $this->dbh->prepare($sql);    
+                        $stmt->bindValue('rolCode', $this->getRolCode());
+                        $stmt->bindValue('userCode', $this->getUserCode());
+                        $stmt->bindValue('userName', $this->getUserName());
+                        $stmt->bindValue('userLastname', $this->getUserLastName());
+                        $stmt->bindValue('userId', $this->getUserId());
+                        $stmt->bindValue('userEmail', $this->getUserEmail());
+                        $stmt->bindValue('userPass', sha1($this->getUserPass()));
+                        $stmt->bindValue('userState', $this->getUserState());
+                        $stmt->execute();
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }
         # RF04_CU04 - Consultar Roles
         public function readRol(){
             try {
