@@ -80,20 +80,15 @@
         }
 
       // Controlador Crear usuario
-<<<<<<< HEAD
         public function userCreate(){        
-=======
-
-         public function userCreate(){        
->>>>>>> 0551ff09999916575763faa18fec3a08bca14527
         $user = new User( 
                 3,       
                  null,
-                "carlos",
+                "vicente",
                 "fernandez",
                 "123",
-                "carlos@fernandez.com",
-                "12345",
+                "vicente@fernandez.com",
+                "6789",
                 1
                 );
                 $user->create_user();

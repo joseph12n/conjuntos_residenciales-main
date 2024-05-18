@@ -1,10 +1,6 @@
 <?php
     require_once "models/DataBase.php";    
-    require_once "controllers/Users.php";
-    $controller = new Users;
-<<<<<<< HEAD
-    $controller ->userDelete();
-=======
+    require_once "controllers/Login.php";
+    $controller = new Login;
     $controller ->main();
->>>>>>> 0551ff09999916575763faa18fec3a08bca14527
 ?>
