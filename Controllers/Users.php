@@ -80,18 +80,38 @@
         }
 
       // Controlador Crear usuario
-         public function userCreate(){        
+        public function userCreate(){        
         $user = new User( 
-                1,       
+                3,       
                  null,
-                "pepe",
-                "rios",
+                "carlos",
+                "fernandez",
                 "123",
-                "pepe@rios.com",
+                "carlos@fernandez.com",
                 "12345",
                 1
                 );
                 $user->create_user();
             }
+        // Controlador Consultar usuarios
+        public function userRead(){
+            $users = new User;
+            $users = $users->read_users();
+            print_r($users);
+        }
+        // Controlador Actualizar Usuario
+        public function userUpdate(){
+            $userCode = 3;
+            // Objeto_01. Crear el objeto a partir del registro db, según petición
+            $user = new User;
+            $user = $user->getuser_bycode($userCode);
+            print_r($user);
+
+            // Objeto_02. Actualizar el usuario en la db, a partir del Objeto_01
+            // $rolUpdate = new User;
+            // $rolUpdate->setRolCode($rolCode);
+            // $rolUpdate->setRolName("admin");
+            // $rolUpdate->update_rol();
+        }
     }
 ?>
