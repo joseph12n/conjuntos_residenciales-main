@@ -80,7 +80,12 @@
         }
 
       // Controlador Crear usuario
+<<<<<<< HEAD
         public function userCreate(){        
+=======
+
+         public function userCreate(){        
+>>>>>>> 0551ff09999916575763faa18fec3a08bca14527
         $user = new User( 
                 3,       
                  null,
