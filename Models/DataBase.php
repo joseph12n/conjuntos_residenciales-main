@@ -1,8 +1,7 @@
 <?php
+    class DataBase{
         #  Conexión Local
-        
-class DataBase{
-        public static function connection(){            
+        public static function connection(){
             $hostname = "localhost";
             $port = "3306";
             $database = "db_tps_nc_iv_2771440";
@@ -12,5 +11,5 @@ class DataBase{
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $pdo;
 		}
-}
+	}
 ?>

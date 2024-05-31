@@ -49,6 +49,7 @@
 
         # Constructor: Objeto 09 parámetros
         public function __construct9($rol_code,$rol_name,$user_code,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
+            unset($this->dbh);
             $this->rol_code = $rol_code;
             $this->rol_name = $rol_name;
             $this->user_code = $user_code;
@@ -130,7 +131,19 @@
         # RF01_CU01 - Iniciar Sesión
         public function login(){
             try {
-                $sql = 'SELECT * FROM USERS
+                $sql = 'SELECT
+                            r.rol_code,
+                            r.rol_name,
+                            user_code,
+                            user_name,
+                            user_lastname,
+                            user_id,
+                            user_email,
+                            user_pass,
+                            user_state
+                        FROM ROLES AS r
+                        INNER JOIN USERS AS u
+                        on r.rol_code = u.rol_code
                         WHERE user_email = :userEmail AND user_pass = :userPass';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('userEmail', $this->getUserEmail());
@@ -140,6 +153,7 @@
                 if ($userDb) {
                     $user = new User(
                         $userDb['rol_code'],
+                        $userDb['rol_name'],
                         $userDb['user_code'],
                         $userDb['user_name'],
                         $userDb['user_lastname'],
@@ -265,18 +279,32 @@
         public function read_users(){
             try {
                 $userList = [];
-                $sql = 'SELECT * FROM USERS';
+                $sql = 'SELECT
+                            r.rol_code,
+                            r.rol_name,
+                            user_code,
+                            user_name,
+                            user_lastname,
+                            user_id,
+                            user_email,
+                            user_pass,
+                            user_state
+                        FROM ROLES AS r
+                        INNER JOIN USERS AS u
+                        on r.rol_code = u.rol_code';
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
-                    $userObj = new User;
-                    $userObj->setRolCode($user['rol_code']);
-                    $userObj->setUserCode($user['user_code']);
-                    $userObj->setUserName($user['user_name']);
-                    $userObj->setUserLastName($user['user_lastname']);
-                    $userObj->setUserId($user['user_id']);
-                    $userObj->setUserEmail($user['user_email']);
-                    $userObj->setUserPass($user['user_pass']);
-                    $userObj->setUserState($user['user_state']);
+                    $userObj = new User(
+                        $user['rol_code'],
+                        $user['rol_name'],
+                        $user['user_code'],
+                        $user['user_name'],
+                        $user['user_lastname'],
+                        $user['user_id'],
+                        $user['user_email'],
+                        $user['user_pass'],
+                        $user['user_state']
+                    );
                     array_push($userList, $userObj);
                 }
                 return $userList;
@@ -288,20 +316,35 @@
         # RF10_CU10 - Obtener el Usuario por el código
         public function getuser_bycode($userCode){
             try {
-                $sql = "SELECT * FROM USERS WHERE user_code=:userCode";
+                $sql = 'SELECT
+                            r.rol_code,
+                            r.rol_name,
+                            user_code,
+                            user_name,
+                            user_lastname,
+                            user_id,
+                            user_email,
+                            user_pass,
+                            user_state
+                        FROM ROLES AS r
+                        INNER JOIN USERS AS u
+                        on r.rol_code = u.rol_code
+                        WHERE user_code=:userCode';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('userCode', $userCode);
                 $stmt->execute();
                 $userDb = $stmt->fetch();
-                $user = new User;
-                $user->setRolCode($userDb['rol_code']);
-                $user->setUserCode($userDb['user_code']);
-                $user->setUserName($userDb['user_name']);
-                $user->setUserLastName($userDb['user_lastname']);
-                $user->setUserId($userDb['user_id']);
-                $user->setUserEmail($userDb['user_email']);
-                $user->setUserPass($userDb['user_pass']);
-                $user->setUserState($userDb['user_state']);
+                $user = new User(
+                    $userDb['rol_code'],
+                    $userDb['rol_name'],
+                    $userDb['user_code'],
+                    $userDb['user_name'],
+                    $userDb['user_lastname'],
+                    $userDb['user_id'],
+                    $userDb['user_email'],
+                    $userDb['user_pass'],
+                    $userDb['user_state']
+                );
                 return $user;
             } catch (Exception $e) {
                 die($e->getMessage());
