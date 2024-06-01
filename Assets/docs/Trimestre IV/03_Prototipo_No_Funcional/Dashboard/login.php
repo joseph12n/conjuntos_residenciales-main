@@ -25,7 +25,7 @@
       } else {
         alert("¡Hola! Has iniciado sesión con éxito.");
         console.log("Redireccionando a la página principal...");
-        window.location.href = "NOTIFY.html";
+        window.location.href = "NOTIFY.php";
         return false;
       }
     }
@@ -49,7 +49,7 @@
         </div>
       </form>
       <p class="text-center mb-0">
-        <a href="login_recuperar_contraseña.html" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+        <a href="login_recuperar_contraseña.php" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
       </p>
     </div>
   </div>
