@@ -1,11 +1,14 @@
         /* Estilos para la barra lateral, contenido principal y botón */
         body {
-          background-color: #f8f8f8;
-          font-family: 'Open Sans', sans-serif;
-      }
+            background-image: linear-gradient(to bottom, #c7f0d8, #ffffff); 
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+          }
 
+          
       .sidebar {
-          background-color: #fff;
+       
+        background-color: #b0e6c2; /* Color extraído del degradado */
           border-right: 1px solid #eee;
           height: 100%;
           width: 250px;
@@ -28,7 +31,7 @@
       }
 
       .sidebar a:hover {
-          background-color: #f2f2f2;
+          background-color: #57ca14;
       }
 
       .sidebar-section {
@@ -67,7 +70,7 @@
           top: 10px;
           right: 10px;
           z-index: 2;
-          background-color: #007bff;
+          background-color: #0fad3f;
           color: white;
           border: none;
           padding: 10px 15px;
@@ -81,12 +84,16 @@
       
       /* Estilos para las tarjetas */
       .card-container {
+
           display: flex;
           justify-content: space-around;
           flex-wrap: wrap;
       }
 
       .card {
+
+            background-image: linear-gradient(to bottom, #85f1ab, #e9f9f2); /* Degradado sutil de la sidebar */
+            /* ... otros estilos de la tarjeta */
           background-color: #fff;
           border: none;
           border-radius: 8px;
@@ -105,7 +112,7 @@
       .card-title {
           font-size: 22px;
           font-weight: 600;
-          color: #333;
+          color: #333333;
           margin-bottom: 10px;
       }
 
@@ -116,8 +123,8 @@
       }
 
       .btn-primary {
-          background-color: #007bff;
-          border: none;
+        background-color: #4CAF50; /* Verde oscuro, similar al de los iconos */
+        border: none;
           padding: 10px 20px;
           font-size: 16px;
           border-radius: 5px;
@@ -125,7 +132,7 @@
       }
 
       .btn-primary:hover {
-          background-color: #0069d9;
+        background-color: #45a049;
       }
       .container { /* Contenedor principal de la vista */
         background-color: #fff;
@@ -149,7 +156,7 @@
     }
 
     .btn-primary {
-        background-color: #007bff;
+        background-color: #0e920e;
         border: none;
         padding: 10px 20px;
         font-size: 16px;
@@ -158,7 +165,7 @@
     }
 
     .btn-primary:hover {
-        background-color: #0069d9;
+        background-color: #16d420;
     }
 
     /* Animación de entrada para el contenedor */
@@ -192,3 +199,56 @@
     margin-left: 260px; /* Espacio para la barra lateral */
     padding: 20px;
 }
+/*test
+
+/* Estilos generales del formulario */
+form {
+    background-image: linear-gradient(to bottom, #c7f0d8, #ffffff); /* Degradado del body */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  }
+  
+  h2 {
+    color: #000000; /* Verde del tema */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos de los labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  /* Estilos de los campos de entrada y selects */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Transición suave al enfocar */
+  }
+  
+  .form-control:focus {
+    border-color: #c7f0d8; /* Verde claro al enfocar */
+    outline: none; /* Quitar el contorno azul predeterminado */
+  }
+  
+  /* Estilos del botón de enviar */
+  button[type="submit"] {
+    background-color: #4CAF50; /* Verde del tema */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049; /* Tono más oscuro al pasar el mouse */
+  }
+  
