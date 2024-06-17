@@ -1,0 +1,423 @@
+        /* Estilos para la barra lateral, contenido principal y botón */
+        body {
+            background-image: linear-gradient(to bottom, #c7f0d8, #ffffff); 
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+          }
+
+          
+      .sidebar {
+       
+        background-color: #b0e6c2; /* Color extraído del degradado */
+          border-right: 1px solid #eee;
+          height: 100%;
+          width: 250px;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          overflow-x: hidden;
+          padding-top: 20px;
+          transition: 0.5s;
+      }
+
+      .sidebar a {
+          color: #555;
+          transition: background-color 0.3s ease;
+          padding: 10px 8px 10px 16px;
+          text-decoration: none;
+          font-size: 18px;
+          display: block;
+      }
+
+      .sidebar a:hover {
+          background-color: #57ca14;
+      }
+
+      .sidebar-section {
+          margin-bottom: 10px;
+      }
+
+      .sidebar-section-title {
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding: 15px;
+          border-bottom: 1px solid #eee;
+          cursor: pointer;
+      }
+
+      .sidebar-section-content {
+          display: none;
+      }
+
+      .main {
+          margin-left: 250px;
+          padding: 30px;
+          transition: 0.5s;
+      }
+
+      .sidebar.hidden {
+          left: -250px;
+      }
+
+      .main.expanded {
+          margin-left: 0;
+      }
+
+      #toggleSidebarBtn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 2;
+          background-color: #0fad3f;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+          transition: 0.5s;
+      }
+
+      #toggleSidebarBtn.hidden {
+          right: 260px;
+      }
+      
+      /* Estilos para las tarjetas */
+      .card-container {
+
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+      }
+
+      .card {
+
+            background-image: linear-gradient(to bottom, #85f1ab, #e9f9f2); /* Degradado sutil de la sidebar */
+            /* ... otros estilos de la tarjeta */
+          background-color: #fff;
+          border: none;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          width: 250px;
+          margin: 20px;
+          text-align: center;
+      }
+
+      .card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-title {
+          font-size: 22px;
+          font-weight: 600;
+          color: #333333;
+          margin-bottom: 10px;
+      }
+
+      .card-icon {
+          font-size: 40px;
+          color: #6c757d; /* Gris Bootstrap */
+          margin-bottom: 15px;
+      }
+
+      .btn-primary {
+        background-color: #4CAF50; /* Verde oscuro, similar al de los iconos */
+        border: none;
+          padding: 10px 20px;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #45a049;
+      }
+      .container { /* Contenedor principal de la vista */
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-top: 20px; /* Espacio superior */
+    }
+
+    h2 { /* Título de la vista */
+        font-size: 28px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos para formularios y botones */
+    .form-control {
+        border-radius: 5px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #0e920e;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #16d420;
+    }
+
+    /* Animación de entrada para el contenedor */
+    .container {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    #calendar {
+        margin-top: 20px;
+    }
+    /* estilos.css */
+#sidebar-container {
+    width: 250px; /* Ancho de la barra lateral */
+    height: 100%;
+    position: fixed; /* Para que se quede fija al hacer scroll */
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0; /* Color de fondo */
+    overflow-y: auto; /* Para que aparezca la barra de desplazamiento si el contenido es muy largo */
+}
+
+#main-content {
+    margin-left: 260px; /* Espacio para la barra lateral */
+    padding: 20px;
+}
+/*test
+
+/* Estilos generales del formulario */
+form {
+    background-image: linear-gradient(to bottom, #c7f0d8, #ffffff); /* Degradado del body */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  }
+  
+  h2 {
+    color: #000000; /* Verde del tema */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos de los labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  /* Estilos de los campos de entrada y selects */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Transición suave al enfocar */
+  }
+  
+  .form-control:focus {
+    border-color: #c7f0d8; /* Verde claro al enfocar */
+    outline: none; /* Quitar el contorno azul predeterminado */
+  }
+  
+  /* Estilos del botón de enviar */
+  button[type="submit"] {
+    background-color: #4CAF50; /* Verde del tema */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049; /* Tono más oscuro al pasar el mouse */
+  }
+  /* General Container Styling */
+.container-fluid {
+    background-color: #f8f9fa; /* Light background for the container */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Table Styling */
+.table {
+    background-color: #fff; /* White background for the table */
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px; /* More padding for better readability */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #dee2e6; /* Light border between rows */
+}
+
+.table th {
+    background-color: #007bff; /* Bootstrap blue for header */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Table Header Styling */
+.roboto-medium {
+    font-family: 'Roboto', sans-serif; /* Ensure Roboto font is loaded */
+    font-weight: 500;
+}
+
+/* Button Styling */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Icon Styling */
+.fas, .far {
+    margin-right: 5px;
+}
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+/* General Container Styling */
+.container-fluid {
+    background-color: #f8f9fa; /* Light background for the container */
+    padding: 20px;
+    border-radius: 8px;       /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px;   /* Add space below the container */
+}
+
+/* Unordered List Styling */
+.full-box.list-unstyled.page-nav-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange items horizontally */
+    justify-content: space-around; /* Distribute evenly */
+}
+
+/* List Item Styling */
+.full-box.list-unstyled.page-nav-tabs li {
+    margin: 0 10px;  /* Add some space between items */
+}
+
+/* Link Styling */
+.full-box.list-unstyled.page-nav-tabs a {
+    display: block;
+    padding: 12px 15px;
+    background-color: #fff; /* White background for links */
+    color: #333; /* Dark text color */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    border: 1px solid #ddd; /* Light border */
+}
+
+.full-box.list-unstyled.page-nav-tabs a:hover {
+    background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+.full-box.list-unstyled.page-nav-tabs a.active {
+    background-color: #007bff; /* Bootstrap blue for active link */
+    color: #fff; 
+    border-color: #007bff;
+}
+
+/* Icon Styling */
+.full-box.list-unstyled.page-nav-tabs i {
+    margin-right: 5px;
+}
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    display: flex; /* Use flexbox for better alignment */
+    justify-content: center; /* Center the pagination */
+    list-style: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px; /* Add spacing between page items */
+}
+
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #007bff; /* Bootstrap blue for link text */
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.page-link:hover {
+    background-color: #e9ecef; /* Light gray on hover */
+    text-decoration: none; 
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d; /* Grayed-out color for disabled links */
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Optional: Larger hit area for mobile devices */
+@media (hover: none) { /* If hover is not available (e.g., on touch devices) */
+    .page-link {
+        padding: 12px 16px; /* Increase padding for easier tapping */
+    }
+}
