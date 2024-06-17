@@ -35,10 +35,9 @@
         </div>
     </div>
     <div class="sidebar-section">
-        <div class="sidebar-section-title">Parqueadero</div>
+        <div class="sidebar-section-title">Casas</div>
         <div class="sidebar-section-content">
-            <a href="parqueadero.view.php">Reservar Parqueadero</a>
-            <a href="consultar_fechas_parqueadero.php">Consultar Fechas de Reserva Parqueadero</a>
+            <a href="?c=Users&a=houseCreate">Registrar Casa</a>
         </div>
     </div>
 </div>

@@ -51,8 +51,13 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="cod_house" class="bmd-label-floating">Casa</label>
-										<input type="text" class="form-control" name="cod_house" id="cod_house" maxlength="200">
+										<label for="cod_house" class="bmd-label-floating">casa</label>
+										<select class="form-control" name="cod_house">
+											<option value="" selected="" disabled="">Seleccione una opción</option>
+											<?php foreach ($houses as $house) : ?>
+												<option value="<?php echo $house->getCodHouse() ?>"><?php echo $house->getNameHouse() ?></option>
+											<?php endforeach; ?>
+										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">

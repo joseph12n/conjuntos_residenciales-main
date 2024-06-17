@@ -6,6 +6,8 @@
         private $rol_name;
         private $cod_user;
         private $cod_house;
+        private $house_name;
+        private $type_habitant;
         private $user_name;
         private $user_lastname;
         private $user_birthday;
@@ -77,6 +79,26 @@
             $this->user_phone = $user_phone;;
             $this->user_state = $user_state;
         }
+        # Constructor: Objeto 11 parámetros
+        public function __construct11($cod_rol,$cod_house,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+            $this->cod_rol = $cod_rol;
+            $this->cod_user = $cod_user;
+            $this->cod_house = $cod_house;
+            $this->user_name = $user_name;
+            $this->user_lastname = $user_lastname;
+            $this->user_birthday = $user_birthday;
+            $this->user_id = $user_id;
+            $this->user_email = $user_email;
+            $this->user_pass = $user_pass;
+            $this->user_phone = $user_phone;;
+            $this->user_state = $user_state;
+        }
+        # Constructor: Objeto 3 parámetros
+        public function __constructe($cod_house,$house_name,$type_habitant){
+            $this->cod_house = $cod_house;
+            $this->house_name = $house_name;
+            $this->type_habitant = $type_habitant;
+        }
 
         // 3ra Parte: Setter y Getters
         # Código Rol
@@ -100,12 +122,26 @@
         public function getUserCode(){
             return $this->cod_user;
         }
-        # Nombre casa
+        # codigo casa
         public function setCodHouse($cod_house){
             $this->cod_house = $cod_house;
         }
         public function getCodHouse(){
             return $this->cod_house;
+        }
+        # nombre casa
+        public function setNameHouse($house_name){
+            $this->house_name = $house_name;
+        }
+        public function getNameHouse(){
+            return $this->house_name;
+        }
+        # tipo habitante
+        public function setTypeHabitant($type_habitant){
+            $this->type_habitant = $type_habitant;
+        }
+        public function getTypeHabitant(){
+            return $this->type_habitant;
         }
         # Nombre Usuario
         public function setUserName($user_name){
@@ -290,7 +326,64 @@
                 die($e->getMessage());
             }
         }
+        # RF03_CU20 - Registrar casa
+        public function create_house(){
+            try {
+                $sql = 'INSERT INTO HOUSE VALUES (:codHouse,:houseName,:typeHabitant)';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('codHouse', $this->getCodHouse());
+                $stmt->bindValue('houseName', $this->getNameHouse());
+                $stmt->bindValue('typeHabitant', $this->getTypeHabitant());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
 
+  # RF04_CU04 - Consultar Casa
+  public function read_house(){
+    try {
+        $houseList = [];
+        $sql = 'SELECT * FROM HOUSE';
+        $stmt = $this->dbh->query($sql);
+        foreach ($stmt->fetchAll() as $house) {
+            $houseObj = new User;
+            $houseObj->setCodHouse($house['cod_house']);
+            $houseObj->setNameHouse($house['house_name']);
+            array_push($houseList, $houseObj);
+        }
+        return $houseList;
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+# RF06_CU06 - Actualizar casa
+public function update_house(){
+    try {
+        $sql = 'UPDATE HOUSE SET
+                    cod_house = :houseCode,
+                    house_name = :houseName
+                WHERE cod_house = :houseCode';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue('houseCode', $this->gethouseCode());
+        $stmt->bindValue('houseName', $this->gethouseName());
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+
+# RF07_CU07 - Eliminar casa
+public function delete_house($houseCode){
+    try {
+        $sql = 'DELETE FROM HOUSE WHERE cod_house = :houseCode';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue('houseCode', $houseCode);
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
         # RF08_CU08 - Registrar Usuario
         public function create_user(){
             try {
