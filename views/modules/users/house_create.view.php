@@ -33,15 +33,6 @@
             	</div>
 							</div>
 						</div>
-						<legend><i class="fas fa-user"></i> &nbsp; tipo habitante</legend>
-						<div class="container-fluid">
-							<div class="row">
-							<div class="form-group">
-                <label for="tipoHabitante">Tipo de habitante:</label>
-                <input type="text" class="form-control" name="type_habitant" id="type_habitant" maxlength="40">
-            	</div>
-							</div>
-						</div>
 					</fieldset>
 					<br><br><br>
 					<p class="text-center" style="margin-top: 40px;">

@@ -60,7 +60,6 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $house = new User;
         $house->setNameHouse($_POST['house_name']);
-        $house->setTypeHabitant($_POST['type_habitant']);
         $house->create_house();
         header("Location: ?c=Users&a=houseRead");
     }
@@ -80,8 +79,8 @@
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $houseUpdate = new User;
-        $houseUpdate->sethouseCode($_POST['cod_house']);
-        $houseUpdate->sethouseName($_POST['house_name']);
+        $houseUpdate->setCodHouse($_POST['cod_house']);
+        $houseUpdate->setNameHouse($_POST['house_name']);
         $houseUpdate->update_house();
         header("Location: ?c=Users&a=houseRead");
     }

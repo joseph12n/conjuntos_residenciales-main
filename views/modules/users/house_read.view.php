@@ -25,29 +25,29 @@
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>Código</th>
-								<th>NOMBRE</th>
-								<th>TIPO HABITANTE</th>
+								<th>NOMBRE CASA</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ($house as $house) : ?>
+							<?php foreach ($houses as $house) : ?>
 								<tr class="text-center" >
-									<td><?php echo $house->getHouseCode(); ?></td>
-									<td><?php echo $house->getHouseName(); ?></td>
+									<td><?php echo $house->getCodHouse(); ?></td>
+									<td><?php echo $house->getNameHouse(); ?></td>
 									<td>
-										<a href="?c=Users&a=houseUpdate&idhouse=<?php echo $house->getHouseCode(); ?>" class="btn btn-success">
+										<a href="?c=Users&a=houseUpdate&idhouse=<?php echo $house->getCodHouse(); ?>" class="btn btn-success">
 											<i class="fas fa-sync-alt"></i>
 										</a>
 									</td>
 									<td>
-									<a href="?c=Users&a=houseDelete&idhouse=<?php echo $house->getHouseCode(); ?>" class="btn btn-warning">
+									<a href="?c=Users&a=houseDelete&idhouse=<?php echo $house->getCodHouse(); ?>" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</a>
 									</td>
 								</tr>
 							<?php endforeach; ?>
+
 						</tbody>
 					</table>
 				</div>

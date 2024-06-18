@@ -97,7 +97,6 @@
         public function __constructe($cod_house,$house_name,$type_habitant){
             $this->cod_house = $cod_house;
             $this->house_name = $house_name;
-            $this->type_habitant = $type_habitant;
         }
 
         // 3ra Parte: Setter y Getters
@@ -135,13 +134,6 @@
         }
         public function getNameHouse(){
             return $this->house_name;
-        }
-        # tipo habitante
-        public function setTypeHabitant($type_habitant){
-            $this->type_habitant = $type_habitant;
-        }
-        public function getTypeHabitant(){
-            return $this->type_habitant;
         }
         # Nombre Usuario
         public function setUserName($user_name){
@@ -349,10 +341,25 @@
         foreach ($stmt->fetchAll() as $house) {
             $houseObj = new User;
             $houseObj->setCodHouse($house['cod_house']);
-            $houseObj->setNameHouse($house['house_name']);
             array_push($houseList, $houseObj);
         }
         return $houseList;
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+  # RF05_CU05 - Obtener La casa por el código
+  public function gethouse_bycode($houseCode){
+    try {
+        $sql = "SELECT * FROM HOUSE WHERE cod_house=:houseCode";
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue('houseCode', $houseCode);
+        $stmt->execute();
+        $houseDb = $stmt->fetch();
+        $house = new User;
+        $house->setCodHouse($houseDb['cod_house']);
+        $house->setNameHouse($houseDb['house_name']);
+        return $house;
     } catch (Exception $e) {
         die($e->getMessage());
     }
