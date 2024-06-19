@@ -7,7 +7,6 @@
         private $cod_user;
         private $cod_house;
         private $house_name;
-        private $type_habitant;
         private $user_name;
         private $user_lastname;
         private $user_birthday;
@@ -94,7 +93,7 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 3 parámetros
-        public function __constructe($cod_house,$house_name,$type_habitant){
+        public function __constructe($cod_house,$house_name){
             $this->cod_house = $cod_house;
             $this->house_name = $house_name;
         }
@@ -321,11 +320,10 @@
         # RF03_CU20 - Registrar casa
         public function create_house(){
             try {
-                $sql = 'INSERT INTO HOUSE VALUES (:codHouse,:houseName,:typeHabitant)';
+                $sql = 'INSERT INTO HOUSE VALUES (:codHouse,:houseName)';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('codHouse', $this->getCodHouse());
                 $stmt->bindValue('houseName', $this->getNameHouse());
-                $stmt->bindValue('typeHabitant', $this->getTypeHabitant());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());

@@ -3,9 +3,6 @@
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS
 				</h3>
-				<p class="text-justify">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum rerum animi natus beatae ex. Culpa blanditiis tempore amet alias placeat, obcaecati quaerat ullam, sunt est, odio aut veniam ratione.
-				</p>
 			</div>
 
 			<div class="container-fluid">
@@ -30,10 +27,13 @@
 							<tr class="text-center roboto-medium">
 								<th>ROL</th>
 								<th>CÓDIGO</th>
+								<th>CASA</th>
 								<th>NOMBRES</th>
 								<th>APELLIDOS</th>
+								<th>FECHA DE NACIMIENTO</th>
 								<th>IDENTIFICACIÓN</th>
 								<th>EMAIL</th>
+								<th>TELEFONO</th>
 								<th>ESTADO</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
@@ -44,10 +44,13 @@
 								<tr class="text-center" >
 									<td><?php echo $user->getRolName(); ?></td>
 									<td><?php echo $user->getUserCode(); ?></td>
+									<td><?php echo $user->getCodHouse(); ?></td>
 									<td><?php echo $user->getUserName(); ?></td>
 									<td><?php echo $user->getUserLastName(); ?></td>
+									<td><?php echo $user->getUserBirthday(); ?></td>
 									<td><?php echo $user->getUserId(); ?></td>
 									<td><?php echo $user->getUserEmail(); ?></td>
+									<td><?php echo $user->getUserPhone(); ?></td>
 									<td><?php echo $state[$user->getUserState()]; ?></td>
 									<td>
 										<a href="?c=Users&a=userUpdate&idUser=<?php echo $user->getUserCode(); ?>" class="btn btn-success">

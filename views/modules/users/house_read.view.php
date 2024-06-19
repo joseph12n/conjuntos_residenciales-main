@@ -1,4 +1,4 @@
-			<!-- Page header -->
+
 			<div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CASAS
@@ -17,8 +17,6 @@
 					</li>
 				</ul>
 			</div>
-
-			<!-- Content here-->
 			<div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
