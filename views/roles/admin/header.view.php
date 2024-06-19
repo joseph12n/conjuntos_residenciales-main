@@ -37,7 +37,9 @@
     <div class="sidebar-section">
         <div class="sidebar-section-title">Casas</div>
         <div class="sidebar-section-content">
-            <a href="?c=Users&a=houseCreate">Registrar Casa</a>
+            <a href="?c=Users&a=houseCreate">Agregar casa</a>
+            <a href="?c=Users&a=houseRead">Buscar Casa</a>
+            <a href="house.update.view.php">Actualizar Casa</a>
         </div>
     </div>
 </div>

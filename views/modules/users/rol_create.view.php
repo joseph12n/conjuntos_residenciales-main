@@ -1,4 +1,3 @@
-			<!-- Page header -->
 			<div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR ROL
@@ -19,8 +18,6 @@
 					</li>
 				</ul>
 			</div>
-
-			<!-- Content here-->
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off">
 					<fieldset>
