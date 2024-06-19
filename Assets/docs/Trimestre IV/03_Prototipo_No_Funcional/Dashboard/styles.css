@@ -251,4 +251,58 @@ form {
   button[type="submit"]:hover {
     background-color: #45a049; /* Tono más oscuro al pasar el mouse */
   }
-  
+
+.table td {
+    border: 1px solid #ddd; /* Puedes ajustar el grosor y color del borde */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin-top: 1px; /* Espacio superior */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    margin-left: 100px;
+    transition: 0.5s;
+}
+
+
+.table-container {
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.table {
+
+      background-image: linear-gradient(to bottom, #85f1ab, #e9f9f2); /* Degradado sutil de la sidebar */
+      /* ... otros estilos de la tarjeta */
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    margin: 20px;
+    margin-left: 300px; /* Mueve el contenido 50px a la derecha */
+    text-align: center;
+}
+
+.table:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.table-icon {
+    font-size: 40px;
+    color: #6c757d; /* Gris Bootstrap */
+    margin-bottom: 15px;
+}

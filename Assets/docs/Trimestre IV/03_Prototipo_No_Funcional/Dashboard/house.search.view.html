@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parqueadero</title>
+    <title>Buscar Rol</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -56,31 +55,61 @@
             </div>
         </div>
     </div>
-
     <div class="container">
-        <h2>Reservar Parqueadero</h2>
+        <h2>Buscar Casa</h2>
         <form>
             <div class="form-group">
-                <label for="numeroParqueadero">Número de Parqueadero:</label>
-                <select class="form-control" id="numeroParqueadero">
-                    <option value="1">Parqueadero 1</option>
-                    <option value="2">Parqueadero 2</option>
-                    <option value="3">Parqueadero 3</option>
-                    <option value="4">Parqueadero 4</option>
-                    <option value="5">Parqueadero 5</option>
-                </select>
+                <label for="nombreRol">Nombre del Casa:</label>
+                <input type="text" class="form-control" id="nombreRol">
             </div>
-            <div class="form-group">
-                <label for="fechaInicio">Fecha de Inicio:</label>
-                <input type="datetime-local" class="form-control" id="fechaInicio">
+            <button type="submit" class="btn btn-primary">Buscar Casa</button>
+        <div id="resultadosBusqueda">
             </div>
-            <div class="form-group">
-                <label for="fechaFin">Fecha de Fin:</label>
-                <input type="datetime-local" class="form-control" id="fechaFin">
-            </div>
-            <button type="submit" class="btn btn-primary">Reservar</button>
-        </form>
     </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr class="text-center roboto-medium">
+                    <th>Codigocasa</th>
+                    <th>Nombre casa</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td>1</td>
+                    <td>casa 1</td>
+                    <td><button>Actualizar</button></td>
+                    <td><button>Eliminar</button></td>
+                </tr>
+                <tr class="text-center">
+                    <td>2</td>
+                    <td>casa 2</td>
+                    <td><button>Actualizar</button></td>
+                    <td><button>Eliminar</button></td>
+                </tr>
+                </tr class="text-center">
+                    <td>3</td>
+                    <td>casa 3</td>
+                    <td><button>Actualizar</button></td>
+                    <td><button>Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </form>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></3</a></li></a>
+                </li>
+            </ul>
+        </nav>
+        
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
     <script>
         const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
