@@ -294,21 +294,21 @@ form {
 }
 
 .btn-success {
-    background-color: #28a745;
+    background-color: #32b6bb;
     color: #fff;
 }
 
 .btn-success:hover {
-    background-color: #218838;
+    background-color: #213488;
 }
 
 .btn-warning {
-    background-color: #ffc107;
+    background-color: #ff0707;
     color: #212529;
 }
 
 .btn-warning:hover {
-    background-color: #e0a800;
+    background-color: #e00000;
 }
 
 /* Icon Styling */

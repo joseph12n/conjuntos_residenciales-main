@@ -21,13 +21,8 @@
         # Constructor: Objeto 00 parámetros
         public function __construct0(){}
 
-        # Constructor: Objeto 02 parámetros
-        public function __construct2($user_email,$user_pass){
-            $this->user_email = $user_email;
-            $this->user_pass = $user_pass;
-        }
-        # Constructor: Objeto 3 parámetros
-        public function __constructe($cod_house,$house_name){
+        # Constructor: Objeto 2 parámetros
+        public function __construct2($cod_house,$house_name){
             $this->cod_house = $cod_house;
             $this->house_name = $house_name;
         }
@@ -108,21 +103,11 @@ public function update_house(){
 }
 
 # RF07_CU07 - Eliminar casa
-public function delete_house($houseCode){
-    try {
-        $sql = 'DELETE FROM HOUSE WHERE cod_house = :houseCode';
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue('houseCode', $houseCode);
-        $stmt->execute();
-    } catch (Exception $e) {
-        die($e->getMessage());
-    }
-}
-        public function delete_user($userCode){
+        public function delete_house($houseCode){
             try {
-                $sql = 'DELETE FROM USERS WHERE cod_user = :userCode';
+                $sql = 'DELETE FROM HOUSE WHERE cod_house = :houseCode';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('userCode', $userCode);
+                $stmt->bindValue('houseCode', $houseCode);
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());

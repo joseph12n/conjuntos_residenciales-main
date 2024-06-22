@@ -16,12 +16,12 @@
             <div class="card">
                 <i class="fas fa-users card-icon"></i>
                 <h2 class="card-title">Roles</h2>
-                <a href="rol.view.php"class="btn btn-primary">Gestionar Roles</a>
+                <a href="?c=Users&a=rolRead"class="btn btn-primary">Gestionar Roles</a>
             </div>
             <div class="card">
                 <i class="fas fa-user card-icon"></i>
                 <h2 class="card-title">Usuarios</h2>
-                <a href="user.view.php" class="btn btn-primary">Gestionar Usuarios</a>
+                <a href="?c=Users&a=userRead" class="btn btn-primary">Gestionar Usuarios</a>
             </div>
             <div class="card">
                 <i class="fas fa-calendar-alt card-icon"></i>
