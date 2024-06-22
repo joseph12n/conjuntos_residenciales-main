@@ -59,6 +59,7 @@
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $house = new User;
+        $house->setCodHouse(null);
         $house->setNameHouse($_POST['house_name']);
         $house->create_house();
         header("Location: ?c=Users&a=houseRead");
@@ -68,6 +69,7 @@
  public function houseRead(){
     $houses = new User;
     $houses = $houses->read_house();
+    print_r($houses);
     require_once "views/modules/users/house_read.view.php";
 }
  // Controlador Actualizar casa

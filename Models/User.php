@@ -339,6 +339,7 @@
         foreach ($stmt->fetchAll() as $house) {
             $houseObj = new User;
             $houseObj->setCodHouse($house['cod_house']);
+            $houseObj->setNameHouse($house['house_number']);
             array_push($houseList, $houseObj);
         }
         return $houseList;
