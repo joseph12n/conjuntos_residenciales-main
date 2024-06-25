@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+       <div class="botones">
+    <button class="boton" onclick="iniciarSesion()">Iniciar sesión</button>
+    <button class="boton" onclick="soporte()">Soporte</button>
+    <button class="boton" onclick="conocer()">Conoce más</button>
+  </div>
+  <script src="script.js"></script>
+
+  <script>
+    function iniciarSesion() {
+      window.location.href = "login.html";
+    }
+
+    function soporte() {
+      window.location.href = "soporte.html";
+    }
+
+    function conocer() {
+      window.location.href = "conocemas.html";
+    }
+  </script>
+    </header>
+
+    <main>
+        <div class="bienvenida">
+            <h1>Bienvenido</h1>
+            <p>Esta es una breve descripción de lo que puedes encontrar en nuestro sitio web. ¡Explora y descubre!</p>
+        </div>
+
+        <div class="carrusel">
+            <img src="imge/conjunto.jpeg" alt="Imagen 1">
+            <img src="imge/conjunto2.jpeg" alt="Imagen 2">
+            <img src="imge/conjunto 3.jpg" alt="Imagen 3">
+            <button class="anterior">&#10094;</button> 
+            <button class="siguiente">&#10095;</button> 
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
