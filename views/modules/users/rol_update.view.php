@@ -19,8 +19,6 @@
 					</li>
 				</ul>
 			</div>
-
-			<!-- Content here-->
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off">
 					<fieldset>

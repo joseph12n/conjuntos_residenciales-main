@@ -69,7 +69,6 @@
  public function houseRead(){
     $houses = new User;
     $houses = $houses->read_house();
-    print_r($houses);
     require_once "views/modules/users/house_read.view.php";
 }
  // Controlador Actualizar casa
@@ -103,7 +102,6 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $user = new User(
                     $_POST['cod_rol'],
-                    $_POST['cod_house'],
                     null,
                     $_POST['user_name'],
                     $_POST['user_lastname'],
@@ -140,7 +138,6 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $userUpdate = new User(
                     $_POST['cod_rol'],
-                    $_POST['cod_house'],
                     $_POST['user_code'],
                     $_POST['user_name'],
                     $_POST['user_lastname'],

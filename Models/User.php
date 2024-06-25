@@ -79,10 +79,9 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 11 parámetros
-        public function __construct11($cod_rol,$cod_house,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct10($cod_rol,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->cod_user = $cod_user;
-            $this->cod_house = $cod_house;
             $this->user_name = $user_name;
             $this->user_lastname = $user_lastname;
             $this->user_birthday = $user_birthday;
@@ -357,7 +356,7 @@
         $houseDb = $stmt->fetch();
         $house = new User;
         $house->setCodHouse($houseDb['cod_house']);
-        $house->setNameHouse($houseDb['house_name']);
+        $house->setNameHouse($houseDb['house_number']);
         return $house;
     } catch (Exception $e) {
         die($e->getMessage());
@@ -368,11 +367,11 @@ public function update_house(){
     try {
         $sql = 'UPDATE HOUSE SET
                     cod_house = :houseCode,
-                    house_name = :houseName
+                    house_number = :houseName
                 WHERE cod_house = :houseCode';
         $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue('houseCode', $this->gethouseCode());
-        $stmt->bindValue('houseName', $this->gethouseName());
+        $stmt->bindValue('houseCode', $this->getCodHouse());
+        $stmt->bindValue('houseName', $this->getNameHouse());
         $stmt->execute();
     } catch (Exception $e) {
         die($e->getMessage());
@@ -395,7 +394,6 @@ public function delete_house($houseCode){
             try {
                 $sql = 'INSERT INTO USERS VALUES (
                             :rolCode,
-                            :codHouse,
                             :userCode,
                             :userName,
                             :userLastName,
@@ -408,7 +406,6 @@ public function delete_house($houseCode){
                         )';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('codHouse', $this->getCodHouse());
                 $stmt->bindValue('userCode', $this->getUserCode());
                 $stmt->bindValue('userName', $this->getUserName());
                 $stmt->bindValue('userLastName', $this->getUserLastName());
@@ -431,7 +428,6 @@ public function delete_house($houseCode){
                 $sql = 'SELECT
                             r.cod_rol,
                             r.rol_name,
-                            cod_house,
                             cod_user,
                             user_name,
                             user_lastname,
@@ -448,7 +444,6 @@ public function delete_house($houseCode){
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new User(
                         $user['cod_rol'],
-                        $user['cod_house'],
                         $user['rol_name'],
                         $user['cod_user'],
                         $user['user_name'],
@@ -475,7 +470,6 @@ public function delete_house($houseCode){
 
                             r.cod_rol,
                             r.rol_name,
-                            cod_house,
                             cod_user,
                             user_name,
                             user_lastname,
@@ -496,7 +490,6 @@ public function delete_house($houseCode){
                 $userDb = $stmt->fetch();
                 $user = new User(
                         $userDb['cod_rol'],
-                        $userDb['cod_house'],
                         $userDb['rol_name'],
                         $userDb['cod_user'],
                         $userDb['user_name'],
@@ -519,7 +512,6 @@ public function delete_house($houseCode){
             try {
                 $sql = 'UPDATE USERS SET
                             cod_rol = :rolCode,
-                            cod_house = :codHouse,
                             cod_user = :userCode,
                             user_name = :userName,
                             user_lastname = :userLastName,
@@ -532,7 +524,6 @@ public function delete_house($houseCode){
                         WHERE cod_user = :userCode';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('codHouse', $this->getCodHouse());
                 $stmt->bindValue('userCode', $this->getUserCode());
                 $stmt->bindValue('userName', $this->getUserName());
                 $stmt->bindValue('userLastName', $this->getUserLastName());

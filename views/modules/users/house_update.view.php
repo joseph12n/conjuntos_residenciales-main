@@ -29,7 +29,7 @@
                                 <input type="hidden" class="form-conthouse" name="cod_house" id="cod_house" value="<?php echo $houseId->getCodHouse();?>">
 									<div class="form-group">
 										<label for="house_name" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-conthouse" name="house_name" id="house_name" maxlength="40" value="<?php echo $houseId->gethouseName();?>">
+										<input type="numer" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-conthouse" name="house_name" id="house_name" maxlength="40" value="<?php echo $houseId->getNameHouse();?>">
 									</div>
 								</div>
 							</div>

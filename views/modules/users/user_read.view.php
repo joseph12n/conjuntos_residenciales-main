@@ -1,5 +1,4 @@
-			<!-- Page header -->
-			<div class="full-box page-header">
+<div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS
 				</h3>
@@ -17,9 +16,6 @@
 						<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
 					</li>
 				</ul>
-			</div>
-
-			<!-- Content -->
 			<div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
@@ -27,7 +23,6 @@
 							<tr class="text-center roboto-medium">
 								<th>ROL</th>
 								<th>CÓDIGO</th>
-								<th>CASA</th>
 								<th>NOMBRES</th>
 								<th>APELLIDOS</th>
 								<th>FECHA DE NACIMIENTO</th>
@@ -44,7 +39,6 @@
 								<tr class="text-center" >
 									<td><?php echo $user->getRolName(); ?></td>
 									<td><?php echo $user->getUserCode(); ?></td>
-									<td><?php echo $user->getCodHouse(); ?></td>
 									<td><?php echo $user->getUserName(); ?></td>
 									<td><?php echo $user->getUserLastName(); ?></td>
 									<td><?php echo $user->getUserBirthday(); ?></td>

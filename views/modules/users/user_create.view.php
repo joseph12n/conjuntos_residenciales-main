@@ -51,12 +51,6 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
-										<label for="cod_house" class="bmd-label-floating">Casa</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="cod_house" id="cod_house" maxlength="35">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
 										<label for="user_name" class="bmd-label-floating">Nombres</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="user_name" id="user_name" maxlength="35">
 									</div>
