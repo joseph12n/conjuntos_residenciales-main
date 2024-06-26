@@ -112,6 +112,7 @@
                     $_POST['user_phone'],
                     $_POST['user_state']
                 );
+
                 $user->create_user();
                 header("Location: ?c=Users&a=userRead");
             }
@@ -123,8 +124,8 @@
             $users = new User;
             $users = $users->read_users();
             require_once "views/modules/users/user_read.view.php";
-        }
-
+        } 
+        
         // Controlador Actualizar Usuario
         public function userUpdate(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {

@@ -5,8 +5,6 @@
         private $cod_rol;
         private $rol_name;
         private $cod_user;
-        private $cod_house;
-        private $house_name;
         private $user_name;
         private $user_lastname;
         private $user_birthday;
@@ -39,36 +37,11 @@
             $this->user_pass = $user_pass;
         }
 
-        # Constructor: Objeto 08 parámetros
-        public function __construct8($cod_rol,$cod_user,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
-            $this->cod_rol = $cod_rol;
-            $this->cod_user = $cod_user;
-            $this->user_name = $user_name;
-            $this->user_lastname = $user_lastname;
-            $this->user_id = $user_id;
-            $this->user_email = $user_email;
-            $this->user_pass = $user_pass;
-            $this->user_state = $user_state;
-        }
-
-        # Constructor: Objeto 09 parámetros
-        public function __construct9($cod_rol,$rol_name,$cod_user,$user_name,$user_lastname,$user_id,$user_email,$user_pass,$user_state){
-            $this->cod_rol = $cod_rol;
-            $this->rol_name = $rol_name;
-            $this->cod_user = $cod_user;
-            $this->user_name = $user_name;
-            $this->user_lastname = $user_lastname;
-            $this->user_id = $user_id;
-            $this->user_email = $user_email;
-            $this->user_pass = $user_pass;
-            $this->user_state = $user_state;
-        }
         # Constructor: Objeto 12 parámetros
-        public function __construct12($cod_rol,$rol_name,$cod_house,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct11($cod_rol,$rol_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->rol_name = $rol_name;
             $this->cod_user = $cod_user;
-            $this->cod_house = $cod_house;
             $this->user_name = $user_name;
             $this->user_lastname = $user_lastname;
             $this->user_birthday = $user_birthday;
@@ -78,7 +51,7 @@
             $this->user_phone = $user_phone;;
             $this->user_state = $user_state;
         }
-        # Constructor: Objeto 11 parámetros
+        # Constructor: Objeto 10 parámetros
         public function __construct10($cod_rol,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->cod_user = $cod_user;
@@ -91,13 +64,6 @@
             $this->user_phone = $user_phone;;
             $this->user_state = $user_state;
         }
-        # Constructor: Objeto 3 parámetros
-        public function __constructe($cod_house,$house_name){
-            $this->cod_house = $cod_house;
-            $this->house_name = $house_name;
-        }
-
-        // 3ra Parte: Setter y Getters
         # Código Rol
         public function setRolCode($cod_rol){
             $this->cod_rol = $cod_rol;
