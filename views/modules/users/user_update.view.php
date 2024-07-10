@@ -68,6 +68,12 @@
 										<label for="user_lastname" class="bmd-label-floating">Apellidos</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="user_lastname" id="user_lastname" maxlength="35" value="<?php echo $user->getUserLastName();?>">
 									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="user_birthday" class="bmd-label-floating">Fecha de nacimiento</label>
+										<input type="date" pattern="[0-9()+]{1,20}" class="form-control" name="user_birthday" id="user_birthday" maxlength="20" value="<?php echo $user->getUserBirthday();?>">
+									</div>
 								</div>								
 								<div class="col-12 col-md-6">
 									<div class="form-group">
@@ -91,6 +97,12 @@
 									<div class="form-group">
 										<label for="user_pass_conf" class="bmd-label-floating">Repetir contraseña</label>
 										<input type="password" class="form-control" name="user_pass_conf" id="user_pass_conf" maxlength="200">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="user_phone" class="bmd-label-floating">telefono</label>
+										<input type="number" pattern="[0-9()+]{1,20}" class="form-control" name="user_phone" id="user_phone" maxlength="20" value="<?php echo $user->getUserPhone();?>">
 									</div>
 								</div>
 							</div>

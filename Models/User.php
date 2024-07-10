@@ -379,7 +379,7 @@ public function delete_house($houseCode){
                 $stmt->bindValue('userId', $this->getUserId());
                 $stmt->bindValue('userEmail', $this->getUserEmail());
                 $stmt->bindValue('userPass', sha1($this->getUserPass()));
-                $stmt->bindValue('userPhone', sha1($this->getUserPhone()));
+                $stmt->bindValue('userPhone', $this->getUserPhone());
                 $stmt->bindValue('userState', $this->getUserState());
                 $stmt->execute();
             } catch (Exception $e) {
