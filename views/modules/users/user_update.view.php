@@ -32,7 +32,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="rol_code" class="bmd-label-floating">Rol</label>
-										<select class="form-control" name="rol_code">                                            											
+										<select class="form-control" name="cod_rol" id="rol_code">                                            											
 											<?php foreach ($roles as $rol) : ?>
                                                 <?php if ($rol->getRolCode() == $user->getRolCode()) : ?>
                                                     <option selected="" value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
