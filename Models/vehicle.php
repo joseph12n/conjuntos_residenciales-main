@@ -55,48 +55,48 @@ public function getVehicleType(){
 }
 
 # RF04_CU04 - Consultar tipo de vehiculo
-public function read_house(){
+public function read_type(){
 try {
-$houseList = [];
-$sql = 'SELECT * FROM HOUSE';
+$typeList = [];
+$sql = 'SELECT * FROM "TYPE"';
 $stmt = $this->dbh->query($sql);
-foreach ($stmt->fetchAll() as $house) {
-    $houseObj = new User;
-    $houseObj->setCodHouse($house['cod_house']);
-    $houseObj->setNameHouse($house['house_number']);
-    array_push($houseList, $houseObj);
+foreach ($stmt->fetchAll() as $type) {
+    $typeObj = new User;
+    $typeObj->setTypeCode($type['cod_type']);
+    $typeObj->setVehicleType($type['vehicle_type']);
+    array_push($typeList, $typeObj);
 }
-return $houseList;
+return $typeList;
 } catch (Exception $e) {
 die($e->getMessage());
 }
 }
 # RF05_CU05 - Obtener tipo de vehiculo por el código
-public function gethouse_bycode($houseCode){
+public function gettype_bycode($typeCode){
 try {
-$sql = "SELECT * FROM HOUSE WHERE cod_house=:houseCode";
+$sql = "SELECT * FROM 'TYPE' WHERE cod_type=:typeCode";
 $stmt = $this->dbh->prepare($sql);
-$stmt->bindValue('houseCode', $houseCode);
+$stmt->bindValue('typeCode', $typeCode);
 $stmt->execute();
-$houseDb = $stmt->fetch();
-$house = new User;
-$house->setCodHouse($houseDb['cod_house']);
-$house->setNameHouse($houseDb['house_number']);
-return $house;
+$typeDb = $stmt->fetch();
+$type = new User;
+$type->setTypeCode($typeDb['cod_type']);
+$type->setVehicleType($typeDb['vehicle_type']);
+return $type;
 } catch (Exception $e) {
 die($e->getMessage());
 }
 }
 # RF06_CU06 - Actualizar tipo de vehiculo
-public function update_house(){
+public function update_type(){
 try {
-$sql = 'UPDATE HOUSE SET
-            cod_house = :houseCode,
-            house_number = :houseName
-        WHERE cod_house = :houseCode';
+$sql = 'UPDATE "TYPE" SET
+            cod_type = :typeCode,
+            vehicle_type = :vehicleType
+        WHERE cod_type = :typeCode';
 $stmt = $this->dbh->prepare($sql);
-$stmt->bindValue('houseCode', $this->getCodHouse());
-$stmt->bindValue('houseName', $this->getNameHouse());
+$stmt->bindValue('typeCode', $this->getTypeCode());
+$stmt->bindValue('vehicleType', $this->getVehicleType());
 $stmt->execute();
 } catch (Exception $e) {
 die($e->getMessage());
@@ -104,11 +104,11 @@ die($e->getMessage());
 }
 
 # RF07_CU07 - Eliminar tipo de vehiculo
-public function delete_house($houseCode){
+public function delete_type ($typeCode){
 try {
-$sql = 'DELETE FROM HOUSE WHERE cod_house = :houseCode';
+$sql = 'DELETE FROM "TYPE" WHERE cod_type = :typeCode';
 $stmt = $this->dbh->prepare($sql);
-$stmt->bindValue('houseCode', $houseCode);
+$stmt->bindValue('typeCode', $typeCode);
 $stmt->execute();
 } catch (Exception $e) {
 die($e->getMessage());
