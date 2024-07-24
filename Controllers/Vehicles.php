@@ -10,44 +10,44 @@
      }
 
      // Controlador Crear tipos de vehiculo
- public function houseCreate(){
+ public function typeCreate(){
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         require_once "views/modules/vehicles/type_create.view.php";
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $house = new User;
-        $house->setCodHouse(null);
-        $house->setNameHouse($_POST['house_name']);
-        $house->create_house();
-        header("Location: ?c=Users&a=houseRead");
+        $type = new Vehicle;
+        $type->setTypeCode(null);
+        $type->setVehicleType($_POST['vehicle_type']);
+        $type->create_type();
+        header("Location: ?c=Users&a=typeRead");
     }
 }
  // Controlador Consultar tipos de vehiculos
- public function houseRead(){
-    $houses = new User;
-    $houses = $houses->read_house();
-    require_once "views/modules/users/house_read.view.php";
+ public function typeRead(){
+    $types = new Vehicle;
+    $types = $types->read_type();
+    require_once "views/modules/users/type_read.view.php";
 }
  // Controlador Actualizar tipos de vehiculo
- public function houseUpdate(){
+ public function typeUpdate(){
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        $houseId = new User;
-        $houseId = $houseId->gethouse_bycode($_GET['idhouse']);
-        require_once "views/modules/users/house_update.view.php";
+        $typeId = new Vehicle;
+        $typeId = $typeId->gettype_bycode($_GET['idtype']);
+        require_once "views/modules/users/type_update.view.php";
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $houseUpdate = new User;
-        $houseUpdate->setCodHouse($_POST['cod_house']);
-        $houseUpdate->setNameHouse($_POST['house_name']);
-        $houseUpdate->update_house();
-        header("Location: ?c=Users&a=houseRead");
+        $typeUpdate = new Vehicle;
+        $typeUpdate->setTypeCode($_POST['cod_type']);
+        $typeUpdate->setVehicleType($_POST['vehicle_type']);
+        $typeUpdate->update_type();
+        header("Location: ?c=Vehicle&a=typeRead");
     }
 }
         // Controlador Eliminar tipos de vehiculo
-        public function houseDelete(){
-            $house = new User;
-            $house->delete_house($_GET['idhouse']);
-            header("Location: ?c=Users&a=houseRead");
+        public function typeDelete(){
+            $type = new Vehicle;
+            $type->delete_type($_GET['idtype']);
+            header("Location: ?c=Vehicle&a=typeRead");
         }
     }
 ?>
