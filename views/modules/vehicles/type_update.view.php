@@ -1,5 +1,5 @@
 
-			<div class="full-box page-header">
+<div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-plus fa-fw"></i> &nbsp; ACTUALIZAR CASA
 				</h3>

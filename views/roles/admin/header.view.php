@@ -34,11 +34,11 @@
         </div>
     </div>
     <div class="sidebar-section">
-        <div class="sidebar-section-title">Casas</div>
+        <div class="sidebar-section-title">Tipos de vehiculo</div>
         <div class="sidebar-section-content">
-            <a href="?c=Users&a=houseCreate">Agregar casa</a>
-            <a href="?c=Users&a=houseRead">Buscar Casa</a>
-            <a href="house.update.view.php">Actualizar Casa</a>
+            <a href="?c=Vehicle&a=typeCreate">Agregar tipo de vehiculo</a>
+            <a href="?c=Vehicle&a=typeRead">Buscar tipo de vehiculo</a>
+            <a href="house.update.view.php">Actualizar tipo de vehiculo</a>
         </div>
     </div>
 </div>
