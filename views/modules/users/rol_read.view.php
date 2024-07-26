@@ -17,43 +17,34 @@
 					</li>
 				</ul>
 			</div>
-        <table class="table">
-            <thead>
-                <tr class="text-center roboto-medium">
-                    <th>Codigo Rol</th>
-                    <th>Nombre Rol</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-			<?php foreach ($roles as $rol) : ?>
-								<tr class="text-center" >
-									<td><?php echo $rol->getRolCode(); ?></td>
-									<td><?php echo $rol->getRolName(); ?></td>
-									<td>
-										<a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-success">
-											<i class="fas fa-sync-alt"></i>
-										</a>
-									</td>
-									<td>
-									<a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-warning">
-											<i class="far fa-trash-alt"></i>
-										</a>
-									</td>
-								</tr>
-							<?php endforeach; ?>
-            </tbody>
-        </table>
-        </div>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></3</a></li></a>
-                </li>
-            </ul>
-        </nav>
     </form>
+	<div class="row mt">
+                  <div class="col-md-12">
+                      <div class="content-panel">
+                          <table class="table table-striped table-advance table-hover">
+	                  	  	  <h4><i class="fa fa-angle-right"></i> Roles</h4>
+	                  	  	  <hr>
+                              <thead>
+                              <tr>
+                                  <th><i class="fa fa-bullhorn"></i> Codigo Rol</th>
+                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i>Nombre Rol</th>
+                                  <th><i class="fa fa-edit"></i> Actualizar/eliminar</th>
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+							  <?php foreach ($roles as $rol) : ?>
+                              <tr>
+							  <td><?php echo $rol->getRolCode(); ?></td>
+							  <td><?php echo $rol->getRolName(); ?></td>
+                                  <td>
+								  <a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCode(); ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>
+								  <a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCode(); ?>"class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
+			  <?php endforeach; ?>

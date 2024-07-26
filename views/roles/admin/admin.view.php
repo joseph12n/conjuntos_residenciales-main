@@ -30,12 +30,12 @@
                 <a href="?c=Users&a=userRead" class="btn btn-primary">Gestionar Usuarios</a>
             </div>
             <div class="card">
-                <i class="fas fa-calendar-alt card-icon"></i>
+            <i class="fas fa-user card-icon"></i>
                 <h2 class="card-title">Reservar</h2>
                 <a href="reserva.view.php" class="btn btn-primary">Realizar Reserva</a>
             </div>
             <div class="card">
-                <i class="fas fa-calendar-alt card-icon"></i>
+            <i class="fas fa-user card-icon"></i>
                 <h2 class="card-title">Reservar</h2>
                 <a href="parqueadero.view.php" class="btn btn-primary">Reserva parqueadero</a>
             </div>
