@@ -4,6 +4,8 @@
         private $dbh;
         private $cod_rol;
         private $rol_name;
+        private $cod_house;
+        private $house_name;
         private $cod_user;
         private $user_name;
         private $user_lastname;
@@ -38,9 +40,11 @@
         }
 
         # Constructor: Objeto 12 parámetros
-        public function __construct11($cod_rol,$rol_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct11($cod_rol,$rol_name,$cod_house,$house_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->rol_name = $rol_name;
+            $this->cod_house = $cod_house;
+            $this->house_name = $house_name;
             $this->cod_user = $cod_user;
             $this->user_name = $user_name;
             $this->user_lastname = $user_lastname;
@@ -52,9 +56,10 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 10 parámetros
-        public function __construct10($cod_rol,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct10($cod_rol,$cod_user,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->cod_user = $cod_user;
+            $this->cod_house = $cod_house;
             $this->user_name = $user_name;
             $this->user_lastname = $user_lastname;
             $this->user_birthday = $user_birthday;
@@ -77,6 +82,20 @@
         }
         public function getRolName(){
             return $this->rol_name;
+        }
+        # Código Casa
+        public function setHouseCode($cod_house){
+            $this->cod_house = $cod_house;
+        }
+        public function getHouseCode(){
+            return $this->cod_house;
+        }
+        # Nombre Casa
+        public function setHouseName($house_name){
+            $this->house_name = $house_name;
+        }
+        public function getHouseName(){
+            return $this->house_name;
         }
         # Código Usuario
         public function setUserCode($cod_user){
@@ -282,12 +301,89 @@
                 die($e->getMessage());
             }
         }
+        # RF03_CU03 - Registrar casa
+        public function create_house(){
+            try {
+                $sql = 'INSERT INTO HOUSE VALUES (:houseCode,:houseName)';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('houseCode', $this->getHouseCode());
+                $stmt->bindValue('houseName', $this->getHouseName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF04_CU04 - Consultar casas
+        public function read_house(){
+            try {
+                $houseList = [];
+                $sql = 'SELECT * FROM HOUSE';
+                $stmt = $this->dbh->query($sql);
+                foreach ($stmt->fetchAll() as $house) {
+                    $houseObj = new User;
+                    $houseObj->setHouseCode($house['cod_house']);
+                    $houseObj->setHouseName($house['house_name']);
+                    array_push($houseList, $houseObj);
+                }
+                return $houseList;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF05_CU05 - Obtener la casa por el código
+        public function gethouse_bycode($houseCode){
+            try {
+                $sql = "SELECT * FROM HOUSE WHERE cod_house=:houseCode";
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('houseCode', $houseCode);
+                $stmt->execute();
+                $houseDb = $stmt->fetch();
+                $house = new User;
+                $house->setHouseCode($houseDb['cod_house']);
+                $house->setHouseName($houseDb['house_name']);
+                return $house;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF06_CU06 - Actualizar casa
+        public function update_house(){
+            try {
+                $sql = 'UPDATE HOUSE SET
+                            cod_house = :houseCode,
+                            house_name = :houseName
+                        WHERE cod_house = :houseCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('houseCode', $this->getHouseCode());
+                $stmt->bindValue('houseName', $this->getHouseName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        # RF07_CU07 - Eliminar casa
+        public function delete_house($houseCode){
+            try {
+                $sql = 'DELETE FROM HOUSE WHERE cod_house = :houseCode';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('houseCode', $houseCode);
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
         # RF08_CU08 - Registrar Usuario
         public function create_user(){
             try {
                 $sql = 'INSERT INTO USERS VALUES (
                             :rolCode,
                             :userCode,
+                            :houseCode,
                             :userName,
                             :userLastName,
                             :userBirthday,
@@ -300,6 +396,7 @@
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('houseCode', $this->getHouseCode());
                 $stmt->bindValue('userName', $this->getUserName());
                 $stmt->bindValue('userLastName', $this->getUserLastName());
                 $stmt->bindValue('userBirthday', $this->getUserBirthday());
@@ -323,6 +420,8 @@
                             r.rol_name,
                             cod_user,
                             user_name,
+                            a.cod_house,
+                            a.house_name,
                             user_lastname,
                             user_birthday,
                             user_id,
@@ -331,14 +430,16 @@
                             user_phone,
                             user_state
                         FROM ROLES AS r
-                        INNER JOIN USERS AS u
-                        on r.cod_rol = u.cod_rol';
+                        INNER JOIN USERS AS u INNER JOIN HOUSE As a
+                        on r.cod_rol = u.cod_rol on a.cod_house = u.cod_house';
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new User(
                         $user['cod_rol'],
                         $user['rol_name'],
                         $user['cod_user'],
+                        $user['house_name'],
+                        $user['cod_house'],
                         $user['user_name'],
                         $user['user_lastname'],
                         $user['user_birthday'],
@@ -406,6 +507,7 @@
                 $sql = 'UPDATE USERS SET
                             cod_rol = :rolCode,
                             cod_user = :userCode,
+                            cod_house = :houseCode,
                             user_name = :userName,
                             user_lastname = :userLastName,
                             user_birthday = :userBirthday,
@@ -418,6 +520,7 @@
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('userCode', $this->getUserCode());
+                $stmt->bindValue('houseCode', $this->getHouseCode());
                 $stmt->bindValue('userName', $this->getUserName());
                 $stmt->bindValue('userLastName', $this->getUserLastName());
                 $stmt->bindValue('userBirthday', $this->getUserBirthday());
