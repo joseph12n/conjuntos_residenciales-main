@@ -67,7 +67,7 @@
         // Controlador Consultar CASAS
         public function houseRead(){
             $houses = new User;
-            $houses = $houses->read_houses();
+            $houses = $houses->read_house();
             require_once "views/modules/users/house_read.view.php";
         }
 
@@ -104,6 +104,7 @@
                 $user = new User(
                     $_POST['cod_rol'],
                     null,
+                    $_POST['cod_house'],
                     $_POST['user_name'],
                     $_POST['user_lastname'],
                     $_POST['user_birthday'],

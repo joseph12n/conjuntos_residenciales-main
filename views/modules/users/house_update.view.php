@@ -1,35 +1,34 @@
-			<!-- Page header -->
-			<div class="full-box page-header">
+<div class="full-box page-header">
 				<h3 class="text-left">
-					<i class="fas fa-plus fa-fw"></i> &nbsp; ACTUALIZAR ROL
+					<i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CASA
 				</h3>
-				<p class="text-justify">
+
 			</div>
 
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a class="active" href="?c=Users&a=rolUpdate"><i class="fas fa-plus fa-fw"></i> &nbsp; ACTUALIZAR ROL</a>
+						<a class="active" href="?c=Users&a=houseCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CASA</a>
 					</li>
 					<li>
-						<a href="?c=Users&a=rolRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR ROLES</a>
+						<a href="?c=Users&a=houseRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR CASA</a>
 					</li>
 					<li>
-						<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ROL</a>
+						<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CASA</a>
 					</li>
 				</ul>
 			</div>
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off">
 					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Actualizar Rol</legend>
+						<legend><i class="fas fa-user"></i> &nbsp; Actualizar Casa</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
-                                <input type="hidden" class="form-control" name="cod_rol" id="cod_rol" value="<?php echo $rolId->getRolCode();?>">
+                                <input type="hidden" class="form-control" name="cod_house" id="cod_house" value="<?php echo $houseId->getHouseCode();?>">
 									<div class="form-group">
-										<label for="rol_name" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="rol_name" id="rol_name" maxlength="40" value="<?php echo $rolId->getRolName();?>">
+										<label for="house_name" class="bmd-label-floating">Nombre</label>
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="house_name" id="house_name" maxlength="40" value="<?php echo $houseId->getHouseName();?>">
 									</div>
 								</div>
 							</div>

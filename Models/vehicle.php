@@ -11,7 +11,7 @@ class Vehicle{
             $a = func_get_args();
             $i = func_num_args();
             if (method_exists($this, $f = '__construct' . $i)) {
-                call_user_func_array(array($this, $f), $a);
+                call_Vehicle_func_array(array($this, $f), $a);
             }
         } catch (Exception $e) {
             die($e->getMessage());
@@ -61,7 +61,7 @@ $typeList = [];
 $sql = 'SELECT * FROM "TYPE"';
 $stmt = $this->dbh->query($sql);
 foreach ($stmt->fetchAll() as $type) {
-    $typeObj = new User;
+    $typeObj = new Vehicle;
     $typeObj->setTypeCode($type['cod_type']);
     $typeObj->setVehicleType($type['vehicle_type']);
     array_push($typeList, $typeObj);
@@ -79,7 +79,7 @@ $stmt = $this->dbh->prepare($sql);
 $stmt->bindValue('typeCode', $typeCode);
 $stmt->execute();
 $typeDb = $stmt->fetch();
-$type = new User;
+$type = new Vehicle;
 $type->setTypeCode($typeDb['cod_type']);
 $type->setVehicleType($typeDb['vehicle_type']);
 return $type;

@@ -47,7 +47,7 @@
               	  <h5 class="centered">PEDRO</h5>
               	  	
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="?">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -62,6 +62,17 @@
                           <li> <a href="?c=Users&a=rolCreate">Agregar Rol</a></li>
                           <li> <a href="?c=Users&a=rolRead">Buscar Rol</a></li>
                           <li> <a href="rol.update.view.php">Actualizar Rol</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Casas</span>
+                      </a>
+                      <ul class="sub">
+                          <li> <a href="?c=Users&a=houseCreate">Agregar casa</a></li>
+                          <li> <a href="?c=Users&a=houseRead">Buscar casa</a></li>
+                          <li> <a href="house.update.view.php">Actualizar casa</a></li>
                       </ul>
                   </li>
 
@@ -92,8 +103,8 @@
                           <span>tipos de vehiculos</span>
                       </a>
                       <ul class="sub">
-                          <li> <a href="?c=Vehicle&a=typeCreate">Agregar tipo de vehiculo</a></li>
-                            <li> <a href="?c=Vehicle&a=typeRead">Buscar tipo de vehiculo</a></li>
+                          <li> <a href="?c=Vehicles&a=typeCreate">Agregar tipo de vehiculo</a></li>
+                            <li> <a href="?c=Vehicles&a=typeRead">Buscar tipo de vehiculo</a></li>
                                 <li> <a href="house.update.view.php">Actualizar tipo de vehiculo</a></li>
                       </ul>
                   </li>

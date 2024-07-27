@@ -24,6 +24,7 @@
 							<tr class="text-center roboto-medium">
 								<th>ROL</th>
 								<th>CÓDIGO</th>
+								<th>CASA (si es residente)</th>
 								<th>NOMBRES</th>
 								<th>APELLIDOS</th>
 								<th>FECHA DE NACIMIENTO</th>

@@ -104,20 +104,6 @@
         public function getUserCode(){
             return $this->cod_user;
         }
-        # codigo casa
-        public function setCodHouse($cod_house){
-            $this->cod_house = $cod_house;
-        }
-        public function getCodHouse(){
-            return $this->cod_house;
-        }
-        # nombre casa
-        public function setNameHouse($house_name){
-            $this->house_name = $house_name;
-        }
-        public function getNameHouse(){
-            return $this->house_name;
-        }
         # Nombre Usuario
         public function setUserName($user_name){
             $this->user_name = $user_name;
@@ -412,26 +398,24 @@
         }
 
         # RF09_CU09 - Consultar Usuarios
-        public function read_users(){
+        public function read_users() {
             try {
                 $userList = [];
-                $sql = 'SELECT
-                            r.cod_rol,
-                            r.rol_name,
-                            cod_user,
-                            user_name,
-                            a.cod_house,
-                            a.house_name,
-                            user_lastname,
-                            user_birthday,
-                            user_id,
-                            user_email,
-                            user_pass,
-                            user_phone,
-                            user_state
+                $sql = "SELECT 
+                            r.cod_rol, 
+                            r.rol_name, 
+                            u.cod_user, 
+                            u.user_name, 
+                            u.user_lastname, 
+                            u.user_birthday, 
+                            u.user_id, 
+                            u.user_email, 
+                            u.user_pass, 
+                            u.user_phone, 
+                            u.user_state
                         FROM ROLES AS r
-                        INNER JOIN USERS AS u INNER JOIN HOUSE As a
-                        on r.cod_rol = u.cod_rol on a.cod_house = u.cod_house';
+                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol
+                        LEFT JOIN HOUSE AS a ON a.cod_house = u.cod_house";
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $user) {
                     $userObj = new User(
