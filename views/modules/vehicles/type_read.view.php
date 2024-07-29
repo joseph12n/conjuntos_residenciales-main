@@ -23,23 +23,23 @@
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>Código</th>
-								<th>NOMBRE CASA</th>
+								<th>TIPO DE VEHICULO</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ($houses as $house) : ?>
+							<?php foreach ($types as $type) : ?>
 								<tr class="text-center" >
-									<td><?php echo $house->getCodHouse(); ?></td>
-									<td><?php echo $house->getNameHouse(); ?></td>
+									<td><?php echo $type->getCodType(); ?></td>
+									<td><?php echo $type->getVehicletype(); ?></td>
 									<td>
-										<a href="?c=Users&a=houseUpdate&idhouse=<?php echo $house->getCodHouse(); ?>" class="btn btn-success">
+										<a href="?c=Vehicles&a=typeUpdate&idtype=<?php echo $type->getCodtype(); ?>" class="btn btn-success">
 											<i class="fas fa-sync-alt"></i>
 										</a>
 									</td>
 									<td>
-									<a href="?c=Users&a=houseDelete&idhouse=<?php echo $house->getCodHouse(); ?>" class="btn btn-warning">
+									<a href="?c=Vehicles&a=typeDelete&idtype=<?php echo $type->getCodtype(); ?>" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</a>
 									</td>
@@ -49,17 +49,4 @@
 						</tbody>
 					</table>
 				</div>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Previous</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
-				</nav>
 			</div>
