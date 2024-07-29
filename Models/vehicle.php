@@ -21,11 +21,6 @@ class Vehicle{
     # Constructor: Objeto 00 parámetros
     public function __construct0(){}
 
-            # Constructor: Objeto 02 parámetros
-            public function __construct2($cod_type,$vehicle_type){
-                $this->cod_type = $cod_type;
-                $this->vehicle_type = $vehicle_type;
-            }
  # Código tipo de vehiculo
  public function setTypeCode($cod_type){
     $this->cod_type = $cod_type;
@@ -44,7 +39,10 @@ public function getVehicleType(){
   # RF03_CU20 - Registrar tipo de vehiculo 
   public function create_type(){
     try {
-        $sql = 'INSERT INTO TIPO VALUES (:codType,:vehicleType)';
+        $sql = 'INSERT INTO TIPO VALUES (
+        :codType,
+        :vehicleType
+)';
         $stmt = $this->dbh->prepare($sql);
         $stmt->bindValue('codType', $this->getTypeCode());
         $stmt->bindValue('vehicleType', $this->getVehicleType());

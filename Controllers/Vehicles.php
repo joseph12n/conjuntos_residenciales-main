@@ -16,6 +16,7 @@
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $type = new Vehicle;
+
             $type->setVehicleType($_POST['vehicle_type']);
             $type->create_type();
             header("Location: ?c=Vehicles&a=typeRead");

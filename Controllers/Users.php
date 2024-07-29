@@ -75,7 +75,7 @@
         public function houseUpdate(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $houseId = new User;
-                $houseId = $houseId->getHouse_bycode($_GET['idhouse']);
+                $houseId = $houseId->gethouse_bycode($_GET['idhouse']);
                 require_once "views/modules/users/house_update.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
