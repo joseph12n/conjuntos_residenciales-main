@@ -59,7 +59,89 @@ body {
         color: #6c757d; /* Gris Bootstrap */
         margin-bottom: 15px;
     }
-    
+    /*TEST*/
+    .container {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    #calendar {
+        margin-top: 20px;
+    }
+    /* estilos.css */
+#sidebar-container {
+    width: 250px; /* Ancho de la barra lateral */
+    height: 100%;
+    position: fixed; /* Para que se quede fija al hacer scroll */
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0; /* Color de fondo */
+    overflow-y: auto; /* Para que aparezca la barra de desplazamiento si el contenido es muy largo */
+}
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#calendar {
+    margin-top: 20px;
+}
+/* estilos.css */
+#sidebar-container {
+width: 250px; /* Ancho de la barra lateral */
+height: 100%;
+position: fixed; /* Para que se quede fija al hacer scroll */
+top: 0;
+left: 0;
+background-color: #f0f0f0; /* Color de fondo */
+overflow-y: auto; /* Para que aparezca la barra de desplazamiento si el contenido es muy largo */
+}
+
+#main-content {
+margin-left: 260px; /* Espacio para la barra lateral */
+padding: 20px;
+}
+/*test
+
+/* Estilos generales del formulario */
+form {
+background-image: linear-gradient(to bottom, #ffffff, #ffffff); /* Degradado del body */
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+/* Estilos de los campos de entrada y selects */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Transición suave al enfocar */
+  }
+  
+  .form-control:focus {
+    border-color: #c7f0d8; /* Verde claro al enfocar */
+    outline: none; /* Quitar el contorno azul predeterminado */
+  }
+  
+
+    /*TEST*/
 ul li {
     list-style: none;
 }
