@@ -41,6 +41,7 @@
 								<tr>
 									<td><?php echo $user->getRolName(); ?></td>
 									<td><?php echo $user->getUserCode(); ?></td>
+									<td><?php echo $user->getHouseName(); ?></td>
 									<td><?php echo $user->getUserName(); ?></td>
 									<td><?php echo $user->getUserLastName(); ?></td>
 									<td><?php echo $user->getUserBirthday(); ?></td>

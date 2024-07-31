@@ -23,14 +23,14 @@
         }
     }
 
-    // Controlador Consultar Roles
+    // Controlador Consultar tipos de vehiculo
     public function typeRead(){
         $types = new Vehicle;
         $types = $types->read_type();
         require_once "views/modules/Vehicles/type_read.view.php";
     }
 
-    // Controlador Actualizar Rol
+    // Controlador Actualizar tipo de vehiculo
     public function typeUpdate(){
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $typeId = new Vehicle;
@@ -46,7 +46,7 @@
         }
     }
 
-    // Controlador Eliminar Rol
+    // Controlador Eliminar tipo de vehiculo
     public function typeDelete(){
         $type = new Vehicle;
         $type->delete_type($_GET['idtype']);

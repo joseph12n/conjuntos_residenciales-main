@@ -40,7 +40,7 @@
         }
 
         # Constructor: Objeto 12 parámetros
-        public function __construct11($cod_rol,$rol_name,$cod_house,$house_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct13($cod_rol,$rol_name,$cod_house,$house_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->rol_name = $rol_name;
             $this->cod_house = $cod_house;
@@ -56,7 +56,7 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 10 parámetros
-        public function __construct10($cod_rol,$cod_user,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct11($cod_rol,$cod_user,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->cod_user = $cod_user;
             $this->cod_house = $cod_house;
@@ -412,17 +412,24 @@
                             u.user_email, 
                             u.user_pass, 
                             u.user_phone, 
-                            u.user_state
+                            u.user_state,
+                            a.house_name,
+                            a.cod_house
                         FROM ROLES AS r
-                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol
-                        LEFT JOIN HOUSE AS a ON a.cod_house = u.cod_house";
+                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol 
+                        INNER JOIN HOUSE AS a ON a.cod_house = u.cod_house";
+        
                 $stmt = $this->dbh->query($sql);
-                foreach ($stmt->fetchAll() as $user) {
+                if ($stmt === false) {
+                    throw new Exception("Error en la ejecución de la consulta SQL");
+                }
+        
+                foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $user) {
                     $userObj = new User(
                         $user['cod_rol'],
                         $user['rol_name'],
                         $user['cod_user'],
-                        $user['house_name'],
+                        $user['house_name'],  
                         $user['cod_house'],
                         $user['user_name'],
                         $user['user_lastname'],
@@ -433,11 +440,12 @@
                         $user['user_phone'],
                         $user['user_state']
                     );
-                    array_push($userList, $userObj);
+                    $userList[] = $userObj;  
                 }
+        
                 return $userList;
             } catch (Exception $e) {
-                die($e->getMessage());
+                die("Error: " . $e->getMessage());
             }
         }
 

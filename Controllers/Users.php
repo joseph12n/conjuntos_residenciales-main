@@ -98,6 +98,8 @@
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $roles = new User;
                 $roles = $roles->read_roles();
+                $houses = new User;
+                $houses = $houses->read_house();
                 require_once "views/modules/users/user_create.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
