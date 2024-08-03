@@ -25,7 +25,7 @@
 	                  	  	  <h4><i class="fa fa-angle-right"></i> Roles</h4>
 	                  	  	  <hr>
                               <thead>
-                              <tr>
+                              <tr class="text-center roboto-medium">
                                   <th><i class="fa fa-bullhorn"></i> Codigo Rol</th>
                                   <th class="hidden-phone"><i class="fa fa-question-circle"></i>Nombre Rol</th>
                                   <th><i class="fa fa-edit"></i> Actualizar/eliminar</th>
