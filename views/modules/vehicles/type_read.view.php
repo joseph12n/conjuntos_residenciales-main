@@ -38,8 +38,8 @@
 									<td><?php echo $type->getTypeCode(); ?></td>
 									<td><?php echo $type->getVehicletype(); ?></td>
 									<td>
-									<a href="?cVehicles&a=typeUpdate&idType=<?php echo $type->getTypeCode(); ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>
-									<a href="?cVehicles&a=typeDelete&idType=<?php echo $type->getTypeCode(); ?>"class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>
+									<a href="?cVehicles&a=typeUpdate&idtype=<?php echo $type->getTypeCode(); ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>
+									<a href="?cVehicles&a=typeDelete&idtype=<?php echo $type->getTypeCode(); ?>"class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>
 									</td>
 								</tr>
 							<?php endforeach; ?>

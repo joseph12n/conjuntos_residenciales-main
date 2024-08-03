@@ -449,36 +449,31 @@
             }
         }
 
-        # RF10_CU10 - Obtener el Usuario por el código
         public function getuser_bycode($userCode) {
             try {
-                // Imprime el valor de userCode para depuración
-                error_log("Valor de userCode: " . $userCode);
-                
                 $sql = 'SELECT
-                            r.cod_rol,
-                            r.rol_name,
-                            u.cod_user,
-                            u.user_name,
-                            u.user_lastname,
-                            u.user_birthday,
-                            u.user_id,
-                            u.user_email,
-                            u.user_pass,
-                            u.user_phone,
-                            u.user_state
-                        FROM ROLES AS r
-                        INNER JOIN USERS AS u
-                        ON r.cod_rol = u.cod_rol
-                        WHERE u.cod_user = :userCode';
-                        
-                $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue(':userCode', $userCode, PDO::PARAM_INT); // Especifica el tipo de dato
-                $stmt->execute();
-                $userDb = $stmt->fetch(PDO::FETCH_ASSOC);
+                    r.cod_rol,
+                    r.rol_name,
+                    u.cod_user,
+                    u.user_name,
+                    u.user_lastname,
+                    u.user_birthday,
+                    u.user_id,
+                    u.user_email,
+                    u.user_pass,
+                    u.user_phone,
+                    u.user_state,
+                    h.cod_house,
+                    h.house_name
+                FROM ROLES AS r
+                INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol 
+                INNER JOIN HOUSE AS h ON h.cod_house = u.cod_house
+                WHERE u.cod_user = :userCode';
         
-                // Imprime el resultado de la consulta para depuración
-                error_log("Resultado de la consulta: " . print_r($userDb, true));
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('userCode', $userCode);
+                $stmt->execute();
+                $userDb = $stmt->fetch();
         
                 if ($userDb) {
                     $user = new User(
@@ -492,21 +487,22 @@
                         $userDb['user_email'],
                         $userDb['user_pass'],
                         $userDb['user_phone'],
-                        $userDb['user_state']
+                        $userDb['user_state'],
+                        $userDb['cod_house'],
+                        $userDb['house_name']
                     );
                     return $user;
                 } else {
-                    throw new Exception("Usuario no encontrado");
+                    return null; // O manejar el caso cuando no se encuentra el usuario
                 }
             } catch (Exception $e) {
-                // Registra el error
-                error_log($e->getMessage());
-                return null; // O maneja el error de la manera que consideres apropiada
+                error_log("Error en getuser_bycode: " . $e->getMessage());
+                throw new Exception("Error al obtener el usuario");
             }
         }
-
+        
          # RF11_CU11 - Actualizar usuario
-         public function update_user() {
+         public function update_user(){
             try {
                 $sql = 'UPDATE USERS SET
                             cod_rol = :rolCode,
@@ -520,34 +516,24 @@
                             user_phone = :userPhone,
                             user_state = :userState
                         WHERE cod_user = :userCode';
-                        
+                
                 $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('houseCode', $this->getHouseCode());
+                $stmt->bindValue('userName', $this->getUserName());
+                $stmt->bindValue('userLastName', $this->getUserLastName());
+                $stmt->bindValue('userBirthday', $this->getUserBirthday());
+                $stmt->bindValue('userId', $this->getUserId());
+                $stmt->bindValue('userEmail', $this->getUserEmail());
+                $stmt->bindValue('userPass', password_hash($this->getUserPass(), PASSWORD_DEFAULT));
+                $stmt->bindValue('userPhone', $this->getUserPhone());
+                $stmt->bindValue('userState', $this->getUserState());
+                $stmt->bindValue('userCode', $this->getUserCode());
                 
-                // Usa los nombres de parámetros correctos en bindValue
-                $stmt->bindValue(':rolCode', $this->getRolCode());
-                $stmt->bindValue(':houseCode', $this->getHouseCode());
-                $stmt->bindValue(':userName', $this->getUserName());
-                $stmt->bindValue(':userLastName', $this->getUserLastName());
-                $stmt->bindValue(':userBirthday', $this->getUserBirthday());
-                $stmt->bindValue(':userId', $this->getUserId());
-                $stmt->bindValue(':userEmail', $this->getUserEmail());
-                $stmt->bindValue(':userPass', password_hash($this->getUserPass(), PASSWORD_BCRYPT)); // Usar password_hash para mayor seguridad
-                $stmt->bindValue(':userPhone', $this->getUserPhone());
-                $stmt->bindValue(':userState', $this->getUserState());
-                $stmt->bindValue(':userCode', $this->getUserCode()); // Asegúrate de usar el mismo parámetro para el WHERE
-                
-                $stmt->execute();
-                
-                // Opcional: Verifica el número de filas afectadas
-                if ($stmt->rowCount() === 0) {
-                    throw new Exception("No se actualizó ningún registro. Verifica el código de usuario.");
-                }
+                return $stmt->execute();
             } catch (Exception $e) {
-                // Registra el error en lugar de usar die()
-                error_log($e->getMessage());
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
+                error_log("Error en update_user: " . $e->getMessage());
+            } 
         }
 
         # RF12_CU12 - Eliminar Usuario

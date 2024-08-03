@@ -144,6 +144,7 @@
                 $userUpdate = new User(
                     $_POST['cod_rol'],
                     $_POST['user_code'],
+                    $_POST['house_code'],
                     $_POST['user_name'],
                     $_POST['user_lastname'],
                     $_POST['user_birthday'],

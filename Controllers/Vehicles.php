@@ -1,5 +1,5 @@
 <?php
- require_once "models/vehicle.php";
+ require_once "models/Vehicle.php";
  class Vehicles{
 
      public function __construct(){}
@@ -12,7 +12,7 @@
      // Controlador Crear tipos de vehiculo
      public function typeCreate(){
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            require_once "views/modules/Vehicles/type_create.view.php";
+            require_once "views/modules/vehicles/type_create.view.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $type = new Vehicle;
@@ -27,7 +27,7 @@
     public function typeRead(){
         $types = new Vehicle;
         $types = $types->read_type();
-        require_once "views/modules/Vehicles/type_read.view.php";
+        require_once "views/modules/vehicles/type_read.view.php";
     }
 
     // Controlador Actualizar tipo de vehiculo
@@ -35,7 +35,7 @@
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $typeId = new Vehicle;
             $typeId = $typeId->gettype_bycode($_GET['idtype']);
-            require_once "views/modules/Vehicles/type_update.view.php";
+            require_once "views/modules/vehicles/type_update.view.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $typeUpdate = new Vehicle;

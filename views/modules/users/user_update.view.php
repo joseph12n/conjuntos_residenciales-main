@@ -20,8 +20,6 @@
 					</li>
 				</ul>	
 			</div>
-			
-			<!-- Content -->
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off">
 					<fieldset>
@@ -38,6 +36,20 @@
                                                     <option selected="" value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
                                                 <?php else : ?>
                                                     <option value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
+                                                <?php endif; ?>
+											<?php endforeach; ?>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="house_code" class="bmd-label-floating">casa</label>
+										<select class="form-control" name="cod_house" id="house_code">                                            											
+											<?php foreach ($houses as $house) : ?>
+                                                <?php if ($house->getHouseCode() == $user->getHouseCode()) : ?>
+                                                    <option selected="" value="<?php echo $house->getHouseCode() ?>"><?php echo $house->getHouseName() ?></option>
+                                                <?php else : ?>
+                                                    <option value="<?php echo $house->getHouseCode() ?>"><?php echo $house->getHouseName() ?></option>
                                                 <?php endif; ?>
 											<?php endforeach; ?>
 										</select>

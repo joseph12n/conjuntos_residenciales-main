@@ -87,7 +87,7 @@ die($e->getMessage());
 # RF06_CU06 - Actualizar tipo de vehiculo
 public function update_type(){
 try {
-$sql = 'UPDATE TIPO SET
+$sql = 'UPDATE TIPO SET 
             cod_type = :typeCode,
             vehicle_type = :vehicleType
         WHERE cod_type = :typeCode';

@@ -23,7 +23,7 @@
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>ROL</th>
-								<th>CÓDIGO</th>
+								<th>CÓDIGO Usuario</th>
 								<th>CASA (si es residente)</th>
 								<th>NOMBRES</th>
 								<th>APELLIDOS</th>
