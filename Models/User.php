@@ -169,29 +169,30 @@
                 $sql = 'SELECT
                             r.cod_rol,
                             r.rol_name,
-                            cod_house,
-                            cod_user,
-                            user_name,
-                            user_lastname,
-                            user_birthday,
-                            user_id,
-                            user_email,
-                            user_pass,
-                            user_phone,
-                            user_state
+                            u.cod_user,
+                            u.user_name,
+                            u.user_lastname,
+                            u.user_birthday,
+                            u.user_id,
+                            u.user_email,
+                            u.user_pass,
+                            u.user_phone,
+                            u.user_state,
+                            h.cod_house,
+                            h.house_name
                         FROM ROLES AS r
-                        INNER JOIN USERS AS u
-                        on r.cod_rol = u.cod_rol
-                        WHERE user_email = :userEmail AND user_pass = :userPass';
+                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol
+                        INNER JOIN HOUSE AS h ON u.cod_house = h.cod_house
+                        WHERE u.user_email = :userEmail';
+                
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('userEmail', $this->getUserEmail());
-                $stmt->bindValue('userPass', sha1($this->getUserPass()));
                 $stmt->execute();
-                $userDb = $stmt->fetch();
-                if ($userDb) {
+                $userDb = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($userDb && password_verify($this->getUserPass(), $userDb['user_pass'])) {
                     $user = new User(
                         $userDb['cod_rol'],
-                        $userDb['cod_house'],
                         $userDb['rol_name'],
                         $userDb['cod_user'],
                         $userDb['user_name'],
@@ -201,17 +202,19 @@
                         $userDb['user_email'],
                         $userDb['user_pass'],
                         $userDb['user_phone'],
-                        $userDb['user_state']
+                        $userDb['user_state'],
+                        $userDb['cod_house'],
+                        $userDb['house_name']
                     );
                     return $user;
                 } else {
                     return false;
                 }
             } catch (Exception $e) {
-                die($e->getMessage());
+                error_log("Error en login: " . $e->getMessage());
+                throw new Exception("Error al iniciar sesión");
             }
         }
-
         # RF03_CU03 - Registrar Rol
         public function create_rol(){
             try {
