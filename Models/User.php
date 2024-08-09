@@ -441,7 +441,7 @@
                         $user['user_email'],
                         $user['user_pass'],
                         $user['user_phone'],
-                        $user['user_    state']
+                        $user['user_state']
                     );
                     $userList[] = $userObj;  
                 }
