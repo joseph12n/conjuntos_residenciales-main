@@ -138,6 +138,8 @@
                 $roles = $roles->read_roles();
                 $user = new User;
                 $user = $user->getuser_bycode($_GET['idUser']);
+                $houses = new User;
+                $houses = $houses->read_house();
                 require_once "views/modules/users/user_update.view.php";
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {

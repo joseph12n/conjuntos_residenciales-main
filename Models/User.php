@@ -431,9 +431,9 @@
                     $userObj = new User(
                         $user['cod_rol'],
                         $user['rol_name'],
-                        $user['cod_user'],
-                        $user['house_name'],  
                         $user['cod_house'],
+                        $user['house_name'],  
+                        $user['cod_user'],
                         $user['user_name'],
                         $user['user_lastname'],
                         $user['user_birthday'],
@@ -441,7 +441,7 @@
                         $user['user_email'],
                         $user['user_pass'],
                         $user['user_phone'],
-                        $user['user_state']
+                        $user['user_    state']
                     );
                     $userList[] = $userObj;  
                 }
@@ -482,6 +482,8 @@
                     $user = new User(
                         $userDb['cod_rol'],
                         $userDb['rol_name'],
+                        $userDb['cod_house'],
+                        $userDb['house_name'],
                         $userDb['cod_user'],
                         $userDb['user_name'],
                         $userDb['user_lastname'],
@@ -490,9 +492,7 @@
                         $userDb['user_email'],
                         $userDb['user_pass'],
                         $userDb['user_phone'],
-                        $userDb['user_state'],
-                        $userDb['cod_house'],
-                        $userDb['house_name']
+                        $userDb['user_state']
                     );
                     return $user;
                 } else {
