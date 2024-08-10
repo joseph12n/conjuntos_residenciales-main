@@ -24,8 +24,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
 
-            <a href="index.html" class="logo"><b>CONJUNTOS RESIDENCIALES</b></a>
-  
+            <a class="logo"><b>CONJUNTOS RESIDENCIALES</b></a>
             <div class="nav notify-row" id="top_menu">
                
                 <ul class="nav top-menu">
@@ -47,7 +46,7 @@
               	  <h5 class="centered">PEDRO</h5>
               	  	
                   <li class="mt">
-                      <a class="active" href="?">
+                  <a class="active" href="?c=Dashboard">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>

@@ -21,9 +21,7 @@
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
-                    <h3 class="h5"><?php echo $message ?></h3>
                 </div>
             </form>
         </div>
     </div>
-    <!-- End Contact -->
