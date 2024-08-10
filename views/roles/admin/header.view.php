@@ -33,7 +33,7 @@
                     
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="?c=Logout">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -82,7 +82,7 @@
                       </a>
                       <ul class="sub">
                           <li> <a href="?c=Users&a=userCreate">Agregar Usuario</a></li>
-                          <li>  <a href="?c=Users&a=userRead">Buscar Usuario</a>/li>
+                          <li>  <a href="?c=Users&a=userRead">Buscar Usuario</a>
                           <li>  <a href="user.update.view.php">Actualizar Usuario</a></li>
                       </ul>
                   </li>
