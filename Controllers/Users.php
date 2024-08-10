@@ -156,6 +156,7 @@
                     $_POST['user_phone'],
                     $_POST['user_state']
                 );
+                // print_r($userUpdate);
                 $userUpdate->update_user();
                 header("Location: ?c=Users&a=userRead");
             }

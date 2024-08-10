@@ -507,7 +507,7 @@
          # RF11_CU11 - Actualizar usuario
          public function update_user(){
             try {
-                $sql = 'UPDATE USERS SET
+                $sql = "UPDATE USERS SET
                             cod_rol = :rolCode,
                             cod_house = :houseCode,
                             user_name = :userName,
@@ -518,8 +518,8 @@
                             user_pass = :userPass,
                             user_phone = :userPhone,
                             user_state = :userState
-                        WHERE cod_user = :userCode';
-                
+                        WHERE cod_user = :userCode";
+               
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
                 $stmt->bindValue('houseCode', $this->getHouseCode());
@@ -528,13 +528,14 @@
                 $stmt->bindValue('userBirthday', $this->getUserBirthday());
                 $stmt->bindValue('userId', $this->getUserId());
                 $stmt->bindValue('userEmail', $this->getUserEmail());
-                $stmt->bindValue('userPass', password_hash($this->getUserPass(), PASSWORD_DEFAULT));
+                // $stmt->bindValue('userPass', password_hash($this->getUserPass(), PASSWORD_DEFAULT));
+                $stmt->bindValue('userPass', sha1($this->getUserPass()));
                 $stmt->bindValue('userPhone', $this->getUserPhone());
                 $stmt->bindValue('userState', $this->getUserState());
-                $stmt->bindValue('userCode', $this->getUserCode());
-                
-                return $stmt->execute();
+                $stmt->bindValue('userCode', $this->getUserCode());                
+                $stmt->execute();
             } catch (Exception $e) {
+                // die($e->getMessage());
                 error_log("Error en update_user: " . $e->getMessage());
             } 
         }
