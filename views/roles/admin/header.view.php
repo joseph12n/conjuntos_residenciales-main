@@ -92,20 +92,22 @@
                           <span>Reservas</span>
                       </a>
                       <ul class="sub">
-                          <li> <a href="reserva.view.php">Reservar</a></li>
+                          <li> <a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
                           <li><a href="consultar_fechas_reserva.php">Consultar Fechas de Reserva</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
+                      <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-tasks"></i>
-                          <span>tipos de vehiculos</span>
+                          <span>Lugares</span>
                       </a>
                       <ul class="sub">
-                          <li> <a href="?c=Vehicles&a=typeCreate">Agregar tipo de vehiculo</a></li>
-                            <li> <a href="?c=Vehicles&a=typeRead">Buscar tipo de vehiculo</a></li>
-                                <li> <a href="house.update.view.php">Actualizar tipo de vehiculo</a></li>
+                          <li> <a href="?c=Places&a=placeCreate">Agregar lugar</a></li>
+                            <li> <a href="?c=Places&a=placeRead">Buscar lugar</a></li>
+                                <li> <a href="?c=Places&a=placeRead">Actualizar consular lugar</a></li>
                       </ul>
+                  </li>
+                  </li>
                   </li>
                   </li>
               </ul>

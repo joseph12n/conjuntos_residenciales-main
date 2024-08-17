@@ -70,7 +70,7 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 10 parámetros
-        public function __construct11Login($cod_rol,$cod_user,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+        public function __construct11Login($cod_rol,$cod_user,$rol_name,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
             $this->cod_rol = $cod_rol;
             $this->rol_name = $rol_name;
             $this->cod_user = $cod_user;
