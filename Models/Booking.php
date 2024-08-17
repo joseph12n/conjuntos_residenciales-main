@@ -215,7 +215,6 @@ class Booking
             return $bookingList;
         } catch (Exception $e) {
             die("Error: " . $e->getMessage());
-            throw new Exception("Error al obtener el registro");
         }
     }
 
