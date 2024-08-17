@@ -39,8 +39,9 @@
             $this->user_pass = $user_pass;
         }
 
-        # Constructor: Objeto 12 parámetros
+        # Constructor: Objeto 13 parámetros
         public function __construct13($cod_rol,$rol_name,$cod_house,$house_name,$cod_user,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
+            unset($this->dbh); 
             $this->cod_rol = $cod_rol;
             $this->rol_name = $rol_name;
             $this->cod_house = $cod_house;
@@ -70,19 +71,6 @@
             $this->user_state = $user_state;
         }
         # Constructor: Objeto 10 parámetros
-        public function __construct11Login($cod_rol,$cod_user,$rol_name,$cod_house,$user_name,$user_lastname,$user_birthday,$user_id,$user_email,$user_pass,$user_phone,$user_state){
-            $this->cod_rol = $cod_rol;
-            $this->rol_name = $rol_name;
-            $this->cod_user = $cod_user;
-            $this->user_name = $user_name;
-            $this->user_lastname = $user_lastname;
-            $this->user_birthday = $user_birthday;
-            $this->user_id = $user_id;
-            $this->user_email = $user_email;
-            $this->user_pass = $user_pass;
-            $this->user_phone = $user_phone;;
-            $this->user_state = $user_state;
-        }
         # Código Rol
         public function setRolCode($cod_rol){
             $this->cod_rol = $cod_rol;
@@ -181,19 +169,22 @@
         public function login(){
             try {
                 $sql = 'SELECT
-                            r.cod_rol,
-                            r.rol_name,
-                            u.cod_user,
-                            u.user_name,
-                            u.user_lastname,
-                            u.user_birthday,
-                            u.user_id,
-                            u.user_email,
-                            u.user_pass,
-                            u.user_phone,
-                            u.user_state
+                            r.cod_rol, 
+                            r.rol_name, 
+                            u.cod_user, 
+                            u.user_name, 
+                            u.user_lastname, 
+                            u.user_birthday, 
+                            u.user_id, 
+                            u.user_email, 
+                            u.user_pass, 
+                            u.user_phone, 
+                            u.user_state,
+                            a.house_name,
+                            a.cod_house
                         FROM ROLES AS r
-                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol
+                        INNER JOIN USERS AS u ON r.cod_rol = u.cod_rol 
+                        INNER JOIN HOUSE AS a ON a.cod_house = u.cod_house
                         WHERE user_email = :userEmail AND user_pass = :userPass';
                 
                 $stmt = $this->dbh->prepare($sql);
@@ -206,6 +197,8 @@
                     $user = new User(
                         $userDb['cod_rol'],
                         $userDb['rol_name'],
+                        $userDb['cod_house'],
+                        $userDb['house_name'],  
                         $userDb['cod_user'],
                         $userDb['user_name'],
                         $userDb['user_lastname'],
