@@ -16,8 +16,6 @@
 						<a href="?c=Places&a=placeUpdate"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar lugar</a>
 					</li>
 				</ul>
-			</div>
-    </form>
 	<div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">

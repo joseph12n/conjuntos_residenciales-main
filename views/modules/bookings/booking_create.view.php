@@ -34,7 +34,7 @@
                             <select class="form-control" name="cod_place">
                                 <option value="" selected="" disabled="">Seleccione una opción</option>
                                 <?php foreach ($places as $place) : ?>
-                                    <option value="<?php echo $place->getPlaceName() ?>"><?php echo $place->getPlaceName() ?></option>
+                                    <option value="<?php echo $place->getPlaceCode() ?>"><?php echo $place->getPlaceName() ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -45,7 +45,7 @@
                             <select class="form-control" name="cod_user">
                                 <option value="" selected="" disabled="">Seleccione una opción</option>
                                 <?php foreach ($users as $user) : ?>
-                                    <option value="<?php echo $user->getUserId() ?>"><?php echo $user->getUserId() ?></option>
+                                    <option value="<?php echo $user->getUserCode() ?>"><?php echo $user->getUserId() ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

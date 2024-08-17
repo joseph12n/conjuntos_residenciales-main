@@ -31,11 +31,7 @@ class Bookings
                 $_POST['booking_date'],
                 null,
                 $_POST['cod_user'],
-                $_POST['user_id'],
-                $_POST['user_name'],
-                $_POST['user_lastname'],
-                $_POST['cod_place'],
-                $_POST['place_name']
+                $_POST['cod_place']
             );
             $booking->create_booking();
             header("Location: ?c=Bookings&a=bookingRead");

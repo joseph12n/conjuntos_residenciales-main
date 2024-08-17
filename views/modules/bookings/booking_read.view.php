@@ -25,9 +25,11 @@
                             <th>Fecha de reserva</th>
                             <th>Codigo reserva</th>
                             <th>Codigo usuario</th>
-                            <th>Nombres</th>
-                            <th>Apellido</th>
-                            <th>Nombre lugar</th>
+                            <th>Identificación</th>
+                            <th>codigo del lugar</th>
+                            <th>nombres</th>
+                            <th>apellidos</th>
+                            <th>lugar</th>
                             <th>ACTUALIZAR</th>
                             <th>ELIMINAR</th>
                         </tr>
@@ -37,6 +39,8 @@
                             <tr>
                                 <td><?php echo $booking->getBookingDate(); ?></td>
                                 <td><?php echo $booking->getBookingCode(); ?></td>
+                                <td><?php echo $booking->getUserCode(); ?></td>
+                                <td><?php echo $booking->getPlaceCode(); ?></td>
                                 <td><?php echo $booking->getUserId(); ?></td>
                                 <td><?php echo $booking->getUserName(); ?></td>
                                 <td><?php echo $booking->getUserLastName(); ?></td>

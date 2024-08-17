@@ -1,5 +1,4 @@
-			<!-- Page header -->
-			<div class="full-box page-header">
+<div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ROLES
 				</h3>
@@ -16,19 +15,15 @@
 						<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ROL</a>
 					</li>
 				</ul>
-			</div>
-    </form>
 	<div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover">
-	                  	  	  <h4><i class="fa fa-angle-right"></i> Roles</h4>
-	                  	  	  <hr>
-                              <thead>
-                              <tr class="text-center roboto-medium">
-                                  <th><i class="fa fa-bullhorn"></i> Codigo Rol</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i>Nombre Rol</th>
-                                  <th><i class="fa fa-edit"></i> Actualizar/eliminar</th>
+						<thead>
+							<tr class="text-center roboto-medium">
+                                  <th> Codigo Rol</th>
+                                  <th>Nombre Rol</th>
+                                  <th> Actualizar/eliminar</th>
                                   <th></th>
                               </tr>
                               </thead>

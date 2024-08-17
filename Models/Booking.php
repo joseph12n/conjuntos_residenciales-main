@@ -53,19 +53,19 @@ class Booking
         $this->cod_user = $cod_user;
         $this->cod_place = $cod_place;
     }
-
-    # Constructor: Objeto 08parámetros
-    public function __construct8($booking_date, $cod_booking, $cod_user, $user_id, $user_name, $user_lastname, $cod_place, $place_name)
+    # Constructor: Objeto 04parámetros
+    public function __construct8($booking_date, $cod_booking, $cod_user, $cod_place,$user_id,$user_name,$user_lastname,$place_name)
     {
         $this->booking_date = $booking_date;
         $this->cod_booking = $cod_booking;
         $this->cod_user = $cod_user;
         $this->user_id = $user_id;
-        $this->user_id = $user_name;
-        $this->user_id = $user_lastname;
         $this->cod_place = $cod_place;
+        $this->user_name = $user_name;
+        $this->user_lastname = $user_lastname;
         $this->place_name = $place_name;
     }
+
 
     #Fecha reserva
     public function setBookingDate($booking_date)
@@ -98,37 +98,6 @@ class Booking
     {
         return $this->cod_user;
     }
-
-    # Identificación Usuario
-    public function setUserId($user_id)
-    {
-        $this->user_id = $user_id;
-    }
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    # Nombre Usuario
-    public function setUserName($user_name)
-    {
-        $this->user_name = $user_name;
-    }
-    public function getUserName()
-    {
-        return $this->user_name;
-    }
-
-    # Apellido Usuario
-    public function setUserLastName($user_lastname)
-    {
-        $this->user_lastname = $user_lastname;
-    }
-    public function getUserLastName()
-    {
-        return $this->user_lastname;
-    }
-
     # Código lugar
     public function setPlaceCode($cod_place)
     {
@@ -139,40 +108,47 @@ class Booking
     {
         return $this->cod_place;
     }
-
-    # Nombre lugar
-    public function setPlaceName($place_name)
-    {
-        $this->place_name = $place_name;
+    public function setUserName($user_name){
+        $this->user_name = $user_name;
     }
-
-    public function getPlaceName()
-    {
-        return $this->place_name;
+    public function getUserName(){
+        return $this->user_name;
     }
-
-    public function create_booking()
-    {
+    # Apellido Usuario
+    public function setUserLastName($user_lastname){
+        $this->user_lastname = $user_lastname;
+    }
+    public function getUserLastName(){
+        return $this->user_lastname;
+    }
+        # Nombre lugar
+        public function setPlaceName($place_name) {
+            $this->place_name = $place_name;
+        }
+    
+        public function getPlaceName() {
+            return $this->place_name;
+        }
+     # Identificación Usuario
+     public function setUserId($user_id){
+        $this->user_id = $user_id;
+    }
+    public function getUserId(){
+        return $this->user_id;
+    }
+    public function create_booking(){
         try {
             $sql = 'INSERT INTO BOOKING VALUES (
                             :bookingDate,
                             :bookingCode,
                             :userCode,
-                            :userId,
-                            :userName,
-                            :userLastName,
-                            :placeCode,
-                            :placeName
+                            :placeCode
                         )';
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindValue('bookingDate', $this->getBookingDate());
             $stmt->bindValue('bookingCode', $this->getBookingCode());
             $stmt->bindValue('userCode', $this->getUserCode());
-            $stmt->bindValue('userId', $this->getUserId());
-            $stmt->bindValue('userName', $this->getUserName());
-            $stmt->bindValue('userLastName', $this->getUserLastName());
             $stmt->bindValue('placeCode', $this->getPlaceCode());
-            $stmt->bindValue('placeName', $this->getPlaceName());
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
@@ -187,15 +163,16 @@ class Booking
             $sql = "SELECT 
                     b.booking_date,
                     b.cod_booking,
-                    u.cod_user AS user_id,
+                    u.cod_user,
+                    p.cod_place, 
+                    u.user_id,
                     u.user_name,
                     u.user_lastname,
-                    p.cod_place
                     p.place_name
                 FROM PLACES AS p
                 INNER JOIN BOOKING AS b ON p.cod_place = b.cod_place 
                 INNER JOIN USERS AS u ON u.cod_user = b.cod_user";
-
+    
             $stmt = $this->dbh->query($sql);
             if ($stmt === false) {
                 throw new Exception("Error en la ejecución de la consulta SQL");
@@ -204,10 +181,11 @@ class Booking
                 $bookingObj = new Booking(
                     $booking['booking_date'],
                     $booking['cod_booking'],
+                    $booking['cod_user'],
                     $booking['user_id'],
+                    $booking['cod_place'],
                     $booking['user_name'],
                     $booking['user_lastname'],
-                    $booking['cod_place'],
                     $booking['place_name']
                 );
                 $bookingList[] = $bookingObj;
@@ -225,20 +203,13 @@ class Booking
                             booking_date = :bookingDate,
                             cod_booking = :bookingCode,
                             cod_user = :userCode,
-                            user_id = :userId,
-                            user_name = :userName,
-                            user_lasname = :userLastName,
                             cod_place = :placeCode,
-                            placeName = :placeName,
                         WHERE booking_date = :bookingDate";
 
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindValue('bookingDate', $this->getBookingDate());
             $stmt->bindValue('bookingCode', $this->getBookingCode());
             $stmt->bindValue('userCode', $this->getUserCode());
-            $stmt->bindValue('userId', $this->getUserId());
-            $stmt->bindValue('userName', $this->getUserName());
-            $stmt->bindValue('userLastName', $this->getUserLastName());
             $stmt->bindValue('placeCode', $this->getPlaceCode());
         } catch (Exception $e) {
             // die($e->getMessage());
