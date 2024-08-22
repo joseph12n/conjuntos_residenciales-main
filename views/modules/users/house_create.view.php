@@ -35,7 +35,7 @@
 					<p class="text-center" style="margin-top: 40px;">
 					<button type="reset" class="btn btn-primary">Limpiar</button>
 						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-primary">Agregar Rol</button>
+						<button type="submit" class="btn btn-primary" id="submit-house">Agregar Rol</button>
 					</p>
 				</form>
 			</div>
