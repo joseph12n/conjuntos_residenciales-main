@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 			<div class="container-fluid">
-				<form action="" method="POST" class="form-neon" autocomplete="off">
+				<form action="" method="POST" class="form-neon" autocomplete="off" name="form_place">
 					<fieldset>
 						<legend><i class="fas fa-user"></i> &nbsp; Agregar lugar</legend>
 						<div class="container-fluid">
@@ -35,7 +35,7 @@
 					<p class="text-center" style="margin-top: 40px;">
 					<button type="reset" class="btn btn-primary">Limpiar</button>
 						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-primary">Agregar lugar</button>
+						<button type="submit" class="btn btn-primary" id="submit-place">Agregar lugar</button>
 					</p>
 				</form>
 			</div>

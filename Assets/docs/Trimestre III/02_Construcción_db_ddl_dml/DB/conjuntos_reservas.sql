@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `conjuntos_reservas`.`HOUSE`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `conjuntos_reservas`.`HOUSE` (
-  `cod_house` INT NOT NULL,
+  `cod_house` INT NOT NULL AUTO_INCREMENT,
   `house_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`cod_house`))
 ENGINE = InnoDB;
