@@ -26,11 +26,11 @@ if (file_exists($route_controller)) {
         call_user_func(array($controller, $action));
         require_once "views/roles/" . $session . "/footer.view.php";
     } else {
-        header("Location: ?"); // Redirige a la página de login si no hay sesión
+        header("Location: ?"); 
         exit();
     }
 } else {
-    header("Location: ?"); // Redirige a la página de login si el controlador no existe
+    header("Location: ?"); 
     exit();
 }
 

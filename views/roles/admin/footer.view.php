@@ -23,7 +23,7 @@
 		<script src="assets/dashboard/js/sparkline-chart.js"></script>
 		<script src="assets/dashboard/js/zabuto_calendar.js"></script>
 		<script src="assets/dashboard/js/chart-master/Chart.js"></script>
-		<script src="assets/landing/js/validations.js"></script>
+		<script src="assets/dashboard/js/validations.js"></script>
 		</div>
 		</body>
 

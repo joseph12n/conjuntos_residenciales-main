@@ -34,6 +34,7 @@ function validar_house() {
     }
 }
 
+
 //Fncion de lugares
 hacerClic = document.getElementById("container");
 hacerClic.addEventListener('click', function (event) {

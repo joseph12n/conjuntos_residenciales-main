@@ -1,36 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
-    <link href="assets/dashboard/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/dashboard/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
-    <link href="assets/dashboard/css/style.css" rel="stylesheet">
-    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
-  </head>
-
+</head>
   <body>
-
   <section id="container" >
             <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
-
             <a class="logo"><b>CONJUNTOS RESIDENCIALES</b></a>
-            <div class="nav notify-row" id="top_menu">
-               
-                <ul class="nav top-menu">
- 
-          
-                    
+            <div class="nav notify-row" id="top_menu"> 
+                <ul class="nav top-menu">    
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="?c=Logout">Logout</a></li>
