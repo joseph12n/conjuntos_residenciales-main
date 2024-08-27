@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="assets/dashboard/css/style.css" rel="stylesheet">
+    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
 </head>
 <body>
 
