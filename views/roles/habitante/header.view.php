@@ -60,7 +60,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=rolCreate">Agregar Rol</a></li>
                           <li> <a href="?c=Users&a=rolRead">Buscar Rol</a></li>
-                          <li> <a href="rol.update.view.php">Actualizar Rol</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -71,7 +70,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=houseCreate">Agregar casa</a></li>
                           <li> <a href="?c=Users&a=houseRead">Buscar casa</a></li>
-                          <li> <a href="house.update.view.php">Actualizar casa</a></li>
                       </ul>
                   </li>
 
@@ -83,7 +81,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=userCreate">Agregar Usuario</a></li>
                           <li>  <a href="?c=Users&a=userRead">Buscar Usuario</a>
-                          <li>  <a href="user.update.view.php">Actualizar Usuario</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -104,7 +101,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Places&a=placeCreate">Agregar lugar</a></li>
                             <li> <a href="?c=Places&a=placeRead">Buscar lugar</a></li>
-                                <li> <a href="?c=Places&a=placeRead">Actualizar consular lugar</a></li>
                       </ul>
                   </li>
                   </li>

@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+<i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo strtoupper($session) ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
-    <link href="assets/dashboard/css/style.css" rel="stylesheet">
-    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
 </head>
 <body>
 
@@ -34,11 +34,6 @@
             <i class="fas fa-user card-icon"></i>
                 <h2 class="card-title">Reservar</h2>
                 <a href="reserva.view.php" class="btn btn-primary">Realizar Reserva</a>
-            </div>
-            <div class="card">
-            <i class="fas fa-user card-icon"></i>
-                <h2 class="card-title">Reservar</h2>
-                <a href="parqueadero.view.php" class="btn btn-primary">Reserva parqueadero</a>
             </div>
         </div>
     </div>

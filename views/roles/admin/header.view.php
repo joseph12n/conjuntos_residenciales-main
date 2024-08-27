@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <link href="assets/dashboard/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/dashboard/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
+    <link href="assets/dashboard/css/style.css" rel="stylesheet">
+    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
+  </head>
+
   <body>
+
   <section id="container" >
             <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
+
             <a class="logo"><b>CONJUNTOS RESIDENCIALES</b></a>
-            <div class="nav notify-row" id="top_menu"> 
-                <ul class="nav top-menu">    
+            <div class="nav notify-row" id="top_menu">
+               
+                <ul class="nav top-menu">
+ 
+          
+                    
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="?c=Logout">Logout</a></li>
@@ -41,7 +60,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=rolCreate">Agregar Rol</a></li>
                           <li> <a href="?c=Users&a=rolRead">Buscar Rol</a></li>
-                          <li> <a href="rol.update.view.php">Actualizar Rol</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -52,7 +70,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=houseCreate">Agregar casa</a></li>
                           <li> <a href="?c=Users&a=houseRead">Buscar casa</a></li>
-                          <li> <a href="house.update.view.php">Actualizar casa</a></li>
                       </ul>
                   </li>
 
@@ -64,7 +81,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Users&a=userCreate">Agregar Usuario</a></li>
                           <li>  <a href="?c=Users&a=userRead">Buscar Usuario</a>
-                          <li>  <a href="user.update.view.php">Actualizar Usuario</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -85,7 +101,6 @@
                       <ul class="sub">
                           <li> <a href="?c=Places&a=placeCreate">Agregar lugar</a></li>
                             <li> <a href="?c=Places&a=placeRead">Buscar lugar</a></li>
-                                <li> <a href="?c=Places&a=placeRead">Actualizar consular lugar</a></li>
                       </ul>
                   </li>
                   </li>
