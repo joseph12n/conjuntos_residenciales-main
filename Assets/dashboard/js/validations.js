@@ -62,7 +62,7 @@ function validar_rol() {
             button: "Aceptar",
         }).then((result) => {
             if (result) {
-                document.form_house.submit();
+                document.form_rol.submit();
             }
         });
     }
