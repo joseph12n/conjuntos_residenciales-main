@@ -4,6 +4,8 @@ hacerClic.addEventListener('click', function (event) {
     id = event.target.getAttribute("id");
     if (id === "submit-house") {
         validar_house();
+    } else if (id === "submit-rol") {
+        validar_rol();
     } else if (id === "submit-place") {
         validar_place();
     } else if (id === "submit-user") {
@@ -28,6 +30,32 @@ function validar_house() {
         swal({
             title: "Nueva Casa Creada",
             text: "La casa se ha creado con éxito",
+            icon: "success",
+            button: "Aceptar",
+        }).then((result) => {
+            if (result) {
+                document.form_house.submit();
+            }
+        });
+    }
+}
+function validar_rol() {
+    rol_name = document.getElementById('rol_name').value;
+    event.preventDefault();
+    if (rol_name === "") {
+        swal({
+            title: "Verifique el campo Nombre del rol",
+            text: "El Nombre del rol NO puede estar vacío",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('rol_name').focus();
+            });
+    } else {
+        swal({
+            title: "Nuevo rol Creado",
+            text: "el rol se ha creado con éxito",
             icon: "success",
             button: "Aceptar",
         }).then((result) => {
