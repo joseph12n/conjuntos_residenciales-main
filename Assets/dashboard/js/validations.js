@@ -10,6 +10,8 @@ hacerClic.addEventListener('click', function (event) {
         validar_place();
     } else if (id === "submit-user") {
         validar_user();
+    } else if (id === "submit-booking") {
+        validar_booking();
     }
 });
 
@@ -107,17 +109,17 @@ function validar_user() {
                 document.getElementById('cod_rol').focus();
             });
     }
-    // else if (cod_rol === "???"){
-    //     swal({
-    //         title: "Verifique el campo Rol",
-    //         text: "El Rol NO puede estar vacío",
-    //         icon: "error",
-    //         button: "Aceptar",
-    //     })
-    //         .then((value) => {
-    //             document.getElementById('cod_rol').focus();
-    //         });
-    // }
+     else if (cod_rol === "???"){
+         swal({
+             title: "Verifique el campo Rol",
+             text: "El Rol NO puede estar vacío",
+             icon: "error",
+             button: "Aceptar",
+         })
+             .then((value) => {
+                 document.getElementById('cod_rol').focus();
+             });
+     }
     else {
         swal({
             title: "El Usuario ha sido Creado",
@@ -127,6 +129,57 @@ function validar_user() {
         }).then((result) => {
             if (result) {
                 document.form_user.submit();
+            }
+        });
+    }
+}
+
+function validar_booking() {
+    event.preventDefault();
+    booking_date = document.getElementById('booking_date').value;
+    cod_place = document.getElementById('cod_place').value;
+    cod_user = document.getElementById('cod_user').value;
+    if (booking_date === "") {
+        swal({
+            title: "Verifique el campo fecha",
+            text: "la fecha NO puede estar vacía",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('booking_date').focus();
+            });
+    }
+     else if (cod_place === ""){
+         swal({
+             title: "Verifique el campo lugar",
+             text: "El lugar NO puede estar vacío",
+             icon: "error",
+             button: "Aceptar",
+         })
+             .then((value) => {
+                 document.getElementById('cod_place').focus();
+             });
+     }
+     else if (cod_user === ""){
+         swal({
+             title: "Verifique el campo usuario",
+             text: "El usuario NO puede estar vacío",
+             icon: "error",
+             button: "Aceptar",
+         })
+             .then((value) => {
+                 document.getElementById('cod_user').focus();
+             });
+     }else {
+        swal({
+            title: "La reserva ha sido Creada",
+            text: "la reserva se ha creado con éxito",
+            icon: "success",
+            button: "Aceptar",
+        }).then((result) => {
+            if (result) {
+                document.form_booking.submit();
             }
         });
     }
