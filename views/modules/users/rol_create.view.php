@@ -24,19 +24,18 @@
 						<legend><i class="fas fa-user"></i> &nbsp; Agregar Rol</legend>
 						<div class="container-fluid">
 							<div class="row">
-							<div class="form-group">
-                <label for="nombreRol">Nombre del Rol:</label>
-                <input type="text" class="form-control" name="rol_name" id="rol_name" maxlength="40">
-            	</div>
+								<div class="form-group">
+									<label for="nombreRol">Nombre del Rol:</label>
+									<input type="text" class="form-control" name="rol_name" id="rol_name" maxlength="40">
+								</div>
 							</div>
 						</div>
 					</fieldset>
 					<br><br><br>
 					<p class="text-center" style="margin-top: 40px;">
-					<button type="reset" class="btn btn-primary">Limpiar</button>
+						<button type="reset" class="btn btn-primary">Limpiar</button>
 						&nbsp; &nbsp;
 						<button type="submit" class="btn btn-primary">Agregar Rol</button>
 					</p>
 				</form>
 			</div>
-			

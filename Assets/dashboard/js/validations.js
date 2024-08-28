@@ -4,6 +4,10 @@ hacerClic.addEventListener('click', function (event) {
     id = event.target.getAttribute("id");
     if (id === "submit-house") {
         validar_house();
+    } else if (id === "submit-place") {
+        validar_place();
+    } else if (id === "submit-user") {
+        validar_user();
     }
 });
 
@@ -34,16 +38,6 @@ function validar_house() {
     }
 }
 
-
-//Fncion de lugares
-hacerClic = document.getElementById("container");
-hacerClic.addEventListener('click', function (event) {
-    id = event.target.getAttribute("id");
-    if (id === "submit-place") {
-        validar_place();
-    }
-});
-
 function validar_place() {
     place_name = document.getElementById('place_name').value;
     event.preventDefault();
@@ -66,6 +60,45 @@ function validar_place() {
         }).then((result) => {
             if (result) {
                 document.form_place.submit();
+            }
+        });
+    }
+}
+
+function validar_user() {
+    event.preventDefault();
+    cod_rol = document.getElementById('cod_rol').value;
+    if (cod_rol === "") {
+        swal({
+            title: "Verifique el campo Rol",
+            text: "El Rol NO puede estar vacío",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('cod_rol').focus();
+            });
+    }
+    // else if (cod_rol === "???"){
+    //     swal({
+    //         title: "Verifique el campo Rol",
+    //         text: "El Rol NO puede estar vacío",
+    //         icon: "error",
+    //         button: "Aceptar",
+    //     })
+    //         .then((value) => {
+    //             document.getElementById('cod_rol').focus();
+    //         });
+    // }
+    else {
+        swal({
+            title: "El Usuario ha sido Creado",
+            text: "El Usuario se ha creado con éxito",
+            icon: "success",
+            button: "Aceptar",
+        }).then((result) => {
+            if (result) {
+                document.form_user.submit();
             }
         });
     }

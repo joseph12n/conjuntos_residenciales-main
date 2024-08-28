@@ -1,8 +1,10 @@
 <?php
 require_once "models/User.php";
 
-class Login {
-    public function main() {
+class Login
+{
+    public function main()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if (empty($_SESSION['session'])) {
                 require_once "views/company/login.view.php";
@@ -48,4 +50,3 @@ class Login {
         }
     }
 }
-?>

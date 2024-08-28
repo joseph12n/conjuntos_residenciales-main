@@ -26,13 +26,12 @@ if (file_exists($route_controller)) {
         call_user_func(array($controller, $action));
         require_once "views/roles/" . $session . "/footer.view.php";
     } else {
-        header("Location: ?"); 
+        header("Location: ?");
         exit();
     }
 } else {
-    header("Location: ?"); 
+    header("Location: ?");
     exit();
 }
 
 ob_end_flush();
-?>
