@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo strtoupper($session) ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
