@@ -15,28 +15,35 @@ class Bookings
     }
 
     // Controlador Crear Usuario
-    public function bookingCreate()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $roles = new User;
-            $roles = $roles->read_roles();
-            $users = new User;
-            $users = $users->read_users();
-            $places = new Place;
-            $places = $places->read_place();
-            require_once "views/modules/bookings/booking_create.view.php";
-        }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $booking = new Booking(
-                $_POST['booking_date'],
-                null,
-                $_POST['cod_user'],
-                $_POST['cod_place']
-            );
-            $booking->create_booking();
-            header("Location: ?c=Bookings&a=bookingRead");
-        }
+public function bookingCreate()
+{
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $roles = new User;
+        $roles = $roles->read_roles();
+        $users = new User;
+        $users = $users->read_users();
+        $places = new Place;
+        $places = $places->read_place();
+        require_once "views/modules/bookings/booking_create.view.php";
     }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Asegúrate de manejar el valor de booking_status
+        $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
+
+        // Verifica que todos los campos necesarios estén presentes
+        $booking = new Booking(
+            $_POST['booking_date'],
+            null, // Suponiendo que el código de la reserva se genera automáticamente
+            $_POST['cod_user'],
+            $_POST['cod_place'],
+            $bookingStatus
+        );
+        $booking->create_booking();
+        header("Location: ?c=Bookings&a=bookingRead");
+    }
+}
+
 
     // Controlador Consultar Usuarios
     public function bookingRead()

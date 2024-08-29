@@ -23,13 +23,12 @@
                     <thead>
                         <tr class="text-center roboto-medium">
                             <th>Fecha de reserva</th>
-                            <th>Codigo reserva</th>
                             <th>Codigo usuario</th>
                             <th>Identificación</th>
-                            <th>codigo del lugar</th>
                             <th>nombres</th>
                             <th>apellidos</th>
                             <th>lugar</th>
+                            <th>estado</th>
                             <th>ACTUALIZAR</th>
                             <th>ELIMINAR</th>
                         </tr>
@@ -38,13 +37,12 @@
                         <?php foreach ($bookings as $booking) : ?>
                             <tr>
                                 <td><?php echo $booking->getBookingDate(); ?></td>
-                                <td><?php echo $booking->getBookingCode(); ?></td>
                                 <td><?php echo $booking->getUserCode(); ?></td>
-                                <td><?php echo $booking->getPlaceCode(); ?></td>
                                 <td><?php echo $booking->getUserId(); ?></td>
                                 <td><?php echo $booking->getUserName(); ?></td>
                                 <td><?php echo $booking->getUserLastName(); ?></td>
                                 <td><?php echo $booking->getPlaceName(); ?></td>
+                                <td><?php echo $booking->getBookingStatus(); ?></td>
                                 <td>
                                     <a href="?c=Bookings&a=bookingUpdate&idbooking=<?php echo $booking->getBookingCode(); ?>" class="btn btn-primary btn-xs">
                                         <i class="fa fa-pencil"></i>

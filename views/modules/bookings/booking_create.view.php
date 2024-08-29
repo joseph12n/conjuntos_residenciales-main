@@ -2,7 +2,6 @@
     <h3 class="text-left">
         <i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR RESERVA
     </h3>
-
 </div>
 
 <div class="container-fluid">
@@ -25,8 +24,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="form-group">
-                        <label for="bookingDate">fecha de la reserva:</label>
-                        <input type="date" class="form-control" name="booking_date" id="booking_date"  maxlength="40">
+                        <label for="bookingDate">Fecha de la reserva:</label>
+                        <input type="date" class="form-control" name="booking_date" id="booking_date" maxlength="40">
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group">
@@ -41,15 +40,11 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group">
-                            <label for="cod_user" class="bmd-label-floating">Users</label>
-                            <select class="form-control" name="cod_user" id="cod_user">
-                                <option value="" selected="" disabled="">Seleccione una opción</option>
-                                <?php foreach ($users as $user) : ?>
-                                    <option value="<?php echo $user->getUserCode() ?>"><?php echo $user->getUserId() ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <label for="cod_user" class="bmd-label-floating">Codigo de Usuario</label>
+                            <input type="text" class="form-control" name="cod_user" id="cod_user" placeholder="Ingrese su Codigo de usuario">
                         </div>
                     </div>
+                    <input type="hidden" name="booking_status" value="pending">
                 </div>
             </div>
         </fieldset>
