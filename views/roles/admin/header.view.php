@@ -90,7 +90,7 @@
                       </a>
                       <ul class="sub">
                           <li> <a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
-                          <li><a href="?c=Bookings&a=bookingRead">Consultar Fechas de Reserva</a></li>
+                          <li><a href="?c=Bookings&a=bookingRead">Consultar Reservas</a></li>
                       </ul>
                   </li>
                       <li class="sub-menu">
