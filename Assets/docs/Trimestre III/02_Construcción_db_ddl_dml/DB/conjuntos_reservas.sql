@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `conjuntos_reservas`.`BOOKING` (
   `cod_booking` INT NOT NULL AUTO_INCREMENT,
   `cod_user` INT NOT NULL,
   `cod_place` INT NOT NULL,
-  `booking_status` ENUM('approved', 'pending', 'rejected') NOT NULL,
+  `booking_status` ENUM('approved', 'pending', 'rejected') NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`cod_booking`),
   INDEX `cod_user_idx` (`cod_user` ASC) VISIBLE,
   INDEX `cod_place_idx` (`cod_place` ASC) VISIBLE,
