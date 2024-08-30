@@ -1,4 +1,3 @@
-//Funcion de casas
 hacerClic = document.getElementById("container");
 hacerClic.addEventListener('click', function (event) {
     id = event.target.getAttribute("id");
