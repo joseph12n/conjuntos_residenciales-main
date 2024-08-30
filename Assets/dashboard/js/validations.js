@@ -17,9 +17,7 @@ hacerClic.addEventListener('click', function (event) {
 
 function validar_house() {
     house_name = document.getElementById('house_name').value;
-    // Expresión Regular de Texto
     let patron_texto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/;
-    //Validacion casa
     event.preventDefault();
     if (house_name === "") {
         swal({
@@ -70,9 +68,7 @@ function validar_house() {
 function validar_rol() {
     rol_name = document.getElementById('rol_name').value;
     event.preventDefault();
-    // Expresión Regular de Texto
     let patron_texto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/;
-    //Validacion Rol
     if (rol_name === "") {
         swal({
             title: "Verifique el campo Nombre del rol",
@@ -215,6 +211,7 @@ function validar_user() {
 }
 
 function validar_booking() {
+    let patron_numerico = /^[0-9]+$/;
     event.preventDefault();
     booking_date = document.getElementById('booking_date').value;
     cod_place = document.getElementById('cod_place').value;
@@ -251,6 +248,26 @@ function validar_booking() {
             .then((value) => {
                 document.getElementById('cod_user').focus();
             });
+        }else if (!patron_numerico.test(cod_user)) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo codigo de usuario",
+            text: "El codigo de usuario NO pueden contener números o caracteres especiales",
+            icon: "error",
+            button: "Aceptar",
+        })
+     } else if (cod_user.length < 1 || cod_user.length > 10) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo codigo de usuario",
+            text: "El rcodigo de usuario debe contener entre 1 y 10 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('cod_user').focus();
+            });
+
     } else {
         swal({
             title: "La reserva ha sido Creada",
