@@ -13,29 +13,15 @@ function validar_login() {
       }).then(() => {
         document.getElementById('user_email').focus();
       });
-      
-    } else if (!patron_correo.test(user_email)) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo email",
-            text: "el email NO puede contener números o caracteres especiales",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('user_email').focus();
-            });
-        } else if (user_email.length < 5 || user_email.length > 50) {
-        event.preventDefault();
-        swal({
-            title: "Verifique el campo email",
-            text: "La email NO debe contener entre 5 y 50 caracteres",
-            icon: "error",
-            button: "Aceptar",
-        })
-            .then((value) => {
-                document.getElementById('user_email').focus();
-            });
+    } else if (user_pass === "") {
+      swal({
+        title: "Verifique el campo contraseña",
+        text: "La contraseña NO puede estar vacía",
+        icon: "error",
+        button: "Aceptar",
+      }).then(() => {
+        document.getElementById('user_pass').focus();
+      });
     } else {
       swal({
         title: "Iniciando sesión",
@@ -48,4 +34,3 @@ function validar_login() {
       });
     }
   }
-
