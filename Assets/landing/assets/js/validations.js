@@ -24,7 +24,7 @@ function validar_login(event) {
     } else if (!patron_correo.test(user_email)) {
         swal({
             title: "Verifique el campo email",
-            text: "El email NO puede contener números o caracteres especiales",
+            text: "ingrese un correo valido",
             icon: "error",
             button: "Aceptar",
         }).then(() => {
