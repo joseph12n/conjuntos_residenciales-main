@@ -2,7 +2,7 @@
 function validar_login() {
     var user_email = document.getElementById('user_email').value;
     var user_pass = document.getElementById('user_pass').value;
-    let patron_correo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     event.preventDefault();
     if (user_email === "") {
       swal({
