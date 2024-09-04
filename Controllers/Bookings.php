@@ -16,7 +16,6 @@ class Bookings{
 
     // Controlador Crear Usuario
 public function bookingCreate(){
-    if ($this->session == 'ADMIN'||$this->session == 'HABITANTE') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $roles = new User;
         $roles = $roles->read_roles();
@@ -25,7 +24,6 @@ public function bookingCreate(){
         $places = new Place;
         $places = $places->read_place();
         require_once "views/modules/bookings/booking_create.view.php";
-    }
 }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
@@ -38,9 +36,7 @@ public function bookingCreate(){
         );
         $booking->create_booking();
         header("Location: ?c=Bookings&a=bookingRead");
-    }else {
-        header("Location: ?c=Dashboard");
-}
+    }
 }
 
 
