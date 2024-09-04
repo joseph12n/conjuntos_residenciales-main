@@ -28,14 +28,6 @@
             <div class="nav notify-row" id="top_menu">
                
                 <ul class="nav top-menu">
- 
-          
-                    
-            <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="?c=Logout">Logout</a></li>
-            	</ul>
-            </div>
         </header>
       <aside>
           <div id="sidebar"  class="nav-collapse ">
@@ -61,9 +53,6 @@
                           <li> <a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
                           <li><a href="consultar_fechas_reserva.php">Consultar Fechas de Reserva</a></li>
                       </ul>
-                  </li>
-                  </li>
-                  </li>
                   </li>
               </ul>
 
@@ -135,6 +124,12 @@
         }
     </script>
   
-
+  <section class="full-box page-content">
+                <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="?c=Logout">Logout</a></li>
+            	</ul>
+            </div>
+    </section>
   </body>
 </html>

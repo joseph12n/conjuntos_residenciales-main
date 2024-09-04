@@ -1,9 +1,10 @@
 <?php
  require_once "models/Place.php";
  class Places{
-
-     public function __construct(){}
-
+    private $session;
+    public function __construct(){
+        $this->session = $_SESSION['session'];
+    }
      // Controlador Principal
      public function main(){
          header("Location: ?c=Dashboard");
@@ -11,6 +12,7 @@
 
      // Controlador Crear categoria
  public function placeCreate(){
+    if ($this->session == 'ADMIN') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         require_once "views/modules/places/place_create.view.php";
     }
@@ -21,15 +23,23 @@
         $place->create_Place();
         header("Location: ?c=Places&a=placeRead");
     }
+}else {
+    header("Location: ?c=Dashboard");
 }
+ }
  // Controlador Consultar categoria
  public function placeRead(){
+    if ($this->session == 'ADMIN') {
     $places = new Place;
     $places = $places->read_place();
     require_once "views/modules/places/place_read.view.php";
+}else {
+    header("Location: ?c=Dashboard");
 }
+ }
  // Controlador Actualizar categoria
  public function placeUpdate(){
+    if ($this->session == 'ADMIN') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         // $places = new Place;
         // $places = $places->read_place();
@@ -44,12 +54,19 @@
         $placeUpdate->update_place();
         header("Location: ?c=Places&a=placeRead");
     }
+}else {
+    header("Location: ?c=Dashboard");
 }
+ }
         // Controlador Eliminar categoria
         public function placeDelete(){
+            if ($this->session == 'ADMIN') {
             $place = new Place;
             $place->delete_place($_GET['idplace']);
             header("Location: ?c=Places&a=placeRead");
+        }else {
+            header("Location: ?c=Dashboard");
         }
     }
+}
 ?>
