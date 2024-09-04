@@ -1,12 +1,10 @@
-
-
 <?php
-require_once "models/User.php";
-class Users
-{
-
-    public function __construct() {}
-
+    require_once "models/User.php";
+    class Users{
+        private $session;
+        public function __construct(){
+            $this->session = $_SESSION['session'];
+        }
     // Controlador Principal
     public function main()
     {
@@ -16,6 +14,7 @@ class Users
     // Controlador Crear Rol
     public function rolCreate()
     {
+    if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once "views/modules/users/rol_create.view.php";
         }
@@ -25,19 +24,23 @@ class Users
             $rol->create_rol();
             header("Location: ?c=Users&a=rolRead");
         }
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+    }
     // Controlador Consultar Roles
-    public function rolRead()
-    {
+    public function rolRead(){
+        if ($this->session == 'ADMIN') {
         $roles = new User;
         $roles = $roles->read_roles();
         require_once "views/modules/users/rol_read.view.php";
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+}
     // Controlador Actualizar Rol
-    public function rolUpdate()
-    {
+    public function rolUpdate(){
+        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $rolId = new User;
             $rolId = $rolId->getrol_bycode($_GET['idRol']);
@@ -50,18 +53,23 @@ class Users
             $rolUpdate->update_rol();
             header("Location: ?c=Users&a=rolRead");
         }
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+    }
     // Controlador Eliminar Rol
-    public function rolDelete()
-    {
+    public function rolDelete(){
+        if ($this->session == 'ADMIN') {
         $rol = new User;
         $rol->delete_rol($_GET['idRol']);
         header("Location: ?c=Users&a=rolRead");
+    } else {
+        header("Location: ?c=Dashboard");
     }
+}
     // Controlador Crear CASA
-    public function houseCreate()
-    {
+    public function houseCreate(){
+        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once "views/modules/users/house_create.view.php";
         }
@@ -71,19 +79,24 @@ class Users
             $house->create_house();
             header("Location: ?c=Users&a=houseRead");
         }
+    } else {
+        header("Location: ?c=Dashboard");
     }
+}
 
     // Controlador Consultar CASAS
-    public function houseRead()
-    {
+    public function houseRead(){
+        if ($this->session == 'ADMIN') {
         $houses = new User;
         $houses = $houses->read_house();
         require_once "views/modules/users/house_read.view.php";
+    }  else {
+        header("Location: ?c=Dashboard");
     }
-
+}
     // Controlador Actualizar casa
-    public function houseUpdate()
-    {
+    public function houseUpdate(){
+        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $houseId = new User;
             $houseId = $houseId->gethouse_bycode($_GET['idhouse']);
@@ -96,18 +109,23 @@ class Users
             $houseUpdate->update_house();
             header("Location: ?c=Users&a=houseRead");
         }
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+}
     // Controlador Eliminar casa
-    public function houseDelete()
-    {
+    public function houseDelete(){
+        if ($this->session == 'ADMIN') {
         $house = new User;
         $house->delete_house($_GET['idhouse']);
         header("Location: ?c=Users&a=houseRead");
+    } else {
+        header("Location: ?c=Dashboard");
     }
+}
     // Controlador Crear Usuario
-    public function userCreate()
-    {
+    public function userCreate(){
+        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $roles = new User;
             $roles = $roles->read_roles();
@@ -133,20 +151,24 @@ class Users
             $user->create_user();
             header("Location: ?c=Users&a=userRead");
         }
+    }else {
+        header("Location: ?c=Dashboard");
     }
-
+    }
     // Controlador Consultar Usuarios
-    public function userRead()
-    {
+    public function userRead(){
+        if ($this->session == 'ADMIN') {
         $state = ['Inactivo', 'Activo'];
         $users = new User;
         $users = $users->read_users();
         require_once "views/modules/users/user_read.view.php";
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+    }
     // Controlador Actualizar Usuario
-    public function userUpdate()
-    {
+    public function userUpdate(){
+        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $state = ['Inactivo', 'Activo'];
             $roles = new User;
@@ -175,14 +197,19 @@ class Users
             $userUpdate->update_user();
             header("Location: ?c=Users&a=userRead");
         }
+    } else {
+        header("Location: ?c=Dashboard");
     }
-
+    }
     // Controlador Eliminar Usuario
-    public function userDelete()
-    {
+    public function userDelete(){
+        if ($this->session == 'ADMIN') {
         $user = new User;
         $user->delete_user($_GET['idUser']);
         header("Location: ?c=Users&a=userRead");
+    } else {
+        header("Location: ?c=Dashboard");
     }
+} 
 }
 ?>
