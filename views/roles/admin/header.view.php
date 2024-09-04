@@ -31,21 +31,16 @@
  
           
                     
-            <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="?c=Logout">Logout</a></li>
-            	</ul>
-            </div>
+        
         </header>
       <aside>
           <div id="sidebar"  class="nav-collapse ">
             
               <ul class="sidebar-menu" id="nav-accordion">
               <p class="centered"><a href="profile.html"><img src="assets/dashboard/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              <figcaption class="roboto-medium text-center">      
-						<?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?> <br><small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></small>
-					</figcaption>
-              	  	
+              <figcaption class="roboto-medium text-center">
+						<?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?> <br><small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></small> <br> ROL: <i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo ucfirst($session) ?></a>
+                    </figcaption>
                   <li class="mt">
                   <a class="active" href="?c=Dashboard">
                           <i class="fa fa-dashboard"></i>
@@ -177,6 +172,13 @@
         }
     </script>
   
-
+ <!-- Page content -->
+ <section class="full-box page-content">
+                <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="?c=Logout">Logout</a></li>
+            	</ul>
+            </div>
+    </section>
   </body>
 </html>

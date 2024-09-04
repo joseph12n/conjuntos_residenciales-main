@@ -44,9 +44,8 @@
               
               	  <p class="centered"><a href="profile.html"><img src="assets/dashboard/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <figcaption class="roboto-medium text-center">
-						<?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?> <br><small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></small>
-					</figcaption>
-              	  	
+						<?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?> <br><small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></small> <br> ROL: <i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo ucfirst($session) ?></a>
+                    </figcaption>
                   <li class="mt">
                   <a class="active" href="?c=Dashboard">
                           <i class="fa fa-dashboard"></i>
