@@ -29,8 +29,8 @@
     }
     }
     // Controlador Consultar Roles
-    public function rolRead(){
-        if ($this->session == 'ADMIN') {
+    public function rolRead() {
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
         $roles = new User;
         $roles = $roles->read_roles();
         require_once "views/modules/users/rol_read.view.php";
@@ -86,7 +86,7 @@
 
     // Controlador Consultar CASAS
     public function houseRead(){
-        if ($this->session == 'ADMIN') {
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
         $houses = new User;
         $houses = $houses->read_house();
         require_once "views/modules/users/house_read.view.php";
@@ -157,7 +157,7 @@
     }
     // Controlador Consultar Usuarios
     public function userRead(){
-        if ($this->session == 'ADMIN') {
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
         $state = ['Inactivo', 'Activo'];
         $users = new User;
         $users = $users->read_users();
@@ -168,7 +168,7 @@
     }
     // Controlador Actualizar Usuario
     public function userUpdate(){
-        if ($this->session == 'ADMIN') {
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $state = ['Inactivo', 'Activo'];
             $roles = new User;

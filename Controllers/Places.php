@@ -12,7 +12,7 @@
 
      // Controlador Crear categoria
  public function placeCreate(){
-    if ($this->session == 'ADMIN') {
+    if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         require_once "views/modules/places/place_create.view.php";
     }
@@ -29,7 +29,7 @@
  }
  // Controlador Consultar categoria
  public function placeRead(){
-    if ($this->session == 'ADMIN') {
+    if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
     $places = new Place;
     $places = $places->read_place();
     require_once "views/modules/places/place_read.view.php";
@@ -39,7 +39,7 @@
  }
  // Controlador Actualizar categoria
  public function placeUpdate(){
-    if ($this->session == 'ADMIN') {
+    if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         // $places = new Place;
         // $places = $places->read_place();

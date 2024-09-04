@@ -42,7 +42,7 @@ public function bookingCreate(){
 
     // Controlador Consultar Usuarios
     public function bookingRead(){
-        if ($this->session == 'ADMIN') {
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
         $bookings = new Booking;
         $bookings = $bookings->read_booking();
         require_once "views/modules/bookings/booking_read.view.php";
