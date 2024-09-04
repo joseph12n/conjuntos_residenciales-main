@@ -23,7 +23,7 @@ public function bookingCreate(){
         $users = $users->read_users();
         $places = new Place;
         $places = $places->read_place();
-        require_once "views/modules/bookings/booking_create.view.php";Y
+        require_once "views/modules/bookings/booking_create.view.php";
 }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
