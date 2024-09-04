@@ -3,11 +3,11 @@
 require_once "models/Booking.php";
 require_once "models/User.php";
 require_once "models/Place.php";
-class Bookings{
-    private $session;
-    public function __construct(){
-        $this->session = $_SESSION['session'];
-    }
+class Bookings
+{
+
+    public function __construct() {}
+
     // Controlador Principal
     public function main()
     {
@@ -15,7 +15,8 @@ class Bookings{
     }
 
     // Controlador Crear Usuario
-public function bookingCreate(){
+public function bookingCreate()
+{
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $roles = new User;
         $roles = $roles->read_roles();
@@ -24,12 +25,16 @@ public function bookingCreate(){
         $places = new Place;
         $places = $places->read_place();
         require_once "views/modules/bookings/booking_create.view.php";
-}
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Asegúrate de manejar el valor de booking_status
         $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
+
+        // Verifica que todos los campos necesarios estén presentes
         $booking = new Booking(
             $_POST['booking_date'],
-            null, 
+            null, // Suponiendo que el código de la reserva se genera automáticamente
             $_POST['cod_user'],
             $_POST['cod_place'],
             $bookingStatus
@@ -41,18 +46,16 @@ public function bookingCreate(){
 
 
     // Controlador Consultar Usuarios
-    public function bookingRead(){
-        if ($this->session == 'ADMIN') {
+    public function bookingRead()
+    {
         $bookings = new Booking;
         $bookings = $bookings->read_booking();
         require_once "views/modules/bookings/booking_read.view.php";
-    } else {
-        header("Location: ?c=Dashboard");
-}
     }
+
     // Controlador Actualizar Usuario
-    public function bookingUpdate(){
-        if ($this->session == 'ADMIN') {
+    public function bookingUpdate()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $roles = new User;
             $roles = $roles->read_roles();
@@ -76,19 +79,14 @@ public function bookingCreate(){
             $bookingUpdate->update_booking();
             header("Location: ?c=Bookings&a=bookingRead");
         }
-    } else {
-        header("Location: ?c=Dashboard");
-}
     }
+
     // Controlador Eliminar Usuario
-    public function bookingDelete(){
-        if ($this->session == 'ADMIN') {
+    public function bookingDelete()
+    {
         $booking = new Booking;
         $booking->delete_booking($_GET['idbooking']);
         header("Location: ?c=bookings&a=bookingRead");
-    } else {
-        header("Location: ?c=Dashboard");
-}
-}
+    }
 }
 ?>
