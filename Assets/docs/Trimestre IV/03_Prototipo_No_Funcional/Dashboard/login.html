@@ -1,57 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="dise">
-  <link rel="stylesheet" href="diseño_login.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-  <script src="script.js"></script>
-  <script>
-    function confirmar() {
-      let usuario = document.getElementById('user').value;
-      let contraseña = document.getElementById('contra').value;
-  
-      if (usuario.length == 0) {
-        alert("Ingrese el usuario");
-        return false;
-      } else if (contraseña.length == 0) {
-        alert("Ingrese la contraseña");
-        return false;
-      } else {
-        alert("¡Hola! Has iniciado sesión con éxito.");
-        console.log("Redireccionando a la página principal...");
-        window.location.href = "index.html";
-        return false;
-      }
-    }
-  </script>
-</head>
-<body>
-  <div class="container">
-    <div class="login-form">
-      <h1 class="text-center mb-4">Iniciar Sesión</h1>
-      <form name="MiForm" id="MiForm" onSubmit="return confirmar()">
-        <div class="form-group mb-3">
-          <label for="user" class="form-label">Usuario:</label>
-          <input type="text" class="form-control" id="user" name="user" placeholder="Ingrese su usuario">
-        </div>
-        <div class="form-group mb-3">
-          <label for="contra" class="form-label">Contraseña:</label>
-          <input type="password" class="form-control" id="contra" name="contra" placeholder="Ingrese su contraseña">
-        </div>
-        <div class="d-grid gap-2 mb-3">
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-        </div>
-      </form>
-      <p class="text-center mb-0">
-        <a href="login_recuperar_contraseña.html" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-      </p>
-    </div>
-  </div>
-</body>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+ <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+ *********************************************************************************************************************************************************** -->
+
+	  <div id="login-page">
+	  	<div class="container">
+	  	
+		      <form class="form-login" action="index.html">
+		        <h2 class="form-login-heading">Iinciar sesion</h2>
+		        <div class="login-wrap">
+		            <input type="text" class="form-control" placeholder="Usuario" autofocus>
+		            <br>
+		            <input type="password" class="form-control" placeholder="contraseña">
+		            <label class="checkbox">
+		                <span class="pull-right">
+		                    <a data-toggle="modal" href="login.html#myModal"> ¿Olvidaste tu contraseña?</a>
+		
+		                </span>
+		            </label>
+		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> ENTRAR</button>
+		            <hr>
+		    
+		        </div>
+		
+		          <!-- Modal -->
+		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+		              <div class="modal-dialog">
+		                  <div class="modal-content">
+		                      <div class="modal-header">
+		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                          <h4 class="modal-title">¿contraseña olvidada?</h4>
+		                      </div>
+		                      <div class="modal-body">
+		                          <p>Ingresa tu numero de telefono para recuperar contraseña</p>
+		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		
+		                      </div>
+		                      <div class="modal-footer">
+		                          <button data-dismiss="modal" class="btn btn-default" type="button">CANCELAR</button>
+		                          <button class="btn btn-theme" type="button">ENVIAR</button>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- modal -->
+		
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("assets/img/", {speed: 500});
+    </script>
+
+
+  </body>
 </html>
