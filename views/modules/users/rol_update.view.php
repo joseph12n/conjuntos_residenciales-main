@@ -29,7 +29,7 @@
 									<input type="hidden" class="form-control" name="cod_rol" id="cod_rol" value="<?php echo $rolId->getRolCode(); ?>">
 									<div class="form-group">
 										<label for="rol_name" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="rol_update_name" id="rol_update_name" maxlength="40" value="<?php echo $rolId->getRolName(); ?>">
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="rol_name" id="rol_update_name" maxlength="40" value="<?php echo $rolId->getRolName(); ?>">
 									</div>
 								</div>
 							</div>

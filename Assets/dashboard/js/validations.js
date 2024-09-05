@@ -626,7 +626,59 @@ function validar_update_house() {
 }
 
 //Funcion validacion roles
+function validar_update_rol() {
+    rol_update_name = document.getElementById('rol_update_name').value;
+    event.preventDefault();
+    // Expresión Regular de Texto
+    let patron_texto = /^[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]+$/;
+    //Validacion Rol
+    if (rol_update_name === "") {
+        swal({
+            title: "Verifique el campo Nombre del rol",
+            text: "El Nombre del rol NO puede estar vacío",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('rol_update_name').focus();
+            });
 
+    } else if (!patron_texto.test(rol_update_name)) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo roles",
+            text: "El rol NO pueden contener números o caracteres especiales",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('rol_update_name').focus();
+            });
+    } else if (rol_update_name.length < 5 || rol_update_name.length > 20) {
+        event.preventDefault();
+        swal({
+            title: "Verifique el campo roles",
+            text: "El rol debe contener entre 5 y 20 caracteres",
+            icon: "error",
+            button: "Aceptar",
+        })
+            .then((value) => {
+                document.getElementById('rol_name_update').focus();
+            });
+    }
+    else {
+        swal({
+            title: "Actualización de rol",
+            text: "El rol se ha actualizado",
+            icon: "success",
+            button: "Aceptar",
+        }).then((result) => {
+            if (result) {
+                document.form_update_rol.submit();
+            }
+        });
+    }
+}
 
 //Funcion actualizar lugar
 function validar_update_place() {
