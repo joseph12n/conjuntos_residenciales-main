@@ -42,7 +42,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="cod_house" class="bmd-label-floating">Casa</label>
-										<select class="form-control" name="cod_house">
+										<select class="form-control" name="cod_house" id="cod_house">
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<?php foreach ($houses as $house) : ?>
 												<option value="<?php echo $house->getHouseCode() ?>"><?php echo $house->getHouseName() ?></option>
@@ -53,7 +53,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_state" class="bmd-label-floating">Estado</label>
-										<select class="form-control" name="user_state">
+										<select class="form-control" name="user_state" id="user_state">
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<option value="1">Activo</option>
 											<option value="0">Inactivo</option>
