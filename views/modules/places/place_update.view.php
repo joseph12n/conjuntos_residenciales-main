@@ -14,9 +14,6 @@
 					<li>
 						<a href="?c=Places&a=placeRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR lUGARES</a>
 					</li>
-					<li>
-						<a href="?c=Places&a=placeUpdate"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR LUGAR</a>
-					</li>
 				</ul>
 			</div>
 			<div class="container-fluid">

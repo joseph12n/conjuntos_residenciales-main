@@ -211,5 +211,26 @@
         header("Location: ?c=Dashboard");
     }
 } 
+
+public function rolSearch() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $rolCode = $_POST['searchCode'];
+        $user = new User();
+        $rol = $user->getrol_bycode($rolCode);
+
+        if ($rol) {
+            // Enviar el rol encontrado a la vista
+            $rol = [$rol];
+        } else {
+            // No se encontró el rol
+            $rol = [];
+            echo '<div class="alert alert-warning">No se encontró el rol con el código proporcionado.</div>';
+        }
+
+        // Incluir la vista con la lista de roles
+        require_once 'views/roles_list.php'; // Ajusta esta ruta según tu estructura de archivos
+    }
+}
+
 }
 ?>

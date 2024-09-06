@@ -12,9 +12,6 @@
 					<li>
 						<a class="active" href="?c=Places&a=placeRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Consultar lugar</a>
 					</li>
-					<li>
-						<a href="?c=Places&a=placeUpdate"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar lugar</a>
-					</li>
 				</ul>
 	<div class="row mt">
                   <div class="col-md-12">

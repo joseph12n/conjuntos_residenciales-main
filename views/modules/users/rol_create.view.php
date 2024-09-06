@@ -13,9 +13,6 @@
 					<li>
 						<a href="?c=Users&a=rolRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR ROLES</a>
 					</li>
-					<li>
-						<a href="#"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ROL</a>
-					</li>
 				</ul>
 			</div>
 			<div class="container-fluid">

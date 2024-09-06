@@ -12,9 +12,6 @@
         <li>
             <a href="?c=Bookings&a=bookingRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR RESERVA</a>
         </li>
-        <li>
-            <a href="?c=Bookings&a=bookingRead"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR RESERVA</a>
-        </li>
     </ul>
 </div>
 <div class="container-fluid">
