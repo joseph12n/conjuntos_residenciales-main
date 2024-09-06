@@ -7,10 +7,10 @@
 <div class="container-fluid">
     <ul class="full-box list-unstyled page-nav-tabs">
         <li>
-            <a class="active" href="?c=Bookings&a=bookingCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR RESERVA</a>
+            <a href="?c=Bookings&a=bookingCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR RESERVA</a>
         </li>
         <li>
-            <a href="?c=Bookings&a=bookingRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR RESERVA</a>
+            <a class="active" href="?c=Bookings&a=bookingRead"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR RESERVA</a>
         </li>
     </ul>
     <div class="row mt">
@@ -26,8 +26,7 @@
                             <th>apellidos</th>
                             <th>lugar</th>
                             <th>estado</th>
-                            <th>ACTUALIZAR</th>
-                            <th>ELIMINAR</th>
+                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,14 +40,19 @@
                                 <td><?php echo $booking->getPlaceName(); ?></td>
                                 <td><?php echo $booking->getBookingStatus(); ?></td>
                                 <td>
-                                    <a href="?c=Bookings&a=bookingUpdate&idbooking=<?php echo $booking->getBookingCode(); ?>" class="btn btn-primary btn-xs">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="?c=Bookings&a=bookingDelete&idbooking=<?php echo $booking->getBookingCode(); ?>" class="btn btn-danger btn-xs">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
+                                    <form method="POST" action="?c=Bookings&a=bookingUpdateStatus" style="display: inline;">
+                                        <input type="hidden" name="booking_id" value="<?php echo $booking->getBookingCode(); ?>">
+                                        <?php if ($booking->getBookingStatus() !== 'approved') : ?>
+                                            <button type="submit" name="action" value="approve" class="btn btn-success btn-xs">
+                                                <i class="fa fa-check"></i>
+                                            </button>
+                                        <?php endif; ?>
+                                        <?php if ($booking->getBookingStatus() !== 'rejected') : ?>
+                                            <button type="submit" name="action" value="reject" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        <?php endif; ?>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -56,3 +60,5 @@
                 </table>
             </div>
         </div>
+    </div>
+</div>

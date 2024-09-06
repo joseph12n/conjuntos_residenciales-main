@@ -64,13 +64,11 @@ public function bookingCreate(){
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $bookingUpdate = new Booking(
-                $_POST['cod_rol'],
-                $_POST['cod_user'],
-                $_POST['user_id'],
-                $_POST['user_name'],
-                $_POST['user_lastname'],
-                $_POST['cod_place'],
-                $_POST['place_name']
+            $_POST['booking_date'],
+            null, 
+            $_POST['cod_user'],
+            $_POST['cod_place'],
+            $bookingStatus
             );
             // print_r($userUpdate);
             $bookingUpdate->update_booking();
@@ -89,6 +87,33 @@ public function bookingCreate(){
     } else {
         header("Location: ?c=Dashboard");
 }
+}
+public function bookingUpdateStatus() {
+    if ($this->session != 'ADMIN') {
+        header("Location: ?c=Dashboard");
+        exit();
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $booking_id = isset($_POST['booking_id']) ? intval($_POST['booking_id']) : 0;
+        $action = isset($_POST['action']) ? $_POST['action'] : '';
+        
+        if ($booking_id && ($action == 'approve' || $action == 'reject')) {
+            $new_status = ($action == 'approve') ? 'approved' : 'rejected';
+            
+            $booking = new Booking();
+            if ($booking->updateStatus($booking_id, $new_status)) {
+                $_SESSION['success'] = "Estado de la reserva actualizado a " . ucfirst($new_status);
+            } else {
+                $_SESSION['error'] = "Error al actualizar el estado de la reserva.";
+            }
+        } else {
+            $_SESSION['error'] = "Acción no válida o ID de reserva faltante.";
+        }
+    }
+    
+    header("Location: ?c=Bookings&a=bookingRead");
+    exit();
 }
 }
 ?>

@@ -206,30 +206,33 @@ class Booking
         }
     }
 
-    public function update_booking()
-    {
-        try {
-            $sql = "UPDATE BOOKING SET
-                        booking_date = :bookingDate,
-                        cod_user = :userCode,
-                        cod_place = :placeCode,
-                        booking_status = :bookingStatus
-                    WHERE cod_booking = :bookingCode";
-    
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':bookingDate', $this->getBookingDate());
-            $stmt->bindValue(':bookingCode', $this->getBookingCode());
-            $stmt->bindValue(':userCode', $this->getUserCode());
-            $stmt->bindValue(':placeCode', $this->getPlaceCode());
-            $stmt->bindValue(':bookingStatus', $this->getBookingStatus()); // Añadido
-            $stmt->execute();
-        } catch (Exception $e) {
-            // Log del error
-            error_log("Error en update_booking: " . $e->getMessage());
-            // Manejo adicional del error si es necesario
-        }
+    public function update_booking() {
+    try {
+        // La consulta SQL para actualizar una reserva
+        $sql = 'UPDATE BOOKING SET
+                    bookingDate = :bookingDate,
+                    userCode = :userCode,
+                    placeCode = :placeCode,
+                    bookingStatus = :bookingStatus
+                WHERE bookingCode = :bookingCode';
+        
+        // Preparar la declaración
+        $stmt = $this->dbh->prepare($sql);
+        
+        // Enlazar los valores
+        $stmt->bindValue(':bookingDate', $this->getBookingDate());
+        $stmt->bindValue(':bookingCode', $this->getBookingCode());
+        $stmt->bindValue(':userCode', $this->getUserCode());
+        $stmt->bindValue(':placeCode', $this->getPlaceCode());
+        $stmt->bindValue(':bookingStatus', $this->getBookingStatus());
+        
+        // Ejecutar la declaración
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
     }
-    
+}
+
 
     public function delete_booking($bookingCode)
     {
@@ -239,6 +242,32 @@ class Booking
             $stmt->bindValue('bookingCode', $bookingCode);
             $stmt->execute();
         } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function updateStatus($booking_id, $new_status)
+    {
+        try {
+            $sql = 'UPDATE BOOKING SET booking_status = :bookingStatus WHERE cod_booking = :bookingCode';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':bookingStatus', $new_status);
+            $stmt->bindValue(':bookingCode', $booking_id);
+            
+            // Log de depuración
+            error_log("SQL: " . $sql);
+            error_log("Params: bookingStatus=" . $new_status . ", bookingCode=" . $booking_id);
+            
+            $result = $stmt->execute();
+            
+            // Log de depuración
+            error_log("Rows affected: " . $stmt->rowCount());
+            error_log("Execute result: " . ($result ? 'true' : 'false'));
+            
+            return $result;
+        } catch (Exception $e) {
+            // Log de depuración
+            error_log("Error in updateStatus: " . $e->getMessage());
             die($e->getMessage());
         }
     }
