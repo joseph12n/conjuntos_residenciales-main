@@ -35,8 +35,7 @@
   <section id="container" >
     <div class="botones">
     <button class="boton" onclick="iniciarSesion()">Iniciar sesión</button>
-    <button class="boton" onclick="soporte()">Soporte</button>
-    <button class="boton" onclick="conocer()">Conoce más</button>
+
   </div>
   </section>
     </body>

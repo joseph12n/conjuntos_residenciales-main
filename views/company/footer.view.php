@@ -25,6 +25,13 @@
 		<script src="assets/landing/js/chart-master/Chart.js"></script>
 		<script src="assets/landing/js/validations.js"></script>
 		</div>
+		<center><section class="support-section">
+            <h2>Soporte</h2>
+            <p>¿Tienes alguna pregunta o necesitas ayuda? Nuestro equipo de soporte está aquí para asistirte. No dudes en contactarnos para cualquier consulta o inconveniente que puedas tener.</p>
+            <p><strong>Email:</strong> soporte@recododecedro.com</p>
+            <p><strong>Teléfono:</strong> +123 456 7890</p>
+            <p><strong>Horario de Atención:</strong> Lunes a Viernes, de 9:00 AM a 6:00 PM</p>
+        </section></center> 
 		</body>
 
 		</html>
