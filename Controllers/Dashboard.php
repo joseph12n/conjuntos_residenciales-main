@@ -1,8 +1,9 @@
 <?php
 class Dashboard{
-    
+
     public function main(){
-        require_once "views/roles/admin/admin.view.php";
-    }    
+        $session = $_SESSION['session'];
+        require_once "views/roles/".$session."/". $session.".view.php";
+    }
 }
 ?>

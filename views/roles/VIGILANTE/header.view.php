@@ -14,6 +14,10 @@
     <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
     <link href="assets/dashboard/css/style.css" rel="stylesheet">
     <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+
   </head>
 
   <body>
@@ -110,71 +114,11 @@
       <section id="main-content">
           <section class="wrapper">
 
-                  
- 
+                
   </section>
-
    
-	
-	<script type="text/javascript">
-        $(document).ready(function () {
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Bienvenido a tu pagina principal',
-            // (string | mandatory) the text inside the notification
-            text: '¡Echa un vistazo a todo lo que tenemos por ofrecerte!',
-            // (string | optional) the image to display on the left
-            image: 'assets/dashboard/img/ui-sam.jpg',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: true,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-
-        return false;
-        });
-	</script>
-	
-	<script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-        
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-                ajax: {
-                    url: "show_data.php?action=1",
-                    modal: true
-                },
-                legend: [
-                    {type: "text", label: "Special event", badge: "00"},
-                    {type: "block", label: "Regular event", }
-                ]
-            });
-        });
-        
-        
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
-    </script>
-  
  <!-- Page content -->
-  <!-- Page content -->
-  <section class="full-box page-content">
+ <section class="full-box page-content">
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
             <li><a id="logout-link" class="logout" href="?c=Logout">Logout</a></li>
@@ -210,5 +154,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 </script>
+
+
+
   </body>
 </html>
