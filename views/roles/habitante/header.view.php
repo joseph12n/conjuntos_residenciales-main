@@ -61,7 +61,12 @@
                           <li><a href="?c=Bookings&a=bookingRead">Consultar Reservas</a></li>
                       </ul>
                   </li>
-                
+                  <li class="mt">
+                  <a  href="?c=soporte">
+                          <i ></i>
+                          <span>soporte</span>
+                      </a>
+                  </li>
                   </li>
                   </li>
                   </li>

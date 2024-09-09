@@ -1,58 +1,22 @@
-
 <?php
 require_once "models/Booking.php";
 require_once "models/User.php";
 require_once "models/Place.php";
-class Bookings{
-    private $session;
+
+class Bookings
+{
+  private $session;
     public function __construct(){
         $this->session = $_SESSION['session'];
     }
-    // Controlador Principal
-    public function main()
+     // Controlador Principal
+     public function main(){
+         header("Location: ?c=Dashboard");
+     }
+
+    // Controlador Crear Reserva
+    public function bookingCreate()
     {
-        header("Location: ?c=Dashboard");
-    }
-
-    // Controlador Crear Usuario
-public function bookingCreate(){
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        $roles = new User;
-        $roles = $roles->read_roles();
-        $users = new User;
-        $users = $users->read_users();
-        $places = new Place;
-        $places = $places->read_place();
-        require_once "views/modules/bookings/booking_create.view.php";
-}
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
-        $booking = new Booking(
-            $_POST['booking_date'],
-            null, 
-            $_POST['cod_user'],
-            $_POST['cod_place'],
-            $bookingStatus
-        );
-        $booking->create_booking();
-        header("Location: ?c=Bookings&a=bookingRead");
-    }
-}
-
-
-    // Controlador Consultar Usuarios
-    public function bookingRead(){
-        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
-        $bookings = new Booking;
-        $bookings = $bookings->read_booking();
-        require_once "views/modules/bookings/booking_read.view.php";
-    } else {
-        header("Location: ?c=Dashboard");
-}
-    }
-    // Controlador Actualizar Usuario
-    public function bookingUpdate(){
-        if ($this->session == 'ADMIN') {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $roles = new User;
             $roles = $roles->read_roles();
@@ -60,23 +24,92 @@ public function bookingCreate(){
             $users = $users->read_users();
             $places = new Place;
             $places = $places->read_place();
+            
+            // Asegurarse de que 'user_code' esté en la sesión
+            $userCode = isset($_SESSION['user_code']) ? $_SESSION['user_code'] : '';
+            
+            require_once "views/modules/bookings/booking_create.view.php";
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $bookingDate = $_POST['booking_date'];
+            $codUser = $_POST['cod_user'];
+            $codPlace = $_POST['cod_place'];
+            $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
+    
+            // Verificar si la reserva ya existe
+            $booking = new Booking();
+            if ($booking->isBookingExist($bookingDate, $codPlace)) {
+                $message = "Ya existe una reserva con la misma fecha y lugar.";
+                $roles = new User;
+                $roles = $roles->read_roles();
+                $users = new User;
+                $users = $users->read_users();
+                $places = new Place;
+                $places = $places->read_place();
+                $userCode = $codUser; // Puede ser un valor enviado en POST
+                require_once "views/modules/bookings/booking_create.view.php";
+            } else {
+                // Crear nueva reserva
+                $booking = new Booking(
+                    $bookingDate,
+                    null,
+                    $codUser,
+                    $codPlace,
+                    $bookingStatus
+                );
+                $booking->create_booking();
+                header("Location: ?c=Bookings&a=bookingRead");
+            }
+        }
+    }
+    
+
+    // Controlador Consultar Reservas
+    public function bookingRead()
+    {
+        if ($this->session == 'ADMIN' || $this->session == 'VIGILANTE') {
+            $bookings = new Booking;
+            $bookings = $bookings->read_booking();
+            require_once "views/modules/bookings/booking_read.view.php";
+        } else {
+            header("Location: ?c=Dashboard");
+        }
+    }
+
+    // Controlador Actualizar Reserva
+    public function bookingUpdate(){
+        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $roles = new User;
+            $roles = $roles->read_roles();
+            $users = new User;
+            $users = $users->read_users();
+            $places = new Place;
+            $places = $places->read_place();
+            $booking = new Booking;
+            $booking = $booking->getbooking_bycode($_GET['idbooking']);
             require_once "views/modules/bookings/booking_update.view.php";
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $bookingUpdate = new Booking(
-            $_POST['booking_date'],
-            null, 
-            $_POST['cod_user'],
-            $_POST['cod_place'],
-            $bookingStatus
+                $_POST['booking_date'],
+                $_POST['cod_booking'],
+                $_POST['cod_user'],
+                $_POST['cod_place'],
+                $_POST['booking_status']
             );
-            // print_r($userUpdate);
-            $bookingUpdate->update_booking();
-            header("Location: ?c=Bookings&a=bookingRead");
-        }
+            
+            try {
+                $bookingUpdate->update_booking();
+                header("Location: ?c=bookings&a=bookingRead");
+            } catch (Exception $e) {
+                // Maneja el error, muestra un mensaje o guarda en los logs
+                error_log("Error en bookingUpdate: " . $e->getMessage());
+                // Redirige o muestra un mensaje de error
+            }
+        }        
     } else {
         header("Location: ?c=Dashboard");
-}
+    }
     }
     // Controlador Eliminar Usuario
     public function bookingDelete(){
@@ -86,34 +119,41 @@ public function bookingCreate(){
         header("Location: ?c=bookings&a=bookingRead");
     } else {
         header("Location: ?c=Dashboard");
-}
-}
-public function bookingUpdateStatus() {
-    if ($this->session != 'ADMIN') {
+    }
+} 
+// vista para los usuarios con las reservas 
+public function bookingView() {
+    if (!isset($_SESSION['session']) || $_SESSION['session'] !== 'HABITANTE') {
         header("Location: ?c=Dashboard");
         exit();
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $booking_id = isset($_POST['booking_id']) ? intval($_POST['booking_id']) : 0;
-        $action = isset($_POST['action']) ? $_POST['action'] : '';
-        
-        if ($booking_id && ($action == 'approve' || $action == 'reject')) {
-            $new_status = ($action == 'approve') ? 'approved' : 'rejected';
-            
-            $booking = new Booking();
-            if ($booking->updateStatus($booking_id, $new_status)) {
-                $_SESSION['success'] = "Estado de la reserva actualizado a " . ucfirst($new_status);
-            } else {
-                $_SESSION['error'] = "Error al actualizar el estado de la reserva.";
-            }
-        } else {
-            $_SESSION['error'] = "Acción no válida o ID de reserva faltante.";
-        }
+    if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+        echo "Método de solicitud no válido.";
+        return;
     }
-    
-    header("Location: ?c=Bookings&a=bookingRead");
-    exit();
+
+    if (!isset($_GET['idbooking']) || empty($_GET['idbooking'])) {
+        echo "Error: Código de reserva no proporcionado. Por favor, asegúrese de incluir un código de reserva válido en la URL.";
+        return;
+    }
+
+    $bookingCode = $_GET['idbooking'];
+    $currentUserCode = $_SESSION['user_code'] ?? null;
+
+    if (!$currentUserCode) {
+        echo "Error: Código de usuario no encontrado en la sesión. Por favor, vuelva a iniciar sesión.";
+        return;
+    }
+
+    $booking = new Booking();
+    $bookingDetails = $booking->getBookingForUser($bookingCode, $currentUserCode);
+
+    if ($bookingDetails) {
+        require_once "views/modules/bookings/booking_read.users.php";
+    } else {
+        echo "Error: No se encontró la reserva o no tienes permiso para verla. Por favor, verifica el código de reserva e intenta de nuevo.";
+    }
 }
 }
 ?>

@@ -1,7 +1,6 @@
 <?php
 class Booking
 {
-
     private $dbh;
     private $booking_date;
     private $cod_booking;
@@ -38,7 +37,7 @@ class Booking
         $this->cod_booking = $cod_booking;
     }
 
-    # Constructor: Objeto 03parámetros
+    # Constructor: Objeto 03 parámetros
     public function __construct3($booking_date, $cod_booking, $cod_user)
     {
         $this->booking_date = $booking_date;
@@ -46,7 +45,7 @@ class Booking
         $this->cod_user = $cod_user;
     }
 
-    # Constructor: Objeto 05parámetros
+    # Constructor: Objeto 05 parámetros
     public function __construct5($booking_date, $cod_booking, $cod_user, $cod_place, $booking_status)
     {
         $this->booking_date = $booking_date;
@@ -55,9 +54,11 @@ class Booking
         $this->cod_place = $cod_place;
         $this->booking_status = $booking_status;
     }
-    # Constructor: Objeto 04parámetros
-    public function __construct7($booking_date, $cod_user,  $user_id,$user_name,$user_lastname,$place_name, $booking_status)
+
+    # Constructor: Objeto 07 parámetros
+    public function __construct8($cod_booking, $booking_date, $cod_user, $user_id, $user_name, $user_lastname, $place_name, $booking_status)
     {
+        $this->cod_booking = $cod_booking;
         $this->booking_date = $booking_date;
         $this->cod_user = $cod_user;
         $this->user_id = $user_id;
@@ -67,8 +68,7 @@ class Booking
         $this->booking_status = $booking_status;
     }
 
-
-    #Fecha reserva
+    # Setters y Getters
     public function setBookingDate($booking_date)
     {
         $this->booking_date = $booking_date;
@@ -78,19 +78,19 @@ class Booking
         return $this->booking_date;
     }
 
-    # Codigo de la reserva
     public function setBookingCode($cod_booking)
     {
-        $this->$cod_booking = $cod_booking;
+        $this->cod_booking = $cod_booking; // CORRECCIÓN
     }
 
     public function getBookingCode()
     {
         return $this->cod_booking;
     }
+
     public function setBookingStatus($booking_status)
     {
-        $this->$booking_status = $booking_status;
+        $this->booking_status = $booking_status; // CORRECCIÓN
     }
 
     public function getBookingStatus()
@@ -98,7 +98,6 @@ class Booking
         return $this->booking_status;
     }
 
-    # Código Usuario
     public function setUserCode($cod_user)
     {
         $this->cod_user = $cod_user;
@@ -108,7 +107,7 @@ class Booking
     {
         return $this->cod_user;
     }
-    # Código lugar
+
     public function setPlaceCode($cod_place)
     {
         $this->cod_place = $cod_place;
@@ -118,61 +117,93 @@ class Booking
     {
         return $this->cod_place;
     }
-    public function setUserName($user_name){
+
+    public function setUserName($user_name)
+    {
         $this->user_name = $user_name;
     }
-    public function getUserName(){
+
+    public function getUserName()
+    {
         return $this->user_name;
     }
-    # Apellido Usuario
-    public function setUserLastName($user_lastname){
+
+    public function setUserLastName($user_lastname)
+    {
         $this->user_lastname = $user_lastname;
     }
-    public function getUserLastName(){
+
+    public function getUserLastName()
+    {
         return $this->user_lastname;
     }
-        # Nombre lugar
-        public function setPlaceName($place_name) {
-            $this->place_name = $place_name;
-        }
-    
-        public function getPlaceName() {
-            return $this->place_name;
-        }
-     # Identificación Usuario
-     public function setUserId($user_id){
+
+    public function setPlaceName($place_name)
+    {
+        $this->place_name = $place_name;
+    }
+
+    public function getPlaceName()
+    {
+        return $this->place_name;
+    }
+
+    public function setUserId($user_id)
+    {
         $this->user_id = $user_id;
     }
-    public function getUserId(){
+
+    public function getUserId()
+    {
         return $this->user_id;
     }
-    public function create_booking(){
+
+    public function isBookingExist($bookingDate, $placeCode)
+    {
         try {
-            $sql = 'INSERT INTO BOOKING VALUES (
-                            :bookingDate,
-                            :bookingCode,
-                            :userCode,
-                            :placeCode,
-                            :bookingStatus
-                        )';
+            $sql = 'SELECT COUNT(*) FROM BOOKING 
+                    WHERE booking_date = :bookingDate 
+                    AND cod_place = :placeCode';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('bookingDate', $this->getBookingDate());
-            $stmt->bindValue('bookingCode', $this->getBookingCode());
-            $stmt->bindValue('userCode', $this->getUserCode());
-            $stmt->bindValue('placeCode', $this->getPlaceCode());
-            $stmt->bindValue('bookingStatus', $this->getbookingStatus());
+            $stmt->bindValue(':bookingDate', $bookingDate);
+            $stmt->bindValue(':placeCode', $placeCode);
+            $stmt->execute();
+            
+            $count = $stmt->fetchColumn();
+            return $count > 0; // Devuelve true si ya existe una reserva, false en caso contrario
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function create_booking()
+    {
+        $bookingDate = $this->getBookingDate();
+        $bookingCode = $this->getBookingCode();
+        $userCode = $this->getUserCode();
+        $placeCode = $this->getPlaceCode();
+        $bookingStatus = $this->getBookingStatus();
+    
+        try {
+            $sql = 'INSERT INTO BOOKING (booking_date, cod_booking, cod_user, cod_place, booking_status) 
+                    VALUES (:bookingDate, :bookingCode, :userCode, :placeCode, :bookingStatus)';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(':bookingDate', $bookingDate);
+            $stmt->bindValue(':bookingCode', $bookingCode);
+            $stmt->bindValue(':userCode', $userCode);
+            $stmt->bindValue(':placeCode', $placeCode);
+            $stmt->bindValue(':bookingStatus', $bookingStatus);
             $stmt->execute();
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-
     public function read_booking()
     {
         try {
             $bookingList = [];
             $sql = "SELECT 
+                    b.cod_booking,
                     b.booking_date,
                     u.cod_user,
                     u.user_id,
@@ -190,6 +221,7 @@ class Booking
             }
             foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $booking) {
                 $bookingObj = new Booking(
+                    $booking['cod_booking'],
                     $booking['booking_date'],
                     $booking['cod_user'],
                     $booking['user_id'],
@@ -205,37 +237,66 @@ class Booking
             die("Error: " . $e->getMessage());
         }
     }
-
-    public function update_booking() {
-    try {
-        // La consulta SQL para actualizar una reserva
-        $sql = 'UPDATE BOOKING SET
-                    bookingDate = :bookingDate,
-                    userCode = :userCode,
-                    placeCode = :placeCode,
-                    bookingStatus = :bookingStatus
-                WHERE bookingCode = :bookingCode';
-        
-        // Preparar la declaración
-        $stmt = $this->dbh->prepare($sql);
-        
-        // Enlazar los valores
-        $stmt->bindValue(':bookingDate', $this->getBookingDate());
-        $stmt->bindValue(':bookingCode', $this->getBookingCode());
-        $stmt->bindValue(':userCode', $this->getUserCode());
-        $stmt->bindValue(':placeCode', $this->getPlaceCode());
-        $stmt->bindValue(':bookingStatus', $this->getBookingStatus());
-        
-        // Ejecutar la declaración
-        $stmt->execute();
-    } catch (Exception $e) {
-        die($e->getMessage());
+    public function getbooking_bycode($bookingCode) {
+        try {
+            $sql = 'SELECT
+                b.booking_date,
+                b.cod_booking,
+                u.cod_user,
+                p.cod_place,
+                b.booking_status
+            FROM PLACES AS p
+            INNER JOIN BOOKING AS b ON p.cod_place = b.cod_place 
+            INNER JOIN USERS AS u ON u.cod_user = b.cod_user
+            WHERE u.cod_booking = :bookingCode';
+    
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('bookingCode', $bookingCode);
+            $stmt->execute();
+            $bookingDb = $stmt->fetch();
+    
+            if ($bookingDb) {
+                $booking = new booking(
+                    $bookingDb['booking_date'],
+                    $bookingDb['cod_booking'],
+                    $bookingDb['cod_user'],
+                    $bookingDb['cod_place'],
+                    $bookingDb['booking_status']
+                );
+                return $booking;
+            } else {
+                return null; // O manejar el caso cuando no se encuentra el usuario
+            }
+        } catch (Exception $e) {
+            error_log("Error en getbooking_bycode: " . $e->getMessage());
+            throw new Exception("Error al obtener la reserva");
+        }
     }
-}
+    
+     # RF11_CU11 - Actualizar usuario
+     public function update_booking(){
+        try {
+            $sql = "UPDATE BOOKING SET
+                        booking_date = :bookingDate,
+                        cod_user = :codUser,
+                        cod_place = :codPlace,
+                        booking_status = :bookingStatus
+                    WHERE cod_booking = :bookingCode";
+           
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('bookingDate', $this->getBookingDate());     
+            $stmt->bindValue('codUser', $this->getUserCode());
+            $stmt->bindValue('codPlace', $this->getPlaceCode());
+            $stmt->bindValue('bookingStatus', $this->getBookingStatus());
+            $stmt->execute();
+        } catch (Exception $e) {
+            // die($e->getMessage());
+            error_log("Error en update_booking: " . $e->getMessage());
+        } 
+    }
 
-
-    public function delete_booking($bookingCode)
-    {
+    # RF12_CU12 - Eliminar Usuario
+    public function delete_booking($bookingCode){
         try {
             $sql = 'DELETE FROM BOOKING WHERE cod_booking = :bookingCode';
             $stmt = $this->dbh->prepare($sql);
@@ -246,29 +307,51 @@ class Booking
         }
     }
 
-    public function updateStatus($booking_id, $new_status)
-    {
-        try {
-            $sql = 'UPDATE BOOKING SET booking_status = :bookingStatus WHERE cod_booking = :bookingCode';
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue(':bookingStatus', $new_status);
-            $stmt->bindValue(':bookingCode', $booking_id);
-            
-            // Log de depuración
-            error_log("SQL: " . $sql);
-            error_log("Params: bookingStatus=" . $new_status . ", bookingCode=" . $booking_id);
-            
-            $result = $stmt->execute();
-            
-            // Log de depuración
-            error_log("Rows affected: " . $stmt->rowCount());
-            error_log("Execute result: " . ($result ? 'true' : 'false'));
-            
-            return $result;
-        } catch (Exception $e) {
-            // Log de depuración
-            error_log("Error in updateStatus: " . $e->getMessage());
-            die($e->getMessage());
+// vista personalizada para el usuario 
+public function getBookingForUser($bookingCode, $userCode) {
+    try {
+        $sql = 'SELECT
+                    b.booking_date,
+                    b.cod_booking,
+                    u.cod_user,
+                    u.identification AS user_id,
+                    u.names AS user_name,
+                    u.last_names AS user_last_name,
+                    p.cod_place,
+                    p.name AS place_name,
+                    b.booking_status
+                FROM BOOKING AS b
+                INNER JOIN USERS AS u ON u.cod_user = b.cod_user
+                INNER JOIN PLACES AS p ON p.cod_place = b.cod_place
+                WHERE b.cod_booking = :bookingCode
+                AND u.cod_user = :userCode';
+
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(':bookingCode', $bookingCode);
+        $stmt->bindValue(':userCode', $userCode);
+        $stmt->execute();
+        $booking = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($booking) {
+            return new Booking(
+                $booking['booking_date'],
+                $booking['cod_booking'],
+                $booking['cod_user'],
+                $booking['user_id'],
+                $booking['user_name'],
+                $booking['user_last_name'],
+                $booking['cod_place'],
+                $booking['place_name'],
+                $booking['booking_status']
+            );
+        } else {
+            return null; // No hay coincidencia o no tiene permiso
         }
+    } catch (Exception $e) {
+        error_log("Error en getBookingForUser: " . $e->getMessage());
+        return null; // O manejar el error de acuerdo a tus necesidades
     }
 }
+}
+
+

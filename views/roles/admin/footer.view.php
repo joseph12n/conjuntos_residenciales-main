@@ -6,6 +6,11 @@
 	=            Include JavaScript files           =
 	==============================================-->
 		<!-- jQuery Custom Content Scroller V3.1.5 -->
+		 <!-- SweetAlert CSS -->
+
+
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="assets/dashboard/js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script src="assets/dashboard/js/script.js"></script>
