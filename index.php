@@ -10,7 +10,7 @@
         require_once $route_controller;
         $controller = new $controller;
         $action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'main';
-        if ($view === 'Landing' || $view === 'Login') {
+        if ($view === 'Landing' || $view === 'Login' || $view === 'soporte' ) {
             require_once "views/company/header.view.php";
             call_user_func(array($controller, $action));
             require_once "views/company/footer.view.php";

@@ -29,12 +29,17 @@
     function conocer() {
       window.location.href = "conocemas.html";
     }
+    function inicio() {
+      window.location.href = "?";
+    }
   </script>
 </head>
     <body>
   <section id="container" >
     <div class="botones">
+    <button class="boton" onclick="inicio()">inicio</button>
     <button class="boton" onclick="iniciarSesion()">Iniciar sesión</button>
+    <button class="boton" onclick="soporte()">soporte</button>
 
   </div>
   </section>
