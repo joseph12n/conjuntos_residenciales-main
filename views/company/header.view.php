@@ -104,7 +104,7 @@ margin: 0.5rem 0;
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Recodo de Cedro Suba</a>
+            <a class="navbar-brand" href="?">Recodo de Cedro Suba</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
