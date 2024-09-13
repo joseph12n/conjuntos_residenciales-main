@@ -24,15 +24,14 @@
                         $_SESSION['profile'] = serialize($profile);
                         header("Location:?c=Dashboard");
                     } else {
-                        $message = "El Usuario NO está activo";
+                        echo "<script>alert('Usuario inactivo');</script>";
                         require_once "views/company/login.view.php";
                     }
                 } else {
-                    $message = "Credenciales incorrectas ó el Usuario NO existe";
+                    echo "<script>alert('El usuario no existe');</script>";
                     require_once "views/company/login.view.php";
                 }
             }
-
         }
     }
 ?>
