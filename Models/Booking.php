@@ -310,7 +310,7 @@ class Booking
     public function getBookingsForUser($userCode) {
         try {
             $sql = "SELECT b.*, p.place_name 
-                    FROM BOOKINGS b 
+                    FROM BOOKING b 
                     INNER JOIN PLACES p ON b.cod_place = p.cod_place 
                     WHERE b.cod_user = :userCode 
                     ORDER BY b.booking_date DESC";
@@ -323,7 +323,7 @@ class Booking
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
+    }    
 }
 
 
