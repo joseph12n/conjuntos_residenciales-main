@@ -307,51 +307,23 @@ class Booking
         }
     }
 
-// vista personalizada para el usuario 
-public function getBookingForUser($bookingCode, $userCode) {
-    try {
-        $sql = 'SELECT
-                    b.booking_date,
-                    b.cod_booking,
-                    u.cod_user,
-                    u.identification AS user_id,
-                    u.names AS user_name,
-                    u.last_names AS user_last_name,
-                    p.cod_place,
-                    p.name AS place_name,
-                    b.booking_status
-                FROM BOOKING AS b
-                INNER JOIN USERS AS u ON u.cod_user = b.cod_user
-                INNER JOIN PLACES AS p ON p.cod_place = b.cod_place
-                WHERE b.cod_booking = :bookingCode
-                AND u.cod_user = :userCode';
-
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue(':bookingCode', $bookingCode);
-        $stmt->bindValue(':userCode', $userCode);
-        $stmt->execute();
-        $booking = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($booking) {
-            return new Booking(
-                $booking['booking_date'],
-                $booking['cod_booking'],
-                $booking['cod_user'],
-                $booking['user_id'],
-                $booking['user_name'],
-                $booking['user_last_name'],
-                $booking['cod_place'],
-                $booking['place_name'],
-                $booking['booking_status']
-            );
-        } else {
-            return null; // No hay coincidencia o no tiene permiso
+    public function getBookingsForUser($userCode) {
+        try {
+            $sql = "SELECT b.*, p.place_name 
+                    FROM BOOKINGS b 
+                    INNER JOIN PLACES p ON b.cod_place = p.cod_place 
+                    WHERE b.cod_user = :userCode 
+                    ORDER BY b.booking_date DESC";
+            
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindParam(':userCode', $userCode, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
-    } catch (Exception $e) {
-        error_log("Error en getBookingForUser: " . $e->getMessage());
-        return null; // O manejar el error de acuerdo a tus necesidades
     }
-}
 }
 
 

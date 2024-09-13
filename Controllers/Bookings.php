@@ -157,39 +157,58 @@ class Bookings
     } else {
         header("Location: ?c=Dashboard");
     }
-} 
-// vista para los usuarios con las reservas 
-public function bookingView() {
+    
+} public function bookingView() {
     if (!isset($_SESSION['session']) || $_SESSION['session'] !== 'HABITANTE') {
         header("Location: ?c=Dashboard");
         exit();
     }
 
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-        echo "Método de solicitud no válido.";
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Método de solicitud no válido.',
+                confirmButtonText: 'Entendido'
+            });
+        </script>";
         return;
     }
 
-    if (!isset($_GET['idbooking']) || empty($_GET['idbooking'])) {
-        echo "Error: Código de reserva no proporcionado. Por favor, asegúrese de incluir un código de reserva válido en la URL.";
-        return;
-    }
-
-    $bookingCode = $_GET['idbooking'];
     $currentUserCode = $_SESSION['user_code'] ?? null;
 
     if (!$currentUserCode) {
-        echo "Error: Código de usuario no encontrado en la sesión. Por favor, vuelva a iniciar sesión.";
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error de Sesión',
+                text: 'Código de usuario no encontrado en la sesión. Por favor, vuelva a iniciar sesión.',
+                confirmButtonText: 'Ir al Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '?c=Login';
+                }
+            });
+        </script>";
         return;
     }
 
     $booking = new Booking();
-    $bookingDetails = $booking->getBookingForUser($bookingCode, $currentUserCode);
+    $bookings = $booking->getBookingsForUser($currentUserCode);
 
-    if ($bookingDetails) {
+    if ($bookings) {
+        // Pasar los datos de las reservas a la vista
         require_once "views/modules/bookings/booking_read.users.php";
     } else {
-        echo "Error: No se encontró la reserva o no tienes permiso para verla. Por favor, verifica el código de reserva e intenta de nuevo.";
+        echo "<script>
+            Swal.fire({
+                icon: 'info',
+                title: 'Sin Reservas',
+                text: 'No se encontraron reservas para tu usuario.',
+                confirmButtonText: 'Entendido'
+            });
+        </script>";
     }
 }
 }
