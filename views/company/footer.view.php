@@ -1,6 +1,13 @@
 </section>
 		</main>
 
+		<footer class="footer mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 Conjunto Residencial Recodo de Cedro Suba. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 
 		<!--=============================================
 	=            Include JavaScript files           =
@@ -25,15 +32,6 @@
 		<script src="assets/landing/js/chart-master/Chart.js"></script>
 		<script src="assets/landing/js/validations.js"></script>
 		</div>
-
-		<footer class="footer mt-5">
-        <div class="container text-center">
-            <p>&copy; 2024 Conjunto Residencial Recodo de Cedro Suba. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-
 		</body>
 
 		</html>
