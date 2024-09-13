@@ -9,11 +9,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="Assets/landing/assets/js/validations.js" defer></script>
   <link href="assets/landing/css/style.css" rel="stylesheet">
+  
 <style>
-   body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    background-color: #f8f9fa;
-  }
+}
 .navbar {
     background-color: #2c3e50;
 }
@@ -49,27 +50,71 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-#login-page {
-    width: 100%;
-    max-width: 400px;
-}
 #login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: #f4f4f4;
 }
-.form-login {
+
+#container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
 }
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+}
+
 .form-login-heading {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #333;
 }
 
+.login-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-wrap label {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-theme {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-theme:hover {
+    background-color: #0056b3;
+}
+
+.fa-lock {
+    margin-right: 0.5rem;
+}
 ul {
 padding-left: 20px;
 }
@@ -81,7 +126,7 @@ border-radius: 4px;
 }
 .contactos p {
 margin: 0.5rem 0;
-}
+} 
 </style>
   <script>
     function iniciarSesion() {
