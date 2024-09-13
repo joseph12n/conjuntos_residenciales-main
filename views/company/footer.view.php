@@ -33,5 +33,4 @@
 		<script src="assets/landing/js/validations.js"></script>
 		</div>
 		</body>
-
 		</html>

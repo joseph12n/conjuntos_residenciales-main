@@ -8,8 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="Assets/landing/assets/js/validations.js" defer></script>
-  <link href="assets/landing/css/style.css" rel="stylesheet">
-  
 <style>
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -168,8 +166,6 @@ margin: 0.5rem 0;
             </div>
         </div>
     </nav>
-    
-
   </div>
   </section>
     </body>

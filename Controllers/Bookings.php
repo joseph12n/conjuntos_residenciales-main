@@ -14,54 +14,67 @@ class Bookings
          header("Location: ?c=Dashboard");
      }
 
-    // Controlador Crear Reserva
-    public function bookingCreate()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   public function bookingCreate()
+{
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $roles = new User;
+        $roles = $roles->read_roles();
+        $users = new User;
+        $users = $users->read_users();
+        $places = new Place;
+        $places = $places->read_place();
+        
+        // Asegurarse de que 'user_code' esté en la sesión
+        $userCode = isset($_SESSION['user_code']) ? $_SESSION['user_code'] : '';
+        
+        require_once "views/modules/bookings/booking_create.view.php";
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $bookingDate = $_POST['booking_date'];
+        $codUser = $_POST['cod_user'];
+        $codPlace = $_POST['cod_place'];
+        $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
+
+        // Verificar si la reserva ya existe
+        $booking = new Booking();
+        if ($booking->isBookingExist($bookingDate, $codPlace)) {
+            // Preparar la alerta
+            $alertScript = "
+                <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Reserva Duplicada',
+                    text: 'Ya existe una reserva con la misma fecha y lugar.',
+                    confirmButtonText: 'Entendido'
+                });
+                </script>
+            ";
+            
+            // Cargar la vista con los datos necesarios
             $roles = new User;
             $roles = $roles->read_roles();
             $users = new User;
             $users = $users->read_users();
             $places = new Place;
             $places = $places->read_place();
+            $userCode = $codUser;
             
-            // Asegurarse de que 'user_code' esté en la sesión
-            $userCode = isset($_SESSION['user_code']) ? $_SESSION['user_code'] : '';
-            
+            // Incluir la vista y luego hacer echo del script de alerta
             require_once "views/modules/bookings/booking_create.view.php";
-        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $bookingDate = $_POST['booking_date'];
-            $codUser = $_POST['cod_user'];
-            $codPlace = $_POST['cod_place'];
-            $bookingStatus = isset($_POST['booking_status']) ? $_POST['booking_status'] : 'pending';
-    
-            // Verificar si la reserva ya existe
-            $booking = new Booking();
-            if ($booking->isBookingExist($bookingDate, $codPlace)) {
-                $message = "Ya existe una reserva con la misma fecha y lugar.";
-                $roles = new User;
-                $roles = $roles->read_roles();
-                $users = new User;
-                $users = $users->read_users();
-                $places = new Place;
-                $places = $places->read_place();
-                $userCode = $codUser; // Puede ser un valor enviado en POST
-                require_once "views/modules/bookings/booking_create.view.php";
-            } else {
-                // Crear nueva reserva
-                $booking = new Booking(
-                    $bookingDate,
-                    null,
-                    $codUser,
-                    $codPlace,
-                    $bookingStatus
-                );
-                $booking->create_booking();
-                header("Location: ?c=Bookings&a=bookingRead");
-            }
+            echo $alertScript;
+        } else {
+            // Crear nueva reserva
+            $booking = new Booking(
+                $bookingDate,
+                null,
+                $codUser,
+                $codPlace,
+                $bookingStatus
+            );
+            $booking->create_booking();
+            header("Location: ?c=Bookings&a=bookingRead");
         }
     }
-    
+}
 
     // Controlador Consultar Reservas
     public function bookingRead()
