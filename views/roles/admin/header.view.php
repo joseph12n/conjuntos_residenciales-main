@@ -38,7 +38,7 @@
           <div id="sidebar"  class="nav-collapse ">
             
               <ul class="sidebar-menu" id="nav-accordion">
-              <p class="centered"><a href="profile.html"><img src="assets/dashboard/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              <p class="centered"><a href="?c=Dashboard"><img src="assets/dashboard/img/admin.png" class="img-circle" width="60"></a></p>
               <figcaption class="roboto-medium text-center">
 						<?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?> <br><small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></small> <br> ROL: <i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo ucfirst($session) ?></a>
                     </figcaption>
