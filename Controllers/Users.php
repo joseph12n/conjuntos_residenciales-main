@@ -1,12 +1,5 @@
 <?php
 require_once "models/User.php";
-require_once "models/User.php";
-require_once "vendor/autoload.php"; // Asegúrate de que Composer esté cargado
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use FPDF\FPDF;
-
 
 
     class Users{
@@ -243,94 +236,6 @@ public function rolSearch() {
 
 //exportaciones a excel 
 
-
-
-public function exportExcel() {
-    if ($this->session == 'ADMIN' || $this->session == 'VIGILANTE') {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-
-        // Agregar encabezados
-        $headers = ['ROL', 'CÓDIGO Usuario', 'CASA', 'NOMBRES', 'APELLIDOS', 'FECHA DE NACIMIENTO', 'IDENTIFICACIÓN', 'EMAIL', 'TELÉFONO', 'ESTADO'];
-        $sheet->fromArray($headers, NULL, 'A1');
-
-        // Agregar datos de usuarios
-        $users = new User();
-        $users = $users->read_users();
-        $row = 2;
-        foreach ($users as $user) {
-            $sheet->setCellValue('A' . $row, $user->getRolName());
-            $sheet->setCellValue('B' . $row, $user->getUserCode());
-            $sheet->setCellValue('C' . $row, $user->getHouseName());
-            $sheet->setCellValue('D' . $row, $user->getUserName());
-            $sheet->setCellValue('E' . $row, $user->getUserLastName());
-            $sheet->setCellValue('F' . $row, $user->getUserBirthday());
-            $sheet->setCellValue('G' . $row, $user->getUserId());
-            $sheet->setCellValue('H' . $row, $user->getUserEmail());
-            $sheet->setCellValue('I' . $row, $user->getUserPhone());
-            $sheet->setCellValue('J' . $row, $this->state[$user->getUserState()]);
-            $row++;
-        }
-
-        // Crear el archivo Excel
-        $writer = new Xlsx($spreadsheet);
-        $filename = 'usuarios.xlsx';
-
-        // Forzar descarga del archivo
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="' . $filename . '"');
-        header('Cache-Control: max-age=0');
-        $writer->save('php://output');
-        exit;
-    } else {
-        header("Location: ?c=Dashboard");
-    }
-}
-
-public function exportPdf() {
-    if ($this->session == 'ADMIN' || $this->session == 'VIGILANTE') {
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 12);
-
-        // Agregar encabezados
-        $pdf->Cell(40, 10, 'ROL');
-        $pdf->Cell(40, 10, 'CÓDIGO Usuario');
-        $pdf->Cell(40, 10, 'CASA');
-        $pdf->Cell(40, 10, 'NOMBRES');
-        $pdf->Cell(40, 10, 'APELLIDOS');
-        $pdf->Cell(30, 10, 'FECHA DE NACIMIENTO');
-        $pdf->Cell(30, 10, 'IDENTIFICACIÓN');
-        $pdf->Cell(60, 10, 'EMAIL');
-        $pdf->Cell(30, 10, 'TELÉFONO');
-        $pdf->Cell(30, 10, 'ESTADO');
-        $pdf->Ln();
-
-        // Agregar datos de usuarios
-        $users = new User();
-        $users = $users->read_users();
-        foreach ($users as $user) {
-            $pdf->Cell(40, 10, $user->getRolName());
-            $pdf->Cell(40, 10, $user->getUserCode());
-            $pdf->Cell(40, 10, $user->getHouseName());
-            $pdf->Cell(40, 10, $user->getUserName());
-            $pdf->Cell(40, 10, $user->getUserLastName());
-            $pdf->Cell(30, 10, $user->getUserBirthday());
-            $pdf->Cell(30, 10, $user->getUserId());
-            $pdf->Cell(60, 10, $user->getUserEmail());
-            $pdf->Cell(30, 10, $user->getUserPhone());
-            $pdf->Cell(30, 10, $this->state[$user->getUserState()]);
-            $pdf->Ln();
-        }
-
-        // Crear el archivo PDF
-        $filename = 'usuarios.pdf';
-        $pdf->Output('D', $filename);
-        exit;
-    } else {
-        header("Location: ?c=Dashboard");
-    }
-}
 
 }
 ?>

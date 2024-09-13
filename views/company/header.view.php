@@ -1,22 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-     <!-- Bootstrap core CSS -->
-  <link href="Assets/landing/assets/css/bootstrap.css" rel="stylesheet">
-  <!--external css-->
-  <link href="Assets/landing/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link href="Assets/landing/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
-  <link href="Assets/landing/assets/css/style.css" rel="stylesheet">
-  <link href="Assets/landing/assets/css/style-responsive.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjunto Residencial Recodo de Cedro Suba</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Assets/landing/assets/js/validations.js" defer></script>
+  <link href="assets/landing/css/style.css" rel="stylesheet">
+<style>
+   body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #f8f9fa;
+  }
+.navbar {
+    background-color: #2c3e50;
+}
+.navbar-brand, .nav-link {
+    color: #ecf0f1 !important;
+}
+.jumbotron {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+.info-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+.info-section:hover {
+    transform: translateY(-5px);
+}
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1rem 0;
+}
+.fade-in {
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-  <script src="Assets/landing/assets/js/jquery.js"></script>
+#login-page {
+    width: 100%;
+    max-width: 400px;
+}
+#login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form-login {
+    width: 100%;
+    max-width: 400px;
+}
+.form-login-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
 
-  <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-
-  <script src="script.js"></script>
-
+ul {
+padding-left: 20px;
+}
+.info-adicional, .contactos {
+margin-top: 2rem;
+padding: 1rem;
+background-color: #f1f8ff;
+border-radius: 4px;
+}
+.contactos p {
+margin: 0.5rem 0;
+}
+</style>
   <script>
     function iniciarSesion() {
       window.location.href = "?c=Login";
@@ -35,11 +101,29 @@
   </script>
 </head>
     <body>
-  <section id="container" >
-    <div class="botones">
-    <button class="boton" onclick="inicio()">inicio</button>
-    <button class="boton" onclick="iniciarSesion()">Iniciar sesión</button>
-    <button class="boton" onclick="soporte()">soporte</button>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Recodo de Cedro Suba</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="inicio()">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="iniciarSesion()">Iniciar sesion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="soporte()">Soporte</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
 
   </div>
   </section>

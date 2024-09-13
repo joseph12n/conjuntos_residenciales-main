@@ -12,10 +12,10 @@
     <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
-    <link href="assets/dashboard/css/style.css" rel="stylesheet">
-    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link href="assets/dashboard/css/style.css" rel="stylesheet">
+    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
 </head>
 
   </head>
@@ -33,9 +33,6 @@
                
                 <ul class="nav top-menu">
  
-          
-                    
-        
         </header>
       <aside>
           <div id="sidebar"  class="nav-collapse ">

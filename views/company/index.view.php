@@ -1,45 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conjunto Residencial Recodo de Cedro Suba</title>
 </head>
 <body>
-    <main>
-        <div class="bienvenida">
-            <center><h1>Bienvenido al Conjunto Residencial Recodo de Cedro Suba</h1></center> <br>
-            <p>Estamos encantados de recibirte en nuestro conjunto residencial. Aquí encontrarás un entorno seguro y cómodo que te ofrece todo lo que necesitas para vivir plenamente. Nuestro conjunto residencial se destaca por su diseño moderno, áreas verdes y servicios exclusivos.</p>
-            <p>Vivir en un conjunto residencial te proporciona numerosos beneficios, incluyendo:</p>
-            <ul>
-                <li><strong>Seguridad:</strong> Nuestro conjunto cuenta con vigilancia las 24 horas del día para garantizar tu tranquilidad.</li>
-                <li><strong>Áreas Comunes:</strong> Disfruta de áreas verdes, parques infantiles y zonas recreativas para el disfrute de toda la familia.</li>
-                <li><strong>Servicios:</strong> Ofrecemos servicios adicionales como mantenimiento de áreas comunes y administración profesional.</li>
-                <li><strong>Comunidad:</strong> Forma parte de una comunidad amigable y colaborativa.</li>
-            </ul>
-        </div>
-        <section id="main-content">
-            <section class="wrapper site-min-height">
-                <hr>
-                <div class="row mt">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
-                        <div class="project-wrapper">
-                            <div class="project">
-                                <div class="photo-wrapper">
-                                    <div class="photo">
-                                        <a class="fancybox" href="Assets/landing/imge/conjunto 3.jpg">
-                                            <img class="img-responsive" src="Assets/landing/imge/conjunto 3.jpg" alt="Conjunto Residencial">
-                                        </a>
-                                    </div>
-                                    <div class="overlay"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="jumbotron text-center fade-in">
+        <h1 class="display-4">Bienvenido al Conjunto Residencial Recodo de Cedro Suba</h1>
+        <p class="lead">Un lugar donde el confort se encuentra con la comunidad</p>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="info-section fade-in">
+                    <h2><i class="fas fa-building"></i> Salón Comunal</h2>
+                    <p>Nuestro salón comunal es el corazón de la comunidad, diseñado para reunir a los residentes y fomentar la convivencia.</p>
+                    <ul>
+                        <li>Espacio amplio y versátil</li>
+                        <li>Equipado con cocina y baños</li>
+                        <li>Perfecto para eventos y reuniones</li>
+                        <li>Sistema de sonido incorporado</li>
+                    </ul>
                 </div>
-            </section>
-        </section>
-       
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="info-section fade-in">
+                    <h2><i class="fas fa-store"></i> Quiosco</h2>
+                    <p>El quiosco es un espacio conveniente dentro del conjunto, ofreciendo servicios esenciales a los residentes.</p>
+                    <ul>
+                        <li>Productos de primera necesidad</li>
+                        <li>Snacks y bebidas</li>
+                        <li>Artículos de limpieza</li>
+                        <li>Servicio de fotocopias</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>
