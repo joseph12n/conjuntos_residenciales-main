@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiosco - Conjunto Residencial Recodo de Cedro Suba</title>
+    <title>Salón Comunal - Conjunto Residencial Recodo de Cedro Suba</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <div class="jumbotron text-center fade-in" style="background-color: #e9ecef; padding: 2rem 1rem;">
-        <h1 class="display-4">Quiosco</h1>
-        <p class="lead">Tu espacio al aire libre para eventos y actividades en el Conjunto Residencial Recodo de Cedro Suba</p>
+    <div class="jumbotron fade-in">
+        <h1 class="display-4">Salón Comunal</h1>
+        <p class="lead">Tu espacio ideal para eventos y reuniones en el Conjunto Residencial Recodo de Cedro Suba</p>
     </div>
 
     <main class="container">
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="info-section fade-in">
-                    <h2><i class="fas fa-star"></i> Beneficios</h2>
+                    <h2><i class="fas fa-star"></i> Características</h2>
                     <ul>
-                        <li>Espacio versátil al aire libre para eventos</li>
-                        <li>Ideal para reuniones familiares y comunitarias</li>
-                        <li>Área de parrilla para asados</li>
-                        <li>Entorno natural y relajante</li>
-                        <li>Perfecto para actividades recreativas</li>
+                        <li>Amplio espacio para eventos de hasta 100 personas</li>
+                        <li>Cocina equipada con estufa y refrigerador</li>
+                        <li>Sistema de sonido integrado</li>
+                        <li>Aire acondicionado y calefacción</li>
+                        <li>Baños para damas y caballeros</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <div class="info-section fade-in">
-                    <h2><i class="fas fa-clock"></i> Horarios</h2>
+                    <h2><i class="fas fa-clock"></i> Horarios de Reserva</h2>
                     <p>Disponible para reserva:</p>
                     <ul>
-                        <li>Lunes a Viernes: 10:00 AM - 9:00 PM</li>
-                        <li>Sábados y Domingos: 8:00 AM - 10:00 PM</li>
-                        <li>Festivos: 9:00 AM - 9:00 PM</li>
+                        <li>Lunes a Jueves: 8:00 AM - 10:00 PM</li>
+                        <li>Viernes y Sábados: 8:00 AM - 1:00 AM</li>
+                        <li>Domingos y Festivos: 10:00 AM - 10:00 PM</li>
                     </ul>
                 </div>
             </div>
@@ -40,25 +41,25 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="info-section fade-in">
-                    <h2><i class="fas fa-info-circle"></i> A tener en cuenta</h2>
+                    <h2><i class="fas fa-info-circle"></i> Información Importante</h2>
                     <ul>
-                        <li>Reserva con al menos 3 días de anticipación</li>
-                        <li>Capacidad máxima de 50 personas</li>
-                        <li>Traer sus propios utensilios de cocina</li>
-                        <li>Limpieza post-evento a cargo del residente</li>
-                        <li>Disponibilidad de conexiones eléctricas</li>
+                        <li>Reserva con al menos 1 semana de anticipación</li>
+                        <li>Se requiere un depósito reembolsable de $200.000</li>
+                        <li>Incluye 10 mesas y 100 sillas</li>
+                        <li>Limpieza post-evento incluida en el costo</li>
+                        <li>Disponibilidad de proyector (solicitar con anticipación)</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <div class="info-section fade-in">
-                    <h2><i class="fas fa-exclamation-triangle"></i> Restricciones</h2>
+                    <h2><i class="fas fa-exclamation-triangle"></i> Normas de Uso</h2>
                     <ul>
-                        <li>Prohibido el uso de amplificadores de sonido después de las 8:00 PM</li>
-                        <li>No se permite el consumo excesivo de alcohol</li>
-                        <li>Prohibido el uso de juegos pirotécnicos</li>
-                        <li>Mascotas permitidas bajo supervisión constante</li>
-                        <li>Respetar las áreas verdes y la vegetación circundante</li>
+                        <li>Música permitida hasta las 11:00 PM (1:00 AM viernes y sábados)</li>
+                        <li>Prohibido fumar dentro del salón</li>
+                        <li>No se permite el uso de confeti o serpentinas</li>
+                        <li>Decoración permitida (sin dañar paredes o techo)</li>
+                        <li>El residente que realiza la reserva debe estar presente durante el evento</li>
                     </ul>
                 </div>
             </div>

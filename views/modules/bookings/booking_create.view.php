@@ -17,7 +17,7 @@
 <div class="container-fluid">
     <form action="" method="POST" class="form-neon" autocomplete="off" name="form_booking">
         <fieldset>
-            <legend><i class="fas fa-user"></i> &nbsp; Agregar Reserva</legend>
+            <legend><i class="fas fa-calendar-alt"></i> &nbsp; Agregar Reserva</legend>
             <div class="container-fluid">
                 <div class="row">
                     <div class="form-group">

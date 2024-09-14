@@ -237,7 +237,8 @@ class Booking
             die("Error: " . $e->getMessage());
         }
     }
-    public function getbooking_bycode($bookingCode) {
+    public function getbooking_bycode($bookingCode)
+    {
         try {
             $sql = 'SELECT
                 b.booking_date,
@@ -246,15 +247,17 @@ class Booking
                 p.cod_place,
                 b.booking_status
             FROM PLACES AS p
-            INNER JOIN BOOKING AS b ON p.cod_place = b.cod_place 
-            INNER JOIN USERS AS u ON u.cod_user = b.cod_user
-            WHERE u.cod_booking = :bookingCode';
-    
+            INNER JOIN BOOKING AS b 
+            ON p.cod_place = b.cod_place 
+            INNER JOIN USERS AS u ON 
+            u.cod_user = b.cod_user
+            WHERE b.cod_booking = :bookingCode';
+
             $stmt = $this->dbh->prepare($sql);
             $stmt->bindValue('bookingCode', $bookingCode);
             $stmt->execute();
             $bookingDb = $stmt->fetch();
-    
+
             if ($bookingDb) {
                 $booking = new booking(
                     $bookingDb['booking_date'],
@@ -268,33 +271,41 @@ class Booking
                 return null; // O manejar el caso cuando no se encuentra el usuario
             }
         } catch (Exception $e) {
+            die("Error: " . $e->getMessage());
             error_log("Error en getbooking_bycode: " . $e->getMessage());
             throw new Exception("Error al obtener la reserva");
         }
     }
-    
-     # RF11_CU11 - Actualizar usuario
-     public function update_booking(){
+
+    # RF11_CU11 - Actualizar usuario
+    public function update_booking()
+    {
         try {
             $sql = "UPDATE BOOKING SET
-                        booking_date = :bookingDate,
-                        cod_user = :codUser,
-                        cod_place = :codPlace,
-                        booking_status = :bookingStatus
-                    WHERE cod_booking = :bookingCode";
-           
+                    booking_date = :bookingDate,
+                    cod_user = :codUser,
+                    cod_place = :codPlace,
+                    booking_status = :bookingStatus
+                WHERE cod_booking = :bookingCode";
+
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('bookingDate', $this->getBookingDate());     
+            $stmt->bindValue('bookingDate', $this->getBookingDate());
             $stmt->bindValue('codUser', $this->getUserCode());
             $stmt->bindValue('codPlace', $this->getPlaceCode());
             $stmt->bindValue('bookingStatus', $this->getBookingStatus());
-            $stmt->execute();
-        } catch (Exception $e) {
-            // die($e->getMessage());
-            error_log("Error en update_booking: " . $e->getMessage());
-        } 
-    }
+            $stmt->bindValue('bookingCode', $this->getBookingCode()); // Añadido
+            $result = $stmt->execute();
 
+            if (!$result) {
+                throw new Exception("Error al actualizar la reserva");
+            }
+
+            return true; // Indica que la actualización fue exitosa
+        } catch (Exception $e) {
+            error_log("Error en update_booking: " . $e->getMessage());
+            throw $e; // Re-lanza la excepción para manejarla en el controlador
+        }
+    }
     # RF12_CU12 - Eliminar Usuario
     public function delete_booking($bookingCode){
         try {

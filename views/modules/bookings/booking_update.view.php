@@ -22,7 +22,7 @@
             <legend><i class="far fa-address-card"></i> &nbsp; Actualizar Información de Reserva</legend>
             <div class="row">
                 <!-- Código de reserva -->
-                <input type="hidden" name="booking_code" value="<?php echo $booking->getBookingCode(); ?>">
+                <input type="hidden" name="cod_booking" value="<?php echo $booking->getBookingCode(); ?>">
 
                 <!-- Fecha de reserva -->
                 <div class="col-12 col-md-6">
@@ -50,7 +50,7 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="user_code">Código de usuario:</label>
-                        <input type="text" class="form-control" name="user_code" id="user_code_update" value="<?php echo $booking->getUserCode(); ?>" readonly>
+                        <input type="text" class="form-control" name="cod_user" id="user_code_update" value="<?php echo $booking->getUserCode(); ?>" readonly>
                     </div>
                 </div>
 
@@ -58,11 +58,11 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="booking_status">Estado:</label>
-						<select name="booking_status" id="booking_status">
-    <option value="approved" <?php echo $booking->getBookingStatus() == 'approved' ? 'selected' : ''; ?>>Aprobado</option>
-    <option value="pending" <?php echo $booking->getBookingStatus() == 'pending' ? 'selected' : ''; ?>>Pendiente</option>
-    <option value="rejected" <?php echo $booking->getBookingStatus() == 'rejected' ? 'selected' : ''; ?>>Rechazado</option>
-</select>
+                        <select  class="form-control" name="booking_status" id="booking_status">
+                            <option value="approved" <?php echo $booking->getBookingStatus() == 'approved' ? 'selected' : ''; ?>>Aprobado</option>
+                            <option value="pending" <?php echo $booking->getBookingStatus() == 'pending' ? 'selected' : ''; ?>>Pendiente</option>
+                            <option value="rejected" <?php echo $booking->getBookingStatus() == 'rejected' ? 'selected' : ''; ?>>Rechazado</option>
+                        </select>
                     </div>
                 </div>
             </div>

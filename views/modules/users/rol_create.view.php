@@ -18,7 +18,7 @@
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off" name="form_rol">
 					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Agregar Rol</legend>
+						<legend><i class="fas fa-user-shield"></i> &nbsp; Agregar Rol</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="form-group">

@@ -18,7 +18,7 @@
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off" name="form_house">
 					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Agregar CASA</legend>
+						<legend><i class="fas fa-home"></i> &nbsp; Agregar CASA</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="form-group">

@@ -60,6 +60,16 @@ body {
         margin-bottom: 15px;
     }
     
+    .status-pending { background-color: #ffc107; color: #000; }
+    .status-rejected { background-color: #dc3545; color: #fff; }
+    .status-approved { background-color: #28a745; color: #fff; }
+    .booking-status {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+    }
+
 ul li {
     list-style: none;
 }

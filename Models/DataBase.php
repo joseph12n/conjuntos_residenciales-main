@@ -18,7 +18,6 @@ class DataBase
     }
 }
 
- 
     // public static function connection()
     // {
     //     $hostname = "localhost";

@@ -18,7 +18,7 @@
 			<div class="container-fluid">
 				<form action="" method="POST" class="form-neon" autocomplete="off" name="form_place">
 					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Agregar lugar</legend>
+						<legend><i class="fas fa-map-marker-alt"></i> &nbsp; Agregar lugar</legend>
 						<div class="container-fluid">
 							<div class="row">
 							<div class="form-group">

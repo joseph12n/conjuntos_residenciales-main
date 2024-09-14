@@ -113,40 +113,45 @@ class Bookings
     }
 
     // Controlador Actualizar Reserva
-    public function bookingUpdate(){
-        if ($this->session == 'ADMIN'|| $this->session == 'VIGILANTE') {
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $roles = new User;
-            $roles = $roles->read_roles();
-            $users = new User;
-            $users = $users->read_users();
-            $places = new Place;
-            $places = $places->read_place();
-            $booking = new Booking;
-            $booking = $booking->getbooking_bycode($_GET['idbooking']);
-            require_once "views/modules/bookings/booking_update.view.php";
-        }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $bookingUpdate = new Booking(
-                $_POST['booking_date'],
-                $_POST['cod_booking'],
-                $_POST['cod_user'],
-                $_POST['cod_place'],
-                $_POST['booking_status']
-            );
-            
-            try {
-                $bookingUpdate->update_booking();
-                header("Location: ?c=bookings&a=bookingRead");
-            } catch (Exception $e) {
-                // Maneja el error, muestra un mensaje o guarda en los logs
-                error_log("Error en bookingUpdate: " . $e->getMessage());
-                // Redirige o muestra un mensaje de error
+    public function bookingUpdate()
+    {
+        if ($this->session == 'ADMIN' || $this->session == 'VIGILANTE') {
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $roles = new User;
+                $roles = $roles->read_roles();
+                $users = new User;
+                $users = $users->read_users();
+                $places = new Place;
+                $places = $places->read_place();
+                $booking = new Booking;
+                $booking = $booking->getbooking_bycode($_GET['idbooking']);
+                require_once "views/modules/bookings/booking_update.view.php";
             }
-        }        
-    } else {
-        header("Location: ?c=Dashboard");
-    }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $bookingUpdate = new Booking(
+                    $_POST['booking_date'],
+                    $_POST['cod_booking'],
+                    $_POST['cod_user'],
+                    $_POST['cod_place'],
+                    $_POST['booking_status']
+                );
+
+                try {
+                    if ($bookingUpdate->update_booking()) {
+                        header("Location: ?c=Bookings&a=bookingRead&updated=true");
+                        exit();
+                    } else {
+                        // Manejar el caso en que la actualización no fue exitosa
+                    }
+                } catch (Exception $e) {
+                    error_log("Error en bookingUpdate: " . $e->getMessage());
+                    // Redirigir a una página de error o mostrar un mensaje al usuario
+                    // Redirige o muestra un mensaje de error
+                }
+            }
+        } else {
+            header("Location: ?c=Dashboard");
+        }
     }
     // Controlador Eliminar Usuario
     public function bookingDelete(){
