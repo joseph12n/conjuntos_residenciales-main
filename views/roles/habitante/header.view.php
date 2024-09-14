@@ -48,7 +48,7 @@
                   <li class="mt">
                   <a class="active" href="?c=Dashboard">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>¡BIENVENIDO!</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -58,7 +58,7 @@
                       </a>
                       <ul class="sub">
                           <li> <a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
-                          <li><a href="?c=Bookings&a=bookingRead">Consultar Reservas</a></li>
+                          <li><a href="?c=Bookings&a=bookingView">Consultar Reservas</a></li>
                       </ul>
                   </li>
                   <li class="mt">

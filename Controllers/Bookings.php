@@ -159,7 +159,7 @@ class Bookings
     }
     
 } public function bookingView() {
-    if (!isset($_SESSION['session']) || $_SESSION['session'] !== 'HABITANTE') {
+    if (!isset($_SESSION['session']) || ($_SESSION['session'] !== 'HABITANTE' && $_SESSION['session'] !== 'ARRENDATARIO')) {
         header("Location: ?c=Dashboard");
         exit();
     }

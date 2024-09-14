@@ -1,5 +1,5 @@
 <div class="main">
-        <h1>Dashboard</h1>
+        <h1>¡Bienvenido!</h1>
         <div class="card-container">
             <div class="card">
                 <i class="fas fa-users card-icon"></i>

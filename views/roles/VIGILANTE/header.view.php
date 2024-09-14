@@ -6,16 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <link href="assets/dashboard/css/bootstrap.css" rel="stylesheet">
     <link href="assets/dashboard/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/dashboard/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/dashboard/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/dashboard/lineicons/style.css">    
-    <link href="assets/dashboard/css/style.css" rel="stylesheet">
-    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link href="assets/dashboard/css/style.css" rel="stylesheet">
+    <link href="assets/dashboard/css/style-responsive.css" rel="stylesheet">
 </head>
 
   </head>
@@ -33,9 +33,6 @@
                
                 <ul class="nav top-menu">
  
-          
-                    
-        
         </header>
       <aside>
           <div id="sidebar"  class="nav-collapse ">
@@ -43,7 +40,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               <p class="centered"><a href="?c=Dashboard"><img src="assets/dashboard/img/admin.png" class="img-circle" width="60"></a></p>
               <figcaption class="roboto-medium text-center">
-              <h5><?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?><br> ROL: <i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo ucfirst($session) ?></a><br> <small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></h5>
+						<h5><?php echo $profile->getUserName() . " " . $profile->getUserLastName() ?><br> ROL: <i class="fab fa-dashcube fa-fw"></i> &nbsp; <?php echo ucfirst($session) ?></a><br> <small class="roboto-condensed-light">Código Usuario: <?php echo $profile->getUserCode() ?></h5>
                     </figcaption>
                   <li class="mt">
                   <a class="active" href="?c=Dashboard">
