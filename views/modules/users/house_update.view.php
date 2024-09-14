@@ -18,7 +18,7 @@
 			<div class="container-fluid">
 			<form action="" method="POST" class="form-neon" autocomplete="off" id="form_house_update">
 		<fieldset>
-			<legend><i class="fas fa-user"></i> &nbsp; Actualizar Casa</legend>
+			<legend><i class="fas fa-home"></i> &nbsp; Actualizar Casa</legend>
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12 col-md-6">

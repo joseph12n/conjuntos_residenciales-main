@@ -57,7 +57,6 @@
                             <span>Roles</span>
                         </a>
                         <ul class="sub">
-                            <li> <a href="?c=Users&a=rolCreate">Agregar Rol</a></li>
                             <li> <a href="?c=Users&a=rolRead">Buscar Rol</a></li>
                         </ul>
                     </li>
@@ -68,7 +67,6 @@
                             <span>Casas</span>
                         </a>
                         <ul class="sub">
-                            <li> <a href="?c=Users&a=houseCreate">Agregar casa</a></li>
                             <li> <a href="?c=Users&a=houseRead">Buscar casa</a></li>
                         </ul>
                     </li>
@@ -79,7 +77,6 @@
                             <span>Usuarios</span>
                         </a>
                         <ul class="sub">
-                            <li> <a href="?c=Users&a=userCreate">Agregar Usuario</a></li>
                             <li> <a href="?c=Users&a=userRead">Buscar Usuario</a></li>
                         </ul>
                     </li>
@@ -92,6 +89,7 @@
                         <ul class="sub">
                             <li> <a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
                             <li><a href="?c=Bookings&a=bookingRead">Consultar Reservas</a></li>
+                            <li><a href="?c=Bookings&a=bookingView">Consultar mis reservas</a></li>
                         </ul>
                     </li>
 

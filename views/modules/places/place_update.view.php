@@ -19,7 +19,7 @@
 			<div class="container-fluid">
 			<form action="" method="POST" class="form-neon" autocomplete="off" name="form_place_update">
 					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Actualizar lugar</legend>
+						<legend><i class="fas fa-map-marker-alt"></i> &nbsp; Actualizar lugar</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">

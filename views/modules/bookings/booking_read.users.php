@@ -11,7 +11,16 @@
             <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; MIS RESERVAS
         </h3>
     </div>
-
+    <div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a class="active" href="?c=Bookings&a=bookingCreate"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR RESERVA</a>
+        </li>
+        <li>
+            <a href="?c=Bookings&a=bookingView"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CONSULTAR RESERVA</a>
+        </li>
+    </ul>
+</div>
     <div class="container-fluid">
         <div class="row mt">
             <div class="col-md-12">
@@ -72,12 +81,12 @@
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
+        </div><br><br><br><br>
         <div class="payment-info">
                             <h1>Información Importante:</h1>
-                            <p>En caso de que su reserva este en el estado <strong>pendiente</strong> o <strong>rechazada</strong>, para mas informacion podra acercarse a la administracion o escribir a <strong>suportconjuntos@soporte.com</strong>.</p>
-                            <p>El pago debe realizarse en la administración en un horario de 8:00 AM a 4:00 PM.</p>
-                        </div>
+                            <h5><p>En caso de que su reserva este en el estado <strong>pendiente</strong> o <strong>rechazada</strong>, para mas informacion podra acercarse a la administracion o escribir a <strong>suportconjuntos@soporte.com</strong>.</p>
+                            <p>El pago debe realizarse en la administración en un horario de 8:00 AM a 4:00 PM.</p></h5>
+                        </div><br><br><br>
 
         <!-- Secciones adicionales: Beneficios, Horarios, Restricciones, etc. -->
         <div class="row mt-4">

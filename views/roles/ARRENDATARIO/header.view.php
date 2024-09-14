@@ -61,7 +61,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="?c=Bookings&a=bookingCreate">Reservar</a></li>
-                            <li><a href="?c=Bookings&a=bookingView">Consultar Reservas</a></li>
+                            <li><a href="?c=Bookings&a=bookingView">Consultar mis reservas</a></li>
                         </ul>
                     </li>
 
