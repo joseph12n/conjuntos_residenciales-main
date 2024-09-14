@@ -24,10 +24,10 @@
                     <h2><i class="fas fa-store"></i> Quiosco</h2>
                     <p>El quiosco es un espacio conveniente dentro del conjunto, ofreciendo servicios esenciales a los residentes.</p>
                     <ul>
-                        <li>Productos de primera necesidad</li>
-                        <li>Snacks y bebidas</li>
-                        <li>Artículos de limpieza</li>
-                        <li>Servicio de fotocopias</li>
+                        <li>Espacio al aire libre</li>
+                        <li>Cocina de leña</li>
+                        <li>espacio suficiente para hacer eventos</li>
+                        <li>el lugar cuenta con sonido</li>
                     </ul>
                 </div>
             </div>
