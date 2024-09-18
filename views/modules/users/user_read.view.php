@@ -17,11 +17,6 @@
     <div class="row mt">
         <div class="col-md-12">
             <div class="content-panel">
-                <!-- Botones de exportación -->
-                <div class="export-buttons mb-3">
-                    <a href="?c=Users&a=exportExcel" class="btn btn-success">Exportar a Excel</a>
-                    <a href="?c=Users&a=exportPdf" class="btn btn-danger">Exportar a PDF</a>
-                </div>
                 <table class="table table-striped table-advance table-hover">
                     <thead>
                         <tr class="text-center roboto-medium">
